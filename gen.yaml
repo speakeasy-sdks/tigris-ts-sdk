@@ -8,6 +8,6 @@ generation:
   sdkClassName: SDK
   sdkFlattening: false
 typescript:
-  version: 0.1.0
+  version: ""
   author: tigris-data
   packageName: tigris-core
