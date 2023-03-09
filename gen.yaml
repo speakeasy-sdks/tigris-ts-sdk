@@ -1,9 +1,13 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 01c2d38937f00f406d585d6a55300a2b
+  docVersion: 0.0.1
+  speakeasyVersion: 1.9.0
 generation:
   telemetryEnabled: false
   sdkClassName: SDK
   sdkFlattening: false
 typescript:
-  version: ""
+  version: 0.1.0
   author: tigris-data
   packageName: tigris-core
