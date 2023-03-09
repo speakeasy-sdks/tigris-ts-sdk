@@ -1,15 +1,16 @@
 import * as utils from "../internal/utils";
-import { ApplicationKeys } from "./applicationkeys";
-import { Authentication } from "./authentication";
+import { AppKey } from "./appkey";
+import { Auth } from "./auth";
 import { Cache } from "./cache";
-import { Collections } from "./collections";
+import { Channel } from "./channel";
+import { Collection } from "./collection";
 import { Database } from "./database";
-import { Management } from "./management";
 import * as shared from "./models/shared";
-import { Observability } from "./observability";
-import { Projects } from "./projects";
-import { Realtime } from "./realtime";
+import { Namespace } from "./namespace";
+import { Project } from "./project";
 import { Search } from "./search";
+import { System } from "./system";
+import { User } from "./user";
 import axios, { AxiosInstance } from "axios";
 
 export const ServerList = [
@@ -86,23 +87,24 @@ export type SDKProps = {
  * <li>Do not rely on case to distinguish between databases or collections names.</li> <li>Database Name and Collection Name cannot be empty and can only have the characters matches the regex: <code>^[a-zA-Z]+[a-zA-Z0-9_]+$</code>.</li> <li>Duplicate field names are not allowed. </li> <li>The maximum allowed document size is 100KB.</li> <li>The maximum allowed transaction size is 10MB.</li>
  * */
 export class SDK {
-  public applicationKeys: ApplicationKeys;
-  public authentication: Authentication;
+  public appKey: AppKey;
+  public auth: Auth;
   public cache: Cache;
-  public collections: Collections;
+  public channel: Channel;
+  public collection: Collection;
   public database: Database;
-  public management: Management;
-  public observability: Observability;
-  public projects: Projects;
-  public realtime: Realtime;
+  public namespace: Namespace;
+  public project: Project;
   public search: Search;
+  public system: System;
+  public user: User;
 
   public _defaultClient: AxiosInstance;
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.9.0";
+  private _sdkVersion = "0.0.1";
+  private _genVersion = "1.9.1";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
@@ -120,7 +122,7 @@ export class SDK {
       this._securityClient = this._defaultClient;
     }
     
-    this.applicationKeys = new ApplicationKeys(
+    this.appKey = new AppKey(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
@@ -129,7 +131,7 @@ export class SDK {
       this._genVersion
     );
     
-    this.authentication = new Authentication(
+    this.auth = new Auth(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
@@ -147,7 +149,16 @@ export class SDK {
       this._genVersion
     );
     
-    this.collections = new Collections(
+    this.channel = new Channel(
+      this._defaultClient,
+      this._securityClient,
+      this._serverURL,
+      this._language,
+      this._sdkVersion,
+      this._genVersion
+    );
+    
+    this.collection = new Collection(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
@@ -165,7 +176,7 @@ export class SDK {
       this._genVersion
     );
     
-    this.management = new Management(
+    this.namespace = new Namespace(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
@@ -174,25 +185,7 @@ export class SDK {
       this._genVersion
     );
     
-    this.observability = new Observability(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-    
-    this.projects = new Projects(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-    
-    this.realtime = new Realtime(
+    this.project = new Project(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
@@ -202,6 +195,24 @@ export class SDK {
     );
     
     this.search = new Search(
+      this._defaultClient,
+      this._securityClient,
+      this._serverURL,
+      this._language,
+      this._sdkVersion,
+      this._genVersion
+    );
+    
+    this.system = new System(
+      this._defaultClient,
+      this._securityClient,
+      this._serverURL,
+      this._language,
+      this._sdkVersion,
+      this._genVersion
+    );
+    
+    this.user = new User(
       this._defaultClient,
       this._securityClient,
       this._serverURL,

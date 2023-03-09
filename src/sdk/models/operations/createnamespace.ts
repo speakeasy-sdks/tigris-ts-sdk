@@ -4,12 +4,12 @@ import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
-export class ManagementCreateNamespaceRequest extends SpeakeasyBase {
+export class CreateNamespaceRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request: shared.CreateNamespaceRequest;
 }
 
-export class ManagementCreateNamespaceResponse extends SpeakeasyBase {
+export class CreateNamespaceResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 

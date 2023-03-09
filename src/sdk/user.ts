@@ -4,7 +4,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { plainToInstance } from "class-transformer";
 
-export class Projects {
+export class User {
   _defaultClient: AxiosInstance;
   _securityClient: AxiosInstance;
   _serverURL: string;
@@ -22,20 +22,20 @@ export class Projects {
   }
   
   /**
-   * tigrisCreateProject - Create Project
+   * getMetadata - Reads the User Metadata
    *
-   * Creates a new project. Returns an AlreadyExists error with a status code 409 if the project already exists.
+   * GetUserMetadata inserts the user metadata object
   **/
-  tigrisCreateProject(
-    req: operations.TigrisCreateProjectRequest,
+  getMetadata(
+    req: operations.ManagementGetUserMetadataRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.TigrisCreateProjectResponse> {
+  ): Promise<operations.ManagementGetUserMetadataResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisCreateProjectRequest(req);
+      req = new operations.ManagementGetUserMetadataRequest(req);
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/create", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/v1/management/users/metadata/{metadataKey}/get", req.pathParams);
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -64,8 +64,8 @@ export class Projects {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisCreateProjectResponse =
-            new operations.TigrisCreateProjectResponse({
+        const res: operations.ManagementGetUserMetadataResponse =
+            new operations.ManagementGetUserMetadataResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes
@@ -73,9 +73,9 @@ export class Projects {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createProjectResponse = utils.deserializeJSONResponse(
+              res.getUserMetadataResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
-                shared.CreateProjectResponse,
+                shared.GetUserMetadataResponse,
               );
             }
             break;
@@ -95,20 +95,20 @@ export class Projects {
 
   
   /**
-   * tigrisDeleteProject - Delete Project and all resources under project
+   * insertMetadata - Inserts User Metadata
    *
-   * Delete Project deletes all the collections in this project along with all of the documents, and associated metadata for these collections.
+   * insertUserMetadata inserts the user metadata object
   **/
-  tigrisDeleteProject(
-    req: operations.TigrisDeleteProjectRequest,
+  insertMetadata(
+    req: operations.ManagementInsertUserMetadataRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.TigrisDeleteProjectResponse> {
+  ): Promise<operations.ManagementInsertUserMetadataResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisDeleteProjectRequest(req);
+      req = new operations.ManagementInsertUserMetadataRequest(req);
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/delete", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/v1/management/users/metadata/{metadataKey}/insert", req.pathParams);
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -127,7 +127,7 @@ export class Projects {
     
     const r = client.request({
       url: url,
-      method: "delete",
+      method: "post",
       headers: headers,
       data: reqBody, 
       ...config,
@@ -137,8 +137,8 @@ export class Projects {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisDeleteProjectResponse =
-            new operations.TigrisDeleteProjectResponse({
+        const res: operations.ManagementInsertUserMetadataResponse =
+            new operations.ManagementInsertUserMetadataResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes
@@ -146,9 +146,9 @@ export class Projects {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteProjectResponse = utils.deserializeJSONResponse(
+              res.insertUserMetadataResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
-                shared.DeleteProjectResponse,
+                shared.InsertUserMetadataResponse,
               );
             }
             break;
@@ -168,22 +168,41 @@ export class Projects {
 
   
   /**
-   * tigrisListProjects - List Projects
+   * updateMetadata - Updates User Metadata
    *
-   * List returns all the projects.
+   * updateUserMetadata updates the user metadata object
   **/
-  tigrisListProjects(
+  updateMetadata(
+    req: operations.ManagementUpdateUserMetadataRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.TigrisListProjectsResponse> {
+  ): Promise<operations.ManagementUpdateUserMetadataResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ManagementUpdateUserMetadataRequest(req);
+    }
+    
     const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/projects";
+    const url: string = utils.generateURL(baseURL, "/v1/management/users/metadata/{metadataKey}/update", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
     
     const client: AxiosInstance = this._securityClient!;
     
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
     const r = client.request({
       url: url,
-      method: "get",
+      method: "post",
+      headers: headers,
+      data: reqBody, 
       ...config,
     });
     
@@ -191,8 +210,8 @@ export class Projects {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisListProjectsResponse =
-            new operations.TigrisListProjectsResponse({
+        const res: operations.ManagementUpdateUserMetadataResponse =
+            new operations.ManagementUpdateUserMetadataResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes
@@ -200,9 +219,9 @@ export class Projects {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listProjectsResponse = utils.deserializeJSONResponse(
+              res.updateUserMetadataResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
-                shared.ListProjectsResponse,
+                shared.UpdateUserMetadataResponse,
               );
             }
             break;

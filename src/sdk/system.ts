@@ -4,7 +4,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { plainToInstance } from "class-transformer";
 
-export class Observability {
+export class System {
   _defaultClient: AxiosInstance;
   _securityClient: AxiosInstance;
   _serverURL: string;
@@ -22,11 +22,11 @@ export class Observability {
   }
   
   /**
-   * healthAPIHealth - Health Check
+   * getHealth - Health Check
    *
    * This endpoint can be used to check the liveness of the server.
   **/
-  healthAPIHealth(
+  getHealth(
     config?: AxiosRequestConfig
   ): Promise<operations.HealthAPIHealthResponse> {
     const baseURL: string = this._serverURL;
@@ -76,11 +76,11 @@ export class Observability {
 
   
   /**
-   * observabilityGetInfo - Information about the server
+   * getServerInfo - Information about the server
    *
    * Provides the information about the server. This information includes returning the server version, etc.
   **/
-  observabilityGetInfo(
+  getServerInfo(
     config?: AxiosRequestConfig
   ): Promise<operations.ObservabilityGetInfoResponse> {
     const baseURL: string = this._serverURL;
@@ -111,152 +111,6 @@ export class Observability {
               res.getInfoResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
                 shared.GetInfoResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * observabilityQueryTimeSeriesMetrics - Queries time series metrics
-   *
-   * Queries time series metrics
-  **/
-  observabilityQueryTimeSeriesMetrics(
-    req: operations.ObservabilityQueryTimeSeriesMetricsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ObservabilityQueryTimeSeriesMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ObservabilityQueryTimeSeriesMetricsRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/metrics/timeseries/query";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityQueryTimeSeriesMetricsResponse =
-            new operations.ObservabilityQueryTimeSeriesMetricsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.queryTimeSeriesMetricsResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.QueryTimeSeriesMetricsResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * observabilityQuotaLimits - Queries current namespace quota limits
-   *
-   * Returns current namespace quota limits
-  **/
-  observabilityQuotaLimits(
-    req: operations.ObservabilityQuotaLimitsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ObservabilityQuotaLimitsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ObservabilityQuotaLimitsRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityQuotaLimitsResponse =
-            new operations.ObservabilityQuotaLimitsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.quotaLimitsResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.QuotaLimitsResponse,
               );
             }
             break;
@@ -330,6 +184,152 @@ export class Observability {
               res.quotaUsageResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
                 shared.QuotaUsageResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * queryQuotaLimits - Queries current namespace quota limits
+   *
+   * Returns current namespace quota limits
+  **/
+  queryQuotaLimits(
+    req: operations.ObservabilityQuotaLimitsRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ObservabilityQuotaLimitsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ObservabilityQuotaLimitsRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.ObservabilityQuotaLimitsResponse =
+            new operations.ObservabilityQuotaLimitsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.quotaLimitsResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.QuotaLimitsResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * queryTimeSeriesMetrics - Queries time series metrics
+   *
+   * Queries time series metrics
+  **/
+  queryTimeSeriesMetrics(
+    req: operations.ObservabilityQueryTimeSeriesMetricsRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ObservabilityQueryTimeSeriesMetricsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ObservabilityQueryTimeSeriesMetricsRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/metrics/timeseries/query";
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.ObservabilityQueryTimeSeriesMetricsResponse =
+            new operations.ObservabilityQueryTimeSeriesMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.queryTimeSeriesMetricsResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.QueryTimeSeriesMetricsResponse,
               );
             }
             break;

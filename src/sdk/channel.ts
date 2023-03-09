@@ -4,7 +4,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { plainToInstance } from "class-transformer";
 
-export class Realtime {
+export class Channel {
   _defaultClient: AxiosInstance;
   _securityClient: AxiosInstance;
   _serverURL: string;
@@ -22,9 +22,9 @@ export class Realtime {
   }
   
   /**
-   * realtimeGetRTChannel - Get the details about a channel
+   * get - Get the details about a channel
   **/
-  realtimeGetRTChannel(
+  get(
     req: operations.RealtimeGetRTChannelRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeGetRTChannelResponse> {
@@ -79,9 +79,67 @@ export class Realtime {
 
   
   /**
-   * realtimeGetRTChannels - Get all channels for your application project
+   * getMessages - Get all messages for a channel
   **/
-  realtimeGetRTChannels(
+  getMessages(
+    req: operations.RealtimeReadMessagesRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.RealtimeReadMessagesResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.RealtimeReadMessagesRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/realtime/channels/{channel}/messages", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.RealtimeReadMessagesResponse =
+            new operations.RealtimeReadMessagesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.readMessagesResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.ReadMessagesResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * list - Get all channels for your application project
+  **/
+  list(
     req: operations.RealtimeGetRTChannelsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeGetRTChannelsResponse> {
@@ -136,9 +194,9 @@ export class Realtime {
 
   
   /**
-   * realtimeListSubscriptions - Get the subscriptions details about a channel
+   * listSubscriptions - Get the subscriptions details about a channel
   **/
-  realtimeListSubscriptions(
+  listSubscriptions(
     req: operations.RealtimeListSubscriptionsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeListSubscriptionsResponse> {
@@ -194,9 +252,9 @@ export class Realtime {
 
   
   /**
-   * realtimeMessages - push messages to a single channel
+   * pushMessages - push messages to a single channel
   **/
-  realtimeMessages(
+  pushMessages(
     req: operations.RealtimeMessagesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeMessagesResponse> {
@@ -303,64 +361,6 @@ export class Realtime {
               res.presenceResponse = utils.deserializeJSONResponse(
                 httpRes?.data,
                 shared.PresenceResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * realtimeReadMessages - Get all messages for a channel
-  **/
-  realtimeReadMessages(
-    req: operations.RealtimeReadMessagesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.RealtimeReadMessagesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.RealtimeReadMessagesRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/realtime/channels/{channel}/messages", req.pathParams);
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RealtimeReadMessagesResponse =
-            new operations.RealtimeReadMessagesResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.readMessagesResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.ReadMessagesResponse,
               );
             }
             break;

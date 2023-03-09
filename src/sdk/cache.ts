@@ -22,9 +22,9 @@ export class Cache {
   }
   
   /**
-   * cacheCreateCache - Creates the cache
+   * create - Creates the cache
   **/
-  cacheCreateCache(
+  create(
     req: operations.CacheCreateCacheRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheCreateCacheResponse> {
@@ -93,80 +93,9 @@ export class Cache {
 
   
   /**
-   * cacheDel - Deletes an entry from cache
+   * delete - Deletes the cache
   **/
-  cacheDel(
-    req: operations.CacheDelRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CacheDelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CacheDelRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/caches/{name}/{key}/delete", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
-    const r = client.request({
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CacheDelResponse =
-            new operations.CacheDelResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.delResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.DelResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * cacheDeleteCache - Deletes the cache
-  **/
-  cacheDeleteCache(
+  delete(
     req: operations.CacheDeleteCacheRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheDeleteCacheResponse> {
@@ -235,9 +164,80 @@ export class Cache {
 
   
   /**
-   * cacheGet - Reads an entry from cache
+   * deleteKeys - Deletes an entry from cache
   **/
-  cacheGet(
+  deleteKeys(
+    req: operations.CacheDelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CacheDelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CacheDelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/caches/{name}/{key}/delete", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
+    
+    const r = client.request({
+      url: url,
+      method: "delete",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CacheDelResponse =
+            new operations.CacheDelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.delResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.DelResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getKey - Reads an entry from cache
+  **/
+  getKey(
     req: operations.CacheGetRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheGetResponse> {
@@ -292,9 +292,9 @@ export class Cache {
 
   
   /**
-   * cacheGetSet - Sets an entry in the cache and returns the previous value if exists
+   * getSetKey - Sets an entry in the cache and returns the previous value if exists
   **/
-  cacheGetSet(
+  getSetKey(
     req: operations.CacheGetSetRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheGetSetResponse> {
@@ -363,9 +363,66 @@ export class Cache {
 
   
   /**
-   * cacheKeys - Lists all the key for this cache
+   * list - Lists all the caches for the given project
   **/
-  cacheKeys(
+  list(
+    req: operations.CacheListCachesRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CacheListCachesResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CacheListCachesRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/caches/list", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CacheListCachesResponse =
+            new operations.CacheListCachesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.listCachesResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.ListCachesResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * listKeys - Lists all the key for this cache
+  **/
+  listKeys(
     req: operations.CacheKeysRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheKeysResponse> {
@@ -421,66 +478,9 @@ export class Cache {
 
   
   /**
-   * cacheListCaches - Lists all the caches for the given project
+   * setKey - Sets an entry in the cache
   **/
-  cacheListCaches(
-    req: operations.CacheListCachesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CacheListCachesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CacheListCachesRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/caches/list", req.pathParams);
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CacheListCachesResponse =
-            new operations.CacheListCachesResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.listCachesResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.ListCachesResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * cacheSet - Sets an entry in the cache
-  **/
-  cacheSet(
+  setKey(
     req: operations.CacheSetRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CacheSetResponse> {

@@ -4,7 +4,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { plainToInstance } from "class-transformer";
 
-export class ApplicationKeys {
+export class AppKey {
   _defaultClient: AxiosInstance;
   _securityClient: AxiosInstance;
   _serverURL: string;
@@ -20,6 +20,211 @@ export class ApplicationKeys {
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
   }
+  
+  /**
+   * delete - Deletes the app key
+   *
+   * Delete an app key.
+  **/
+  delete(
+    req: operations.TigrisDeleteAppKeyRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.TigrisDeleteAppKeyResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.TigrisDeleteAppKeyRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys/delete", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
+    
+    const r = client.request({
+      url: url,
+      method: "delete",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.TigrisDeleteAppKeyResponse =
+            new operations.TigrisDeleteAppKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.deleteAppKeyResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.DeleteAppKeyResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * list - List all the app keys
+   *
+   * Lists all app keys visible to requesting actor.
+  **/
+  list(
+    req: operations.TigrisListAppKeysRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.TigrisListAppKeysResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.TigrisListAppKeysRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.TigrisListAppKeysResponse =
+            new operations.TigrisListAppKeysResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.listAppKeysResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.ListAppKeysResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * rotate - Rotates the app key secret
+   *
+   * Endpoint is used to rotate the secret for the app key.
+  **/
+  rotate(
+    req: operations.TigrisRotateAppKeySecretRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.TigrisRotateAppKeySecretResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.TigrisRotateAppKeySecretRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys/rotate", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.TigrisRotateAppKeySecretResponse =
+            new operations.TigrisRotateAppKeySecretResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.rotateAppKeyResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.RotateAppKeyResponse,
+              );
+            }
+            break;
+          default:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.status = utils.deserializeJSONResponse(
+                httpRes?.data,
+                shared.Status,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
   
   /**
    * tigrisCreateAppKey - Creates the app key
@@ -95,216 +300,11 @@ export class ApplicationKeys {
 
   
   /**
-   * tigrisDeleteAppKey - Deletes the app key
-   *
-   * Delete an app key.
-  **/
-  tigrisDeleteAppKey(
-    req: operations.TigrisDeleteAppKeyRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisDeleteAppKeyResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisDeleteAppKeyRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys/delete", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
-    const r = client.request({
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisDeleteAppKeyResponse =
-            new operations.TigrisDeleteAppKeyResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteAppKeyResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.DeleteAppKeyResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * tigrisListAppKeys - List all the app keys
-   *
-   * Lists all app keys visible to requesting actor.
-  **/
-  tigrisListAppKeys(
-    req: operations.TigrisListAppKeysRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisListAppKeysResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisListAppKeysRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys", req.pathParams);
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisListAppKeysResponse =
-            new operations.TigrisListAppKeysResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.listAppKeysResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.ListAppKeysResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * tigrisRotateAppKeySecret - Rotates the app key secret
-   *
-   * Endpoint is used to rotate the secret for the app key.
-  **/
-  tigrisRotateAppKeySecret(
-    req: operations.TigrisRotateAppKeySecretRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisRotateAppKeySecretResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisRotateAppKeySecretRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/apps/keys/rotate", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TigrisRotateAppKeySecretResponse =
-            new operations.TigrisRotateAppKeySecretResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.rotateAppKeyResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.RotateAppKeyResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * tigrisUpdateAppKey - Updates the description of the app key
+   * update - Updates the description of the app key
    *
    * Update the description of an app key.
   **/
-  tigrisUpdateAppKey(
+  update(
     req: operations.TigrisUpdateAppKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisUpdateAppKeyResponse> {

@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  TigrisCreateAppKeyRequest,
-  TigrisCreateAppKeyResponse 
+  TigrisDeleteAppKeyRequest,
+  TigrisDeleteAppKeyResponse 
 } from "tigris-core/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -16,17 +16,16 @@ const sdk = new SDK({
   }
 });
     
-const req: TigrisCreateAppKeyRequest = {
+const req: TigrisDeleteAppKeyRequest = {
   pathParams: {
     project: "unde",
   },
   request: {
-    description: "deserunt",
-    name: "porro",
+    id: "deserunt",
   },
 };
 
-sdk.applicationKeys.tigrisCreateAppKey(req).then((res: TigrisCreateAppKeyResponse | AxiosError) => {
+sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
    // handle response
 });
 ```
