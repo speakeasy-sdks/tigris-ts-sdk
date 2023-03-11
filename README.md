@@ -21,7 +21,7 @@ yarn add tigris-core
 ```typescript
 import {
   TigrisDeleteAppKeyRequest,
-  TigrisDeleteAppKeyResponse 
+  TigrisDeleteAppKeyResponse
 } from "tigris-core/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
