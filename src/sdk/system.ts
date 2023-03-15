@@ -12,7 +12,14 @@ export class System {
   _sdkVersion: string;
   _genVersion: string;
 
-  constructor(defaultClient: AxiosInstance, securityClient: AxiosInstance, serverURL: string, language: string, sdkVersion: string, genVersion: string) {
+  constructor(
+    defaultClient: AxiosInstance,
+    securityClient: AxiosInstance,
+    serverURL: string,
+    language: string,
+    sdkVersion: string,
+    genVersion: string
+  ) {
     this._defaultClient = defaultClient;
     this._securityClient = securityClient;
     this._serverURL = serverURL;
@@ -20,120 +27,118 @@ export class System {
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
   }
-  
+
   /**
    * getHealth - Health Check
    *
    * This endpoint can be used to check the liveness of the server.
-  **/
+   **/
   getHealth(
     config?: AxiosRequestConfig
   ): Promise<operations.HealthAPIHealthResponse> {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/v1/health";
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    
+
     const r = client.request({
       url: url,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.HealthAPIHealthResponse =
-            new operations.HealthAPIHealthResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.healthCheckResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.HealthCheckResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.HealthAPIHealthResponse =
+        new operations.HealthAPIHealthResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.healthCheckResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.HealthCheckResponse
+            );
+          }
+          break;
+        default:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * getServerInfo - Information about the server
    *
    * Provides the information about the server. This information includes returning the server version, etc.
-  **/
+   **/
   getServerInfo(
     config?: AxiosRequestConfig
   ): Promise<operations.ObservabilityGetInfoResponse> {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/info";
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    
+
     const r = client.request({
       url: url,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityGetInfoResponse =
-            new operations.ObservabilityGetInfoResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.getInfoResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.GetInfoResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ObservabilityGetInfoResponse =
+        new operations.ObservabilityGetInfoResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.getInfoResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.GetInfoResponse
+            );
+          }
+          break;
+        default:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * observabilityQuotaUsage - Queries current namespace quota usage
    *
    * Returns current namespace quota limits
-  **/
+   **/
   observabilityQuotaUsage(
     req: operations.ObservabilityQuotaUsageRequest,
     config?: AxiosRequestConfig
@@ -141,9 +146,10 @@ export class System {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.ObservabilityQuotaUsageRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/usage";
+    const url: string =
+      baseURL.replace(/\/$/, "") + "/v1/observability/quota/usage";
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -154,59 +160,60 @@ export class System {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+    if (reqBody == null || Object.keys(reqBody).length === 0)
+      throw new Error("request body is required");
+
     const r = client.request({
       url: url,
       method: "post",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityQuotaUsageResponse =
-            new operations.ObservabilityQuotaUsageResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.quotaUsageResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.QuotaUsageResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ObservabilityQuotaUsageResponse =
+        new operations.ObservabilityQuotaUsageResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.quotaUsageResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.QuotaUsageResponse
+            );
+          }
+          break;
+        default:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * queryQuotaLimits - Queries current namespace quota limits
    *
    * Returns current namespace quota limits
-  **/
+   **/
   queryQuotaLimits(
     req: operations.ObservabilityQuotaLimitsRequest,
     config?: AxiosRequestConfig
@@ -214,9 +221,10 @@ export class System {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.ObservabilityQuotaLimitsRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
+    const url: string =
+      baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -227,59 +235,60 @@ export class System {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+    if (reqBody == null || Object.keys(reqBody).length === 0)
+      throw new Error("request body is required");
+
     const r = client.request({
       url: url,
       method: "post",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityQuotaLimitsResponse =
-            new operations.ObservabilityQuotaLimitsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.quotaLimitsResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.QuotaLimitsResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ObservabilityQuotaLimitsResponse =
+        new operations.ObservabilityQuotaLimitsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.quotaLimitsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.QuotaLimitsResponse
+            );
+          }
+          break;
+        default:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * queryTimeSeriesMetrics - Queries time series metrics
    *
    * Queries time series metrics
-  **/
+   **/
   queryTimeSeriesMetrics(
     req: operations.ObservabilityQueryTimeSeriesMetricsRequest,
     config?: AxiosRequestConfig
@@ -287,9 +296,10 @@ export class System {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.ObservabilityQueryTimeSeriesMetricsRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/metrics/timeseries/query";
+    const url: string =
+      baseURL.replace(/\/$/, "") + "/v1/observability/metrics/timeseries/query";
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -300,51 +310,52 @@ export class System {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+    if (reqBody == null || Object.keys(reqBody).length === 0)
+      throw new Error("request body is required");
+
     const r = client.request({
       url: url,
       method: "post",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ObservabilityQueryTimeSeriesMetricsResponse =
-            new operations.ObservabilityQueryTimeSeriesMetricsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.queryTimeSeriesMetricsResponse = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.QueryTimeSeriesMetricsResponse,
-              );
-            }
-            break;
-          default:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.status = utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.Status,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ObservabilityQueryTimeSeriesMetricsResponse =
+        new operations.ObservabilityQueryTimeSeriesMetricsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.queryTimeSeriesMetricsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.QueryTimeSeriesMetricsResponse
+            );
+          }
+          break;
+        default:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
-
 }

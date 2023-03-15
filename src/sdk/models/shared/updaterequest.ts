@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { UpdateRequestOptions } from "./updaterequestoptions";
 import { Expose, Type } from "class-transformer";
 
-
 export class UpdateRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })

@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ReadRequestOptions } from "./readrequestoptions";
 import { Expose, Type } from "class-transformer";
 
-
 export class ReadRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })

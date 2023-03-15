@@ -1,11 +1,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-
 // UpdateNamespaceMetadataResponse
-/** 
+/**
  * Update of namespace metadata response
-**/
+ **/
 export class UpdateNamespaceMetadataResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "metadataKey" })

@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Message } from "./message";
 import { Expose, Type } from "class-transformer";
 
-
 export class MessagesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "channel" })

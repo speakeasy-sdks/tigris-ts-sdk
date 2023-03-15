@@ -2,11 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CollectionDescription } from "./collectiondescription";
 import { Expose, Type } from "class-transformer";
 
-
 // DescribeDatabaseResponse
-/** 
+/**
  * A detailed description of the database and all the associated collections. Description of the collection includes schema details as well.
-**/
+ **/
 export class DescribeDatabaseResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branches" })

@@ -3,15 +3,18 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class SearchCreateByIdPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=index",
+  })
   index: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
   project: string;
 }
 

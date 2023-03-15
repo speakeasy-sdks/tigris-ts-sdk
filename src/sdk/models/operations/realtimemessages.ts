@@ -3,12 +3,15 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class RealtimeMessagesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=channel" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=channel",
+  })
   channel: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
   project: string;
 }
 

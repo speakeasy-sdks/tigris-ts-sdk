@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DeleteRequestOptions } from "./deleterequestoptions";
 import { Expose, Type } from "class-transformer";
 
-
 export class DeleteRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })

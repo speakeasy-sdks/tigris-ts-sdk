@@ -3,20 +3,27 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class SearchListIndexesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
   project: string;
 }
 
 export class SearchListIndexesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.branch" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=filter.branch",
+  })
   filterBranch?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.collection" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=filter.collection",
+  })
   filterCollection?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.type" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=filter.type",
+  })
   filterType?: string;
 }
 

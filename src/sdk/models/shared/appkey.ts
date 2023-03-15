@@ -1,11 +1,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-
 // AppKey
-/** 
+/**
  * An user AppKey
-**/
+ **/
 export class AppKey extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })

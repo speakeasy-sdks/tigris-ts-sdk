@@ -1,11 +1,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-
 // FacetStats
-/** 
+/**
  * Additional stats for faceted field
-**/
+ **/
 export class FacetStats extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "avg" })

@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { NamespaceInfo } from "./namespaceinfo";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateNamespaceResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

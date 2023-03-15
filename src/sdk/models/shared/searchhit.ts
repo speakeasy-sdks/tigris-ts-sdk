@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { SearchHitMeta } from "./searchhitmeta";
 import { Expose, Type } from "class-transformer";
 
-
 export class SearchHit extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "data" })

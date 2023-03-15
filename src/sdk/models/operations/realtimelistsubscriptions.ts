@@ -3,12 +3,15 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class RealtimeListSubscriptionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=channel" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=channel",
+  })
   channel: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
   project: string;
 }
 
@@ -16,7 +19,9 @@ export class RealtimeListSubscriptionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page?: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page_size" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page_size",
+  })
   pageSize?: number;
 }
 

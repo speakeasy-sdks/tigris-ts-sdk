@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { InsertRequestOptions } from "./insertrequestoptions";
 import { Expose, Type } from "class-transformer";
 
-
 export class InsertRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })

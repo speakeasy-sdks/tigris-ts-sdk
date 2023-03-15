@@ -1,11 +1,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-
 // ResponseMetadata
-/** 
+/**
  * Has metadata related to the documents stored.
-**/
+ **/
 export class ResponseMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })

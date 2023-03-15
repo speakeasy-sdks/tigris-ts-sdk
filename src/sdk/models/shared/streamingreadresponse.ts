@@ -3,7 +3,6 @@ import { ErrorT } from "./error";
 import { ReadResponse } from "./readresponse";
 import { Expose, Type } from "class-transformer";
 
-
 export class StreamingReadResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "error" })

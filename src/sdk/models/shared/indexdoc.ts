@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DocMeta } from "./docmeta";
 import { Expose, Type } from "class-transformer";
 
-
 export class IndexDoc extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "doc" })

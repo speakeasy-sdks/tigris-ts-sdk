@@ -1,7 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Type } from "class-transformer";
 
-
 export class SchemeBearerAuth extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "security, name=Authorization" })
   authorization: string;

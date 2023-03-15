@@ -1,11 +1,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-
 // QuotaUsageResponse
-/** 
+/**
  * Contains current quota usage
-**/
+ **/
 export class QuotaUsageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "ReadUnits" })

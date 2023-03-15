@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Page } from "./page";
 import { Expose, Type } from "class-transformer";
 
-
 export class SearchMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "found" })

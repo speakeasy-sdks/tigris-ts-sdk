@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Collation } from "./collation";
 import { Expose, Type } from "class-transformer";
 
-
 export class SearchRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })

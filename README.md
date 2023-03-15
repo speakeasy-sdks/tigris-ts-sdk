@@ -26,13 +26,12 @@ import {
 
 import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-
 const sdk = new SDK({
   security: {
     bearerAuth: {
       authorization: "Bearer YOUR_BEARER_TOKEN_HERE",
     },
-  }
+  },
 });
     
 const req: TigrisDeleteAppKeyRequest = {

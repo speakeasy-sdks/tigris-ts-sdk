@@ -3,27 +3,27 @@ import { AdditionalFunction } from "./additionalfunction";
 import { Expose, Type } from "class-transformer";
 
 export enum QueryTimeSeriesMetricsRequestFunctionEnum {
-    Rate = "RATE",
-    Count = "COUNT",
-    None = "NONE"
+  Rate = "RATE",
+  Count = "COUNT",
+  None = "NONE",
 }
 export enum QueryTimeSeriesMetricsRequestSpaceAggregationEnum {
-    Avg = "AVG",
-    Min = "MIN",
-    Max = "MAX",
-    Sum = "SUM"
+  Avg = "AVG",
+  Min = "MIN",
+  Max = "MAX",
+  Sum = "SUM",
 }
 export enum QueryTimeSeriesMetricsRequestTigrisOperationEnum {
-    All = "ALL",
-    Read = "READ",
-    Write = "WRITE",
-    Metadata = "METADATA"
+  All = "ALL",
+  Read = "READ",
+  Write = "WRITE",
+  Metadata = "METADATA",
 }
 
 // QueryTimeSeriesMetricsRequest
-/** 
+/**
  * Requests the time series metrics
-**/
+ **/
 export class QueryTimeSeriesMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: AdditionalFunction })
   @Expose({ name: "additionalFunctions" })
