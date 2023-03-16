@@ -33,7 +33,7 @@ const sdk = new SDK({
     },
   },
 });
-    
+
 const req: TigrisDeleteAppKeyRequest = {
   pathParams: {
     project: "unde",
