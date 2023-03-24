@@ -6,13 +6,13 @@
 ### NPM
 
 ```bash
-npm add tigris-core
+npm add https://github.com/speakeasy-sdks/tigris-ts-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add tigris-core
+yarn add https://github.com/speakeasy-sdks/tigris-ts-sdk
 ```
 <!-- End SDK Installation -->
 
