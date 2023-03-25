@@ -72,7 +72,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -159,7 +159,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -244,7 +244,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -324,7 +324,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -411,7 +411,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -481,7 +481,7 @@ export class Search {
       req.pathParams
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
 
@@ -543,7 +543,7 @@ export class Search {
       req.pathParams
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -603,7 +603,7 @@ export class Search {
       req.pathParams
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
 
@@ -683,7 +683,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -769,7 +769,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -855,7 +855,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -935,7 +935,7 @@ export class Search {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)

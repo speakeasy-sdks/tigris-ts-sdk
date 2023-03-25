@@ -69,7 +69,7 @@ export class Project {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -152,7 +152,7 @@ export class Project {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -212,7 +212,7 @@ export class Project {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/v1/projects";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
