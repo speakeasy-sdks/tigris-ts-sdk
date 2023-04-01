@@ -149,13 +149,9 @@ export class System {
    * Returns current namespace quota limits
    */
   observabilityQuotaUsage(
-    req: operations.ObservabilityQuotaUsageRequest,
+    req: Record<string, any>,
     config?: AxiosRequestConfig
   ): Promise<operations.ObservabilityQuotaUsageResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ObservabilityQuotaUsageRequest(req);
-    }
-
     const baseURL: string = this._serverURL;
     const url: string =
       baseURL.replace(/\/$/, "") + "/v1/observability/quota/usage";
@@ -229,13 +225,9 @@ export class System {
    * Returns current namespace quota limits
    */
   queryQuotaLimits(
-    req: operations.ObservabilityQuotaLimitsRequest,
+    req: Record<string, any>,
     config?: AxiosRequestConfig
   ): Promise<operations.ObservabilityQuotaLimitsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ObservabilityQuotaLimitsRequest(req);
-    }
-
     const baseURL: string = this._serverURL;
     const url: string =
       baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
@@ -309,11 +301,11 @@ export class System {
    * Queries time series metrics
    */
   queryTimeSeriesMetrics(
-    req: operations.ObservabilityQueryTimeSeriesMetricsRequest,
+    req: shared.QueryTimeSeriesMetricsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ObservabilityQueryTimeSeriesMetricsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ObservabilityQueryTimeSeriesMetricsRequest(req);
+      req = new shared.QueryTimeSeriesMetricsRequest(req);
     }
 
     const baseURL: string = this._serverURL;

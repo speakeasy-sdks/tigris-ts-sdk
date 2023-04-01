@@ -28,19 +28,15 @@ import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 const sdk = new SDK({
   security: {
-    bearerAuth: {
-      authorization: "Bearer YOUR_BEARER_TOKEN_HERE",
-    },
+    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
   },
 });
 
 const req: TigrisDeleteAppKeyRequest = {
-  pathParams: {
-    project: "unde",
+  deleteAppKeyRequest: {
+    id: "corrupti",
   },
-  request: {
-    id: "deserunt",
-  },
+  project: "provident",
 };
 
 sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
@@ -50,7 +46,7 @@ sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### appKey

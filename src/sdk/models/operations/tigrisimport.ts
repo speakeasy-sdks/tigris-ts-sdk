@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisImportPathParams extends SpeakeasyBase {
+export class TigrisImportRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  importRequest: shared.ImportRequest;
+
   /**
    * Collection name where to import documents.
    */
@@ -22,14 +25,6 @@ export class TigrisImportPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisImportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisImportPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.ImportRequest;
 }
 
 export class TigrisImportResponse extends SpeakeasyBase {

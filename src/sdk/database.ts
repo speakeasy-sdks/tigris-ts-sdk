@@ -54,7 +54,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/transactions/begin",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -62,7 +62,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "beginTransactionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -138,7 +138,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/transactions/commit",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -146,7 +146,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "commitTransactionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -221,7 +221,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/branches/{branch}/create",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -229,7 +229,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {
@@ -305,7 +305,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/branches/{branch}/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -313,7 +313,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {
@@ -389,7 +389,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/describe",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -397,7 +397,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "describeDatabaseRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -472,12 +472,12 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -538,7 +538,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/transactions/rollback",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -546,7 +546,7 @@ export class Database {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "rollbackTransactionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -621,7 +621,7 @@ export class Database {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/branches",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;

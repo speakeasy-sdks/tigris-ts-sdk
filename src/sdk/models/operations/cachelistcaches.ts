@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CacheListCachesPathParams extends SpeakeasyBase {
+export class CacheListCachesRequest extends SpeakeasyBase {
   /**
    * Tigris project name
    */
@@ -14,11 +14,6 @@ export class CacheListCachesPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class CacheListCachesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CacheListCachesPathParams;
 }
 
 export class CacheListCachesResponse extends SpeakeasyBase {

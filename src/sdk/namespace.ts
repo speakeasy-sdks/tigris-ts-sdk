@@ -41,11 +41,11 @@ export class Namespace {
    * Creates a new namespace, if it does not exist
    */
   create(
-    req: operations.CreateNamespaceRequest,
+    req: shared.CreateNamespaceRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateNamespaceResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateNamespaceRequest(req);
+      req = new shared.CreateNamespaceRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -187,7 +187,7 @@ export class Namespace {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/namespace/metadata/{metadataKey}/get",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -195,7 +195,7 @@ export class Namespace {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "getNamespaceMetadataRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -270,7 +270,7 @@ export class Namespace {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/namespace/metadata/{metadataKey}/insert",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -278,7 +278,7 @@ export class Namespace {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "insertNamespaceMetadataRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -408,7 +408,7 @@ export class Namespace {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/namespace/metadata/{metadataKey}/update",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -416,7 +416,7 @@ export class Namespace {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "updateNamespaceMetadataRequest",
         "json"
       );
     } catch (e: unknown) {

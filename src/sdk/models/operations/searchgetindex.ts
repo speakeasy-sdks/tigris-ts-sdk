@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchGetIndexPathParams extends SpeakeasyBase {
+export class SearchGetIndexRequest extends SpeakeasyBase {
   /**
    * index name.
    */
@@ -22,11 +22,6 @@ export class SearchGetIndexPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchGetIndexRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchGetIndexPathParams;
 }
 
 export class SearchGetIndexResponse extends SpeakeasyBase {

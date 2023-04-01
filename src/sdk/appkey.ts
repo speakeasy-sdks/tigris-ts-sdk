@@ -52,7 +52,7 @@ export class AppKey {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/apps/keys/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -60,7 +60,7 @@ export class AppKey {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "deleteAppKeyRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -135,7 +135,7 @@ export class AppKey {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/apps/keys",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -198,7 +198,7 @@ export class AppKey {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/apps/keys/rotate",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -206,7 +206,7 @@ export class AppKey {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "rotateAppKeyRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -281,7 +281,7 @@ export class AppKey {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/apps/keys/create",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -289,7 +289,7 @@ export class AppKey {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createAppKeyRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -364,7 +364,7 @@ export class AppKey {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/apps/keys/update",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -372,7 +372,7 @@ export class AppKey {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "updateAppKeyRequest",
         "json"
       );
     } catch (e: unknown) {

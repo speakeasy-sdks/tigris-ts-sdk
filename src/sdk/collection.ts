@@ -56,7 +56,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/createOrUpdate",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -64,7 +64,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createOrUpdateCollectionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -140,7 +140,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -148,7 +148,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "deleteRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -223,7 +223,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/describe",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -231,7 +231,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "describeCollectionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -307,7 +307,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/drop",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -315,7 +315,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "dropCollectionRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -395,7 +395,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/import",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -403,7 +403,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "importRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -480,7 +480,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/insert",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -488,7 +488,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "insertRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -568,7 +568,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/read",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -576,7 +576,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "readRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -651,7 +651,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/replace",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -659,7 +659,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "replaceRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -737,7 +737,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/search",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -745,7 +745,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "searchRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -820,7 +820,7 @@ export class Collection {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/database/collections/{collection}/documents/update",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -828,7 +828,7 @@ export class Collection {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "updateRequest",
         "json"
       );
     } catch (e: unknown) {

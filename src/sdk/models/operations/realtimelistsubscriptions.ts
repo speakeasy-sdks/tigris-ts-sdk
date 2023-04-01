@@ -6,19 +6,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class RealtimeListSubscriptionsPathParams extends SpeakeasyBase {
+export class RealtimeListSubscriptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=channel",
   })
   channel: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
-}
-
-export class RealtimeListSubscriptionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page?: number;
 
@@ -26,14 +19,11 @@ export class RealtimeListSubscriptionsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=page_size",
   })
   pageSize?: number;
-}
 
-export class RealtimeListSubscriptionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: RealtimeListSubscriptionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: RealtimeListSubscriptionsQueryParams;
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
+  project: string;
 }
 
 export class RealtimeListSubscriptionsResponse extends SpeakeasyBase {

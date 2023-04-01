@@ -49,7 +49,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/create",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -57,7 +57,7 @@ export class Cache {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createCacheRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -129,7 +129,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -137,7 +137,7 @@ export class Cache {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {
@@ -209,7 +209,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/{key}/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -217,7 +217,7 @@ export class Cache {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {
@@ -288,7 +288,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/{key}/get",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -347,7 +347,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/{key}/getset",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -355,7 +355,7 @@ export class Cache {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "getSetRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -427,7 +427,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/list",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -487,12 +487,12 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/keys",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -549,7 +549,7 @@ export class Cache {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/caches/{name}/{key}/set",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -557,7 +557,7 @@ export class Cache {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "setRequest",
         "json"
       );
     } catch (e: unknown) {

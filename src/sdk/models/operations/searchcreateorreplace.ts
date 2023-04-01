@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchCreateOrReplacePathParams extends SpeakeasyBase {
+export class SearchCreateOrReplaceRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  createOrReplaceDocumentRequest: shared.CreateOrReplaceDocumentRequest;
+
   /**
    * index name where to create documents.
    */
@@ -22,14 +25,6 @@ export class SearchCreateOrReplacePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchCreateOrReplaceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchCreateOrReplacePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.CreateOrReplaceDocumentRequest;
 }
 
 export class SearchCreateOrReplaceResponse extends SpeakeasyBase {

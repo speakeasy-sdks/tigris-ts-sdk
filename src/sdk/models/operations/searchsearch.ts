@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchSearchPathParams extends SpeakeasyBase {
+export class SearchSearchRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  searchIndexRequest: shared.SearchIndexRequest;
+
   /**
    * The index name to search documents from.
    */
@@ -22,14 +25,6 @@ export class SearchSearchPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchSearchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchSearchPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.SearchIndexRequest;
 }
 
 export class SearchSearchResponse extends SpeakeasyBase {

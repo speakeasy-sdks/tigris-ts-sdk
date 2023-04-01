@@ -6,25 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CacheKeysPathParams extends SpeakeasyBase {
-  /**
-   * cache name
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=name",
-  })
-  name: string;
-
-  /**
-   * Tigris project name
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
-}
-
-export class CacheKeysQueryParams extends SpeakeasyBase {
+export class CacheKeysRequest extends SpeakeasyBase {
   /**
    * optional - count of keys to return a stream response line.
    */
@@ -40,20 +22,28 @@ export class CacheKeysQueryParams extends SpeakeasyBase {
   cursor?: number;
 
   /**
+   * cache name
+   */
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=name",
+  })
+  name: string;
+
+  /**
    * optional key pattern
    */
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=pattern",
   })
   pattern?: string;
-}
 
-export class CacheKeysRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CacheKeysPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CacheKeysQueryParams;
+  /**
+   * Tigris project name
+   */
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
+  project: string;
 }
 
 export class CacheKeysResponse extends SpeakeasyBase {

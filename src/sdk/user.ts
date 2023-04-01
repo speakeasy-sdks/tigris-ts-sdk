@@ -52,7 +52,7 @@ export class User {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/users/metadata/{metadataKey}/get",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -60,7 +60,7 @@ export class User {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "getUserMetadataRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -135,7 +135,7 @@ export class User {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/users/metadata/{metadataKey}/insert",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -143,7 +143,7 @@ export class User {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "insertUserMetadataRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -218,7 +218,7 @@ export class User {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/management/users/metadata/{metadataKey}/update",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -226,7 +226,7 @@ export class User {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "updateUserMetadataRequest",
         "json"
       );
     } catch (e: unknown) {

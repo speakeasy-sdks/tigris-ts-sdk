@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchCreateByIdPathParams extends SpeakeasyBase {
+export class SearchCreateByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  createByIdRequest: shared.CreateByIdRequest;
+
   /**
    * document id.
    */
@@ -28,14 +31,6 @@ export class SearchCreateByIdPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchCreateByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchCreateByIdPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.CreateByIdRequest;
 }
 
 export class SearchCreateByIdResponse extends SpeakeasyBase {

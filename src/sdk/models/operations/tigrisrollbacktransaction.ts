@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisRollbackTransactionPathParams extends SpeakeasyBase {
+export class TigrisRollbackTransactionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  rollbackTransactionRequest: shared.RollbackTransactionRequest;
+
   /**
    * Project name whose DB this transaction belongs to.
    */
@@ -14,14 +17,6 @@ export class TigrisRollbackTransactionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisRollbackTransactionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisRollbackTransactionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.RollbackTransactionRequest;
 }
 
 export class TigrisRollbackTransactionResponse extends SpeakeasyBase {

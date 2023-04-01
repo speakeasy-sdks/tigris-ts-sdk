@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ObservabilityQuotaUsageRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: Record<string, any>;
-}
-
 export class ObservabilityQuotaUsageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;

@@ -6,17 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchListIndexesPathParams extends SpeakeasyBase {
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
-}
-
-export class SearchListIndexesQueryParams extends SpeakeasyBase {
+export class SearchListIndexesRequest extends SpeakeasyBase {
   /**
    * Applicable only in case index is backed by Tigris collection. This is the database branch for the above collection. For primary database it can be omitted or "main" can be passed.
    */
@@ -40,14 +30,14 @@ export class SearchListIndexesQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=filter.type",
   })
   filterType?: string;
-}
 
-export class SearchListIndexesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchListIndexesPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: SearchListIndexesQueryParams;
+  /**
+   * Tigris project name.
+   */
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
+  project: string;
 }
 
 export class SearchListIndexesResponse extends SpeakeasyBase {

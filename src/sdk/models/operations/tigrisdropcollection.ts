@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisDropCollectionPathParams extends SpeakeasyBase {
+export class TigrisDropCollectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  dropCollectionRequest: shared.DropCollectionRequest;
+
   /**
    * Collection name to delete.
    */
@@ -22,14 +25,6 @@ export class TigrisDropCollectionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisDropCollectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisDropCollectionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.DropCollectionRequest;
 }
 
 export class TigrisDropCollectionResponse extends SpeakeasyBase {

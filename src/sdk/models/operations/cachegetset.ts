@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CacheGetSetPathParams extends SpeakeasyBase {
+export class CacheGetSetRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  getSetRequest: shared.GetSetRequest;
+
   /**
    * cache key
    */
@@ -28,14 +31,6 @@ export class CacheGetSetPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class CacheGetSetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CacheGetSetPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.GetSetRequest;
 }
 
 export class CacheGetSetResponse extends SpeakeasyBase {

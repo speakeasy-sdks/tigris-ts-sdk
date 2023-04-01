@@ -6,7 +6,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchGetPathParams extends SpeakeasyBase {
+export class SearchGetRequest extends SpeakeasyBase {
+  /**
+   * document id.
+   */
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=ids" })
+  ids?: string[];
+
   /**
    * index name where to create documents.
    */
@@ -22,22 +28,6 @@ export class SearchGetPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchGetQueryParams extends SpeakeasyBase {
-  /**
-   * document id.
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=ids" })
-  ids?: string[];
-}
-
-export class SearchGetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchGetPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: SearchGetQueryParams;
 }
 
 export class SearchGetResponse extends SpeakeasyBase {

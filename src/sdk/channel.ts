@@ -49,7 +49,7 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels/{channel}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -109,12 +109,12 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels/{channel}/messages",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -171,7 +171,7 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -231,12 +231,12 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels/{channel}/subscriptions",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -293,7 +293,7 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels/{channel}/messages",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -301,7 +301,7 @@ export class Channel {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "messagesRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -373,7 +373,7 @@ export class Channel {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/realtime/channels/{channel}/presence",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;

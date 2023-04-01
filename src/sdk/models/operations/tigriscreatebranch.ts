@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisCreateBranchPathParams extends SpeakeasyBase {
+export class TigrisCreateBranchRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody: Record<string, any>;
+
   /**
    * Name of the database branch to be created. <p></p>**Note**: `main` is a reserved branch name for primary database and is automatically created with CreateProject
    */
@@ -22,14 +25,6 @@ export class TigrisCreateBranchPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisCreateBranchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisCreateBranchPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: Record<string, any>;
 }
 
 export class TigrisCreateBranchResponse extends SpeakeasyBase {

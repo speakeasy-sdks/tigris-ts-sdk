@@ -6,19 +6,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class RealtimeReadMessagesPathParams extends SpeakeasyBase {
+export class RealtimeReadMessagesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=channel",
   })
   channel: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
-}
-
-export class RealtimeReadMessagesQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end" })
   end?: string;
 
@@ -27,6 +20,11 @@ export class RealtimeReadMessagesQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
   limit?: number;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
+  project: string;
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=session_id",
@@ -40,14 +38,6 @@ export class RealtimeReadMessagesQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start" })
   start?: string;
-}
-
-export class RealtimeReadMessagesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: RealtimeReadMessagesPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: RealtimeReadMessagesQueryParams;
 }
 
 export class RealtimeReadMessagesResponse extends SpeakeasyBase {

@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisRotateAppKeySecretPathParams extends SpeakeasyBase {
+export class TigrisRotateAppKeySecretRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  rotateAppKeyRequest: shared.RotateAppKeyRequest;
+
   /**
    * project name
    */
@@ -14,14 +17,6 @@ export class TigrisRotateAppKeySecretPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisRotateAppKeySecretRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisRotateAppKeySecretPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.RotateAppKeyRequest;
 }
 
 export class TigrisRotateAppKeySecretResponse extends SpeakeasyBase {

@@ -6,17 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisListCollectionsPathParams extends SpeakeasyBase {
-  /**
-   * Project name whose db is under target to list collections.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
-}
-
-export class TigrisListCollectionsQueryParams extends SpeakeasyBase {
+export class TigrisListCollectionsRequest extends SpeakeasyBase {
   /**
    * Optionally specify a database branch name to perform operation on
    */
@@ -24,14 +14,14 @@ export class TigrisListCollectionsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=branch",
   })
   branch?: string;
-}
 
-export class TigrisListCollectionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisListCollectionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: TigrisListCollectionsQueryParams;
+  /**
+   * Project name whose db is under target to list collections.
+   */
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project",
+  })
+  project: string;
 }
 
 export class TigrisListCollectionsResponse extends SpeakeasyBase {

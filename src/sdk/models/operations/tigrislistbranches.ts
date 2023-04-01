@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisListBranchesPathParams extends SpeakeasyBase {
+export class TigrisListBranchesRequest extends SpeakeasyBase {
   /**
    * List database branches in this project
    */
@@ -14,11 +14,6 @@ export class TigrisListBranchesPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisListBranchesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisListBranchesPathParams;
 }
 
 export class TigrisListBranchesResponse extends SpeakeasyBase {

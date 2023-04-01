@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisDescribeDatabasePathParams extends SpeakeasyBase {
+export class TigrisDescribeDatabaseRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  describeDatabaseRequest: shared.DescribeDatabaseRequest;
+
   /**
    * Project name whose db is under target to get description.
    */
@@ -14,14 +17,6 @@ export class TigrisDescribeDatabasePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisDescribeDatabaseRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisDescribeDatabasePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.DescribeDatabaseRequest;
 }
 
 export class TigrisDescribeDatabaseResponse extends SpeakeasyBase {

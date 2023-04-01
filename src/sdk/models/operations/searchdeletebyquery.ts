@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchDeleteByQueryPathParams extends SpeakeasyBase {
+export class SearchDeleteByQueryRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  deleteByQueryRequest: shared.DeleteByQueryRequest;
+
   /**
    * The index name of the documents that needs deletion.
    */
@@ -22,14 +25,6 @@ export class SearchDeleteByQueryPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchDeleteByQueryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchDeleteByQueryPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.DeleteByQueryRequest;
 }
 
 export class SearchDeleteByQueryResponse extends SpeakeasyBase {

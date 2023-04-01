@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CacheDeleteCachePathParams extends SpeakeasyBase {
+export class CacheDeleteCacheRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody: Record<string, any>;
+
   /**
    * cache name
    */
@@ -22,14 +25,6 @@ export class CacheDeleteCachePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class CacheDeleteCacheRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CacheDeleteCachePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: Record<string, any>;
 }
 
 export class CacheDeleteCacheResponse extends SpeakeasyBase {

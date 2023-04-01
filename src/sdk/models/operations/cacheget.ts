@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CacheGetPathParams extends SpeakeasyBase {
+export class CacheGetRequest extends SpeakeasyBase {
   /**
    * cache key
    */
@@ -28,11 +28,6 @@ export class CacheGetPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class CacheGetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CacheGetPathParams;
 }
 
 export class CacheGetResponse extends SpeakeasyBase {

@@ -52,7 +52,7 @@ export class Project {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/create",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -60,7 +60,7 @@ export class Project {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {
@@ -135,7 +135,7 @@ export class Project {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/delete",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -143,7 +143,7 @@ export class Project {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "requestBody",
         "json"
       );
     } catch (e: unknown) {

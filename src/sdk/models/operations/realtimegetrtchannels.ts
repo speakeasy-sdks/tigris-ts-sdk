@@ -6,16 +6,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class RealtimeGetRTChannelsPathParams extends SpeakeasyBase {
+export class RealtimeGetRTChannelsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class RealtimeGetRTChannelsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: RealtimeGetRTChannelsPathParams;
 }
 
 export class RealtimeGetRTChannelsResponse extends SpeakeasyBase {

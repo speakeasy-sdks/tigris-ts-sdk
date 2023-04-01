@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class SearchCreateOrUpdateIndexPathParams extends SpeakeasyBase {
+export class SearchCreateOrUpdateIndexRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  createOrUpdateIndexRequest: shared.CreateOrUpdateIndexRequest;
+
   /**
    * search index name.
    */
@@ -22,14 +25,6 @@ export class SearchCreateOrUpdateIndexPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class SearchCreateOrUpdateIndexRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SearchCreateOrUpdateIndexPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.CreateOrUpdateIndexRequest;
 }
 
 export class SearchCreateOrUpdateIndexResponse extends SpeakeasyBase {

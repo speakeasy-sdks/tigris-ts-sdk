@@ -6,19 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ManagementGetNamespaceMetadataPathParams extends SpeakeasyBase {
+export class ManagementGetNamespaceMetadataRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  getNamespaceMetadataRequest: shared.GetNamespaceMetadataRequest;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=metadataKey",
   })
   metadataKey: string;
-}
-
-export class ManagementGetNamespaceMetadataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ManagementGetNamespaceMetadataPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.GetNamespaceMetadataRequest;
 }
 
 export class ManagementGetNamespaceMetadataResponse extends SpeakeasyBase {

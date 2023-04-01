@@ -55,7 +55,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents/{id}",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -63,7 +63,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createByIdRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -142,7 +142,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -150,7 +150,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createDocumentRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -227,7 +227,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -235,7 +235,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "deleteDocumentRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -307,7 +307,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{name}",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -315,7 +315,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "deleteIndexRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -394,7 +394,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents/search",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -402,7 +402,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "searchIndexRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -478,12 +478,12 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -540,7 +540,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{name}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
@@ -600,12 +600,12 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -666,7 +666,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents/deleteByQuery",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -674,7 +674,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "deleteByQueryRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -752,7 +752,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -760,7 +760,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createOrReplaceDocumentRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -838,7 +838,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{index}/documents",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -846,7 +846,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "updateDocumentRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -918,7 +918,7 @@ export class Search {
     const url: string = utils.generateURL(
       baseURL,
       "/v1/projects/{project}/search/indexes/{name}",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -926,7 +926,7 @@ export class Search {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "request",
+        "createOrUpdateIndexRequest",
         "json"
       );
     } catch (e: unknown) {

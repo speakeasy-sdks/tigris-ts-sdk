@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisBeginTransactionPathParams extends SpeakeasyBase {
+export class TigrisBeginTransactionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  beginTransactionRequest: shared.BeginTransactionRequest;
+
   /**
    * Project name whose DB this transaction belongs to.
    */
@@ -14,14 +17,6 @@ export class TigrisBeginTransactionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisBeginTransactionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisBeginTransactionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.BeginTransactionRequest;
 }
 
 export class TigrisBeginTransactionResponse extends SpeakeasyBase {

@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisCreateOrUpdateCollectionPathParams extends SpeakeasyBase {
+export class TigrisCreateOrUpdateCollectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  createOrUpdateCollectionRequest: shared.CreateOrUpdateCollectionRequest;
+
   /**
    * Collection name to create.
    */
@@ -22,14 +25,6 @@ export class TigrisCreateOrUpdateCollectionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisCreateOrUpdateCollectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisCreateOrUpdateCollectionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.CreateOrUpdateCollectionRequest;
 }
 
 export class TigrisCreateOrUpdateCollectionResponse extends SpeakeasyBase {

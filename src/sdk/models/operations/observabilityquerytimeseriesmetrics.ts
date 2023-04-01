@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ObservabilityQueryTimeSeriesMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.QueryTimeSeriesMetricsRequest;
-}
-
 export class ObservabilityQueryTimeSeriesMetricsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;

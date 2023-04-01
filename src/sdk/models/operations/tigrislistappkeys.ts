@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisListAppKeysPathParams extends SpeakeasyBase {
+export class TigrisListAppKeysRequest extends SpeakeasyBase {
   /**
    * Project name filter
    */
@@ -14,11 +14,6 @@ export class TigrisListAppKeysPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisListAppKeysRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisListAppKeysPathParams;
 }
 
 export class TigrisListAppKeysResponse extends SpeakeasyBase {

@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisDeleteProjectPathParams extends SpeakeasyBase {
+export class TigrisDeleteProjectRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody: Record<string, any>;
+
   /**
    * Delete Project with this name. <p></p>**Note**: Deletes all resources under this project. Use with caution.
    */
@@ -14,14 +17,6 @@ export class TigrisDeleteProjectPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisDeleteProjectRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisDeleteProjectPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: Record<string, any>;
 }
 
 export class TigrisDeleteProjectResponse extends SpeakeasyBase {

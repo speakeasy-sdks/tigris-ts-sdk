@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class TigrisDeletePathParams extends SpeakeasyBase {
+export class TigrisDeleteRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  deleteRequest: shared.DeleteRequest;
+
   /**
    * Collection name where to insert documents.
    */
@@ -22,14 +25,6 @@ export class TigrisDeletePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=project",
   })
   project: string;
-}
-
-export class TigrisDeleteRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TigrisDeletePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request: shared.DeleteRequest;
 }
 
 export class TigrisDeleteResponse extends SpeakeasyBase {
