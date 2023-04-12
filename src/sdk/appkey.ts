@@ -97,7 +97,7 @@ export class AppKey {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteAppKeyResponse = utils.deserializeJSONResponse(
+            res.deleteAppKeyResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteAppKeyResponse
             );
@@ -105,10 +105,7 @@ export class AppKey {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -160,7 +157,7 @@ export class AppKey {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAppKeysResponse = utils.deserializeJSONResponse(
+            res.listAppKeysResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListAppKeysResponse
             );
@@ -168,10 +165,7 @@ export class AppKey {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -243,7 +237,7 @@ export class AppKey {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rotateAppKeyResponse = utils.deserializeJSONResponse(
+            res.rotateAppKeyResponse = utils.objectToClass(
               httpRes?.data,
               shared.RotateAppKeyResponse
             );
@@ -251,10 +245,7 @@ export class AppKey {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -326,7 +317,7 @@ export class AppKey {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createAppKeyResponse = utils.deserializeJSONResponse(
+            res.createAppKeyResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateAppKeyResponse
             );
@@ -334,10 +325,7 @@ export class AppKey {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -409,7 +397,7 @@ export class AppKey {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateAppKeyResponse = utils.deserializeJSONResponse(
+            res.updateAppKeyResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateAppKeyResponse
             );
@@ -417,10 +405,7 @@ export class AppKey {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

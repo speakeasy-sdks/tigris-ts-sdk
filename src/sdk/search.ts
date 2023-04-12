@@ -100,7 +100,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createByIdResponse = utils.deserializeJSONResponse(
+            res.createByIdResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateByIdResponse
             );
@@ -108,10 +108,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -187,7 +184,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDocumentResponse = utils.deserializeJSONResponse(
+            res.createDocumentResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateDocumentResponse
             );
@@ -195,10 +192,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -272,7 +266,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteDocumentResponse = utils.deserializeJSONResponse(
+            res.deleteDocumentResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteDocumentResponse
             );
@@ -280,10 +274,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -352,7 +343,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteIndexResponse = utils.deserializeJSONResponse(
+            res.deleteIndexResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteIndexResponse
             );
@@ -360,10 +351,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -439,7 +427,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.searchIndexResponse = utils.deserializeJSONResponse(
+            res.searchIndexResponse = utils.objectToClass(
               httpRes?.data,
               shared.SearchIndexResponse
             );
@@ -447,10 +435,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -505,7 +490,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDocumentResponse = utils.deserializeJSONResponse(
+            res.getDocumentResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetDocumentResponse
             );
@@ -513,10 +498,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -565,7 +547,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getIndexResponse = utils.deserializeJSONResponse(
+            res.getIndexResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetIndexResponse
             );
@@ -573,10 +555,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -627,7 +606,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listIndexesResponse = utils.deserializeJSONResponse(
+            res.listIndexesResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListIndexesResponse
             );
@@ -635,10 +614,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -711,7 +687,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteByQueryResponse = utils.deserializeJSONResponse(
+            res.deleteByQueryResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteByQueryResponse
             );
@@ -719,10 +695,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -797,7 +770,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrReplaceDocumentResponse = utils.deserializeJSONResponse(
+            res.createOrReplaceDocumentResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateOrReplaceDocumentResponse
             );
@@ -805,10 +778,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -883,7 +853,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateDocumentResponse = utils.deserializeJSONResponse(
+            res.updateDocumentResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateDocumentResponse
             );
@@ -891,10 +861,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -963,7 +930,7 @@ export class Search {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrUpdateIndexResponse = utils.deserializeJSONResponse(
+            res.createOrUpdateIndexResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateOrUpdateIndexResponse
             );
@@ -971,10 +938,7 @@ export class Search {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

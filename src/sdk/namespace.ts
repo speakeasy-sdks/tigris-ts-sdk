@@ -94,7 +94,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createNamespaceResponse = utils.deserializeJSONResponse(
+            res.createNamespaceResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateNamespaceResponse
             );
@@ -102,10 +102,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -149,7 +146,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeNamespacesResponse = utils.deserializeJSONResponse(
+            res.describeNamespacesResponse = utils.objectToClass(
               httpRes?.data,
               shared.DescribeNamespacesResponse
             );
@@ -157,10 +154,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -232,7 +226,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getNamespaceMetadataResponse = utils.deserializeJSONResponse(
+            res.getNamespaceMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetNamespaceMetadataResponse
             );
@@ -240,10 +234,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -315,7 +306,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertNamespaceMetadataResponse = utils.deserializeJSONResponse(
+            res.insertNamespaceMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.InsertNamespaceMetadataResponse
             );
@@ -323,10 +314,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -370,7 +358,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listNamespacesResponse = utils.deserializeJSONResponse(
+            res.listNamespacesResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListNamespacesResponse
             );
@@ -378,10 +366,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -453,7 +438,7 @@ export class Namespace {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateNamespaceMetadataResponse = utils.deserializeJSONResponse(
+            res.updateNamespaceMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateNamespaceMetadataResponse
             );
@@ -461,10 +446,7 @@ export class Namespace {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

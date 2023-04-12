@@ -97,7 +97,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createProjectResponse = utils.deserializeJSONResponse(
+            res.createProjectResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateProjectResponse
             );
@@ -105,10 +105,7 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -180,7 +177,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteProjectResponse = utils.deserializeJSONResponse(
+            res.deleteProjectResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteProjectResponse
             );
@@ -188,10 +185,7 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -234,7 +228,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listProjectsResponse = utils.deserializeJSONResponse(
+            res.listProjectsResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListProjectsResponse
             );
@@ -242,10 +236,7 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

@@ -94,7 +94,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCacheResponse = utils.deserializeJSONResponse(
+            res.createCacheResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateCacheResponse
             );
@@ -102,10 +102,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -174,7 +171,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCacheResponse = utils.deserializeJSONResponse(
+            res.deleteCacheResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteCacheResponse
             );
@@ -182,10 +179,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -253,7 +247,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.delResponse = utils.deserializeJSONResponse(
+            res.delResponse = utils.objectToClass(
               httpRes?.data,
               shared.DelResponse
             );
@@ -261,10 +255,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -312,7 +303,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getResponse = utils.deserializeJSONResponse(
+            res.getResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetResponse
             );
@@ -320,10 +311,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -392,7 +380,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSetResponse = utils.deserializeJSONResponse(
+            res.getSetResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetSetResponse
             );
@@ -400,10 +388,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -452,7 +437,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCachesResponse = utils.deserializeJSONResponse(
+            res.listCachesResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListCachesResponse
             );
@@ -460,10 +445,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -514,7 +496,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.keysResponse = utils.deserializeJSONResponse(
+            res.keysResponse = utils.objectToClass(
               httpRes?.data,
               shared.KeysResponse
             );
@@ -522,10 +504,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -593,7 +572,7 @@ export class Cache {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.setResponse = utils.deserializeJSONResponse(
+            res.setResponse = utils.objectToClass(
               httpRes?.data,
               shared.SetResponse
             );
@@ -601,10 +580,7 @@ export class Cache {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

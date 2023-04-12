@@ -99,7 +99,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.beginTransactionResponse = utils.deserializeJSONResponse(
+            res.beginTransactionResponse = utils.objectToClass(
               httpRes?.data,
               shared.BeginTransactionResponse
             );
@@ -107,10 +107,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -183,7 +180,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.commitTransactionResponse = utils.deserializeJSONResponse(
+            res.commitTransactionResponse = utils.objectToClass(
               httpRes?.data,
               shared.CommitTransactionResponse
             );
@@ -191,10 +188,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -266,7 +260,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBranchResponse = utils.deserializeJSONResponse(
+            res.createBranchResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBranchResponse
             );
@@ -274,10 +268,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -350,7 +341,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteBranchResponse = utils.deserializeJSONResponse(
+            res.deleteBranchResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteBranchResponse
             );
@@ -358,10 +349,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -434,7 +422,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeDatabaseResponse = utils.deserializeJSONResponse(
+            res.describeDatabaseResponse = utils.objectToClass(
               httpRes?.data,
               shared.DescribeDatabaseResponse
             );
@@ -442,10 +430,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -499,7 +484,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCollectionsResponse = utils.deserializeJSONResponse(
+            res.listCollectionsResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListCollectionsResponse
             );
@@ -507,10 +492,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -583,7 +565,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rollbackTransactionResponse = utils.deserializeJSONResponse(
+            res.rollbackTransactionResponse = utils.objectToClass(
               httpRes?.data,
               shared.RollbackTransactionResponse
             );
@@ -591,10 +573,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -646,7 +625,7 @@ export class Database {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBranchesResponse = utils.deserializeJSONResponse(
+            res.listBranchesResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListBranchesResponse
             );
@@ -654,10 +633,7 @@ export class Database {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

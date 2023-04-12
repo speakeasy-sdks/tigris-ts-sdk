@@ -74,7 +74,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getRTChannelResponse = utils.deserializeJSONResponse(
+            res.getRTChannelResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetRTChannelResponse
             );
@@ -82,10 +82,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -136,7 +133,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.readMessagesResponse = utils.deserializeJSONResponse(
+            res.readMessagesResponse = utils.objectToClass(
               httpRes?.data,
               shared.ReadMessagesResponse
             );
@@ -144,10 +141,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -196,7 +190,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getRTChannelsResponse = utils.deserializeJSONResponse(
+            res.getRTChannelsResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetRTChannelsResponse
             );
@@ -204,10 +198,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -258,7 +249,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSubscriptionResponse = utils.deserializeJSONResponse(
+            res.listSubscriptionResponse = utils.objectToClass(
               httpRes?.data,
               shared.ListSubscriptionResponse
             );
@@ -266,10 +257,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -338,7 +326,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messagesResponse = utils.deserializeJSONResponse(
+            res.messagesResponse = utils.objectToClass(
               httpRes?.data,
               shared.MessagesResponse
             );
@@ -346,10 +334,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -398,7 +383,7 @@ export class Channel {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.presenceResponse = utils.deserializeJSONResponse(
+            res.presenceResponse = utils.objectToClass(
               httpRes?.data,
               shared.PresenceResponse
             );
@@ -406,10 +391,7 @@ export class Channel {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

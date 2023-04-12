@@ -101,19 +101,15 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrUpdateCollectionResponse =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                shared.CreateOrUpdateCollectionResponse
-              );
+            res.createOrUpdateCollectionResponse = utils.objectToClass(
+              httpRes?.data,
+              shared.CreateOrUpdateCollectionResponse
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -185,7 +181,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteResponse = utils.deserializeJSONResponse(
+            res.deleteResponse = utils.objectToClass(
               httpRes?.data,
               shared.DeleteResponse
             );
@@ -193,10 +189,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -268,7 +261,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeCollectionResponse = utils.deserializeJSONResponse(
+            res.describeCollectionResponse = utils.objectToClass(
               httpRes?.data,
               shared.DescribeCollectionResponse
             );
@@ -276,10 +269,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -352,7 +342,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dropCollectionResponse = utils.deserializeJSONResponse(
+            res.dropCollectionResponse = utils.objectToClass(
               httpRes?.data,
               shared.DropCollectionResponse
             );
@@ -360,10 +350,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -440,7 +427,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.importResponse = utils.deserializeJSONResponse(
+            res.importResponse = utils.objectToClass(
               httpRes?.data,
               shared.ImportResponse
             );
@@ -448,10 +435,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -525,7 +509,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertResponse = utils.deserializeJSONResponse(
+            res.insertResponse = utils.objectToClass(
               httpRes?.data,
               shared.InsertResponse
             );
@@ -533,10 +517,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -613,7 +594,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.streamingReadResponse = utils.deserializeJSONResponse(
+            res.streamingReadResponse = utils.objectToClass(
               httpRes?.data,
               shared.StreamingReadResponse
             );
@@ -621,10 +602,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -696,7 +674,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.replaceResponse = utils.deserializeJSONResponse(
+            res.replaceResponse = utils.objectToClass(
               httpRes?.data,
               shared.ReplaceResponse
             );
@@ -704,10 +682,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -782,7 +757,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.streamingSearchResponse = utils.deserializeJSONResponse(
+            res.streamingSearchResponse = utils.objectToClass(
               httpRes?.data,
               shared.StreamingSearchResponse
             );
@@ -790,10 +765,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -865,7 +837,7 @@ export class Collection {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateResponse = utils.deserializeJSONResponse(
+            res.updateResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateResponse
             );
@@ -873,10 +845,7 @@ export class Collection {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

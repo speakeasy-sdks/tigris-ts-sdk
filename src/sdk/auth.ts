@@ -70,7 +70,7 @@ export class Auth {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAccessTokenResponse = utils.deserializeJSONResponse(
+            res.getAccessTokenResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetAccessTokenResponse
             );
@@ -78,10 +78,7 @@ export class Auth {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

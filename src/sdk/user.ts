@@ -97,7 +97,7 @@ export class User {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getUserMetadataResponse = utils.deserializeJSONResponse(
+            res.getUserMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetUserMetadataResponse
             );
@@ -105,10 +105,7 @@ export class User {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -180,7 +177,7 @@ export class User {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertUserMetadataResponse = utils.deserializeJSONResponse(
+            res.insertUserMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.InsertUserMetadataResponse
             );
@@ -188,10 +185,7 @@ export class User {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -263,7 +257,7 @@ export class User {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateUserMetadataResponse = utils.deserializeJSONResponse(
+            res.updateUserMetadataResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateUserMetadataResponse
             );
@@ -271,10 +265,7 @@ export class User {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }

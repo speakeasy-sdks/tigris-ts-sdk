@@ -68,7 +68,7 @@ export class System {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.healthCheckResponse = utils.deserializeJSONResponse(
+            res.healthCheckResponse = utils.objectToClass(
               httpRes?.data,
               shared.HealthCheckResponse
             );
@@ -76,10 +76,7 @@ export class System {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -122,7 +119,7 @@ export class System {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getInfoResponse = utils.deserializeJSONResponse(
+            res.getInfoResponse = utils.objectToClass(
               httpRes?.data,
               shared.GetInfoResponse
             );
@@ -130,10 +127,7 @@ export class System {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -198,7 +192,7 @@ export class System {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.quotaUsageResponse = utils.deserializeJSONResponse(
+            res.quotaUsageResponse = utils.objectToClass(
               httpRes?.data,
               shared.QuotaUsageResponse
             );
@@ -206,10 +200,7 @@ export class System {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -274,7 +265,7 @@ export class System {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.quotaLimitsResponse = utils.deserializeJSONResponse(
+            res.quotaLimitsResponse = utils.objectToClass(
               httpRes?.data,
               shared.QuotaLimitsResponse
             );
@@ -282,10 +273,7 @@ export class System {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -354,7 +342,7 @@ export class System {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.queryTimeSeriesMetricsResponse = utils.deserializeJSONResponse(
+            res.queryTimeSeriesMetricsResponse = utils.objectToClass(
               httpRes?.data,
               shared.QueryTimeSeriesMetricsResponse
             );
@@ -362,10 +350,7 @@ export class System {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
