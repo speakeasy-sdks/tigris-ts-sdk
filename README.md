@@ -34,9 +34,9 @@ const sdk = new SDK({
 
 const req: TigrisDeleteAppKeyRequest = {
   deleteAppKeyRequest: {
-    id: "corrupti",
+    id: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
   },
-  project: "provident",
+  project: "deserunt",
 };
 
 sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
