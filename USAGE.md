@@ -1,12 +1,10 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  TigrisDeleteAppKeyRequest,
-  TigrisDeleteAppKeyResponse
-} from "tigris-core/dist/sdk/models/operations";
-
 import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
+import { TigrisDeleteAppKeyRequest, TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+
 const sdk = new SDK({
   security: {
     bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
@@ -21,7 +19,9 @@ const req: TigrisDeleteAppKeyRequest = {
 };
 
 sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

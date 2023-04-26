@@ -243,4 +243,16 @@ src/sdk/models/shared/updateusermetadataresponse.ts
 src/sdk/models/shared/updateusermetadatarequest.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/sdk/README.md
+docs/appkey/README.md
+docs/auth/README.md
+docs/cache/README.md
+docs/channel/README.md
+docs/collection/README.md
+docs/database/README.md
+docs/namespace/README.md
+docs/project/README.md
+docs/search/README.md
+docs/system/README.md
+docs/user/README.md
 USAGE.md
