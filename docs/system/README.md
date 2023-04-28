@@ -19,7 +19,6 @@ This endpoint can be used to check the liveness of the server.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { HealthAPIHealthResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -30,8 +29,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.system.getHealth().then((res: HealthAPIHealthResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.system.getHealth().then((res: HealthAPIHealthResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -44,7 +43,6 @@ Provides the information about the server. This information includes returning t
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { ObservabilityGetInfoResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -55,8 +53,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.system.getServerInfo().then((res: ObservabilityGetInfoResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.system.getServerInfo().then((res: ObservabilityGetInfoResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -69,9 +67,8 @@ Returns current namespace quota limits
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { , ObservabilityQuotaUsageResponse } from "tigris-core/dist/sdk/models/operations";
+import { ObservabilityQuotaUsageResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -80,13 +77,11 @@ const sdk = new SDK({
   },
 });
 
-const req: . = {
+sdk.system.observabilityQuotaUsage({
   "quasi": "a",
   "error": "sint",
-};
-
-sdk.system.observabilityQuotaUsage(req).then((res: ObservabilityQuotaUsageResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ObservabilityQuotaUsageResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -99,9 +94,8 @@ Returns current namespace quota limits
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { , ObservabilityQuotaLimitsResponse } from "tigris-core/dist/sdk/models/operations";
+import { ObservabilityQuotaLimitsResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -110,15 +104,13 @@ const sdk = new SDK({
   },
 });
 
-const req: . = {
+sdk.system.queryQuotaLimits({
   "possimus": "quia",
   "eveniet": "asperiores",
   "facere": "veritatis",
   "consequuntur": "quasi",
-};
-
-sdk.system.queryQuotaLimits(req).then((res: ObservabilityQuotaLimitsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ObservabilityQuotaLimitsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -131,9 +123,8 @@ Queries time series metrics
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { ObservabilityQueryTimeSeriesMetricsResponse, QueryTimeSeriesMetricsRequest } from "tigris-core/dist/sdk/models/operations";
+import { ObservabilityQueryTimeSeriesMetricsResponse } from "tigris-core/dist/sdk/models/operations";
 import {
   ErrorCodeEnum,
   QueryTimeSeriesMetricsRequestFunctionEnum,
@@ -148,7 +139,7 @@ const sdk = new SDK({
   },
 });
 
-const req: shared.QueryTimeSeriesMetricsRequest = {
+sdk.system.queryTimeSeriesMetrics({
   additionalFunctions: [
     {
       rollup: {
@@ -185,10 +176,8 @@ const req: shared.QueryTimeSeriesMetricsRequest = {
   spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregationEnum.Min,
   tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperationEnum.All,
   to: 531849,
-};
-
-sdk.system.queryTimeSeriesMetrics(req).then((res: ObservabilityQueryTimeSeriesMetricsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

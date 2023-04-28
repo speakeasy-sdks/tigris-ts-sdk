@@ -17,9 +17,8 @@ GetUserMetadata inserts the user metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { ManagementGetUserMetadataRequest, ManagementGetUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
+import { ManagementGetUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -28,7 +27,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementGetUserMetadataRequest = {
+sdk.user.getMetadata({
   getUserMetadataRequest: {
     metadataKey: "qui",
     value: {
@@ -39,10 +38,8 @@ const req: ManagementGetUserMetadataRequest = {
     },
   },
   metadataKey: "at",
-};
-
-sdk.user.getMetadata(req).then((res: ManagementGetUserMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementGetUserMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -55,9 +52,8 @@ insertUserMetadata inserts the user metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { ManagementInsertUserMetadataRequest, ManagementInsertUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
+import { ManagementInsertUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -66,7 +62,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementInsertUserMetadataRequest = {
+sdk.user.insertMetadata({
   insertUserMetadataRequest: {
     metadataKey: "et",
     value: {
@@ -75,10 +71,8 @@ const req: ManagementInsertUserMetadataRequest = {
     },
   },
   metadataKey: "adipisci",
-};
-
-sdk.user.insertMetadata(req).then((res: ManagementInsertUserMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementInsertUserMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -91,9 +85,8 @@ updateUserMetadata updates the user metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { ManagementUpdateUserMetadataRequest, ManagementUpdateUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
+import { ManagementUpdateUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -102,7 +95,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementUpdateUserMetadataRequest = {
+sdk.user.updateMetadata({
   updateUserMetadataRequest: {
     metadataKey: "iste",
     value: {
@@ -113,10 +106,8 @@ const req: ManagementUpdateUserMetadataRequest = {
     },
   },
   metadataKey: "non",
-};
-
-sdk.user.updateMetadata(req).then((res: ManagementUpdateUserMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementUpdateUserMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

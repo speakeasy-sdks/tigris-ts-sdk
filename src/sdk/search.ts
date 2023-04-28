@@ -43,7 +43,7 @@ export class Search {
    *  the document and the document already exists then that document will not be indexed and an error is returned
    *  with HTTP status code 409.
    */
-  createDocument(
+  async createDocument(
     req: operations.SearchCreateByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchCreateByIdResponse> {
@@ -78,7 +78,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -86,35 +87,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchCreateByIdResponse =
-        new operations.SearchCreateByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createByIdResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateByIdResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchCreateByIdResponse =
+      new operations.SearchCreateByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createByIdResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateByIdResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -127,7 +128,7 @@ export class Search {
    *  document will not be indexed and in the response there will be an error corresponding to that document id other
    *  documents will succeed. Returns an array of status indicating the status of each document.
    */
-  createDocuments(
+  async createDocuments(
     req: operations.SearchCreateRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchCreateResponse> {
@@ -162,7 +163,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -170,35 +172,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchCreateResponse =
-        new operations.SearchCreateResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDocumentResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateDocumentResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchCreateResponse =
+      new operations.SearchCreateResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createDocumentResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateDocumentResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -209,7 +211,7 @@ export class Search {
    *  has an error field that is set to null in case document is deleted successfully otherwise it will non null with
    *  an error code and message.
    */
-  deleteDocuments(
+  async deleteDocuments(
     req: operations.SearchDeleteRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchDeleteResponse> {
@@ -244,7 +246,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -252,41 +255,41 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchDeleteResponse =
-        new operations.SearchDeleteResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteDocumentResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteDocumentResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchDeleteResponse =
+      new operations.SearchDeleteResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteDocumentResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteDocumentResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Deletes search index
    */
-  deleteIndex(
+  async deleteIndex(
     req: operations.SearchDeleteIndexRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchDeleteIndexResponse> {
@@ -321,7 +324,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -329,35 +333,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchDeleteIndexResponse =
-        new operations.SearchDeleteIndexResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteIndexResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteIndexResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchDeleteIndexResponse =
+      new operations.SearchDeleteIndexResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteIndexResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteIndexResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -370,7 +374,7 @@ export class Search {
    *  a faceted search by passing the fields in the facet parameter. You can find more detailed documentation of the
    *  Search API with multiple examples <a href="https://docs.tigrisdata.com/overview/search" title="here">here</a>.
    */
-  findDocuments(
+  async findDocuments(
     req: operations.SearchSearchRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchSearchResponse> {
@@ -405,7 +409,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -413,35 +418,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchSearchResponse =
-        new operations.SearchSearchResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.searchIndexResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.SearchIndexResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchSearchResponse =
+      new operations.SearchSearchResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.searchIndexResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.SearchIndexResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -451,7 +456,7 @@ export class Search {
    * Retrieves one or more documents by id. The response is an array of documents in the same order it is requests.
    *  A null is returned for the documents that are not found.
    */
-  getDocuments(
+  async getDocuments(
     req: operations.SearchGetRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchGetResponse> {
@@ -470,47 +475,47 @@ export class Search {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchGetResponse =
-        new operations.SearchGetResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDocumentResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetDocumentResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.SearchGetResponse = new operations.SearchGetResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getDocumentResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetDocumentResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get information about a search index
    */
-  getIndex(
+  async getIndex(
     req: operations.SearchGetIndexRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchGetIndexResponse> {
@@ -527,47 +532,48 @@ export class Search {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchGetIndexResponse =
-        new operations.SearchGetIndexResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getIndexResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetIndexResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchGetIndexResponse =
+      new operations.SearchGetIndexResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getIndexResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetIndexResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * List search indexes
    */
-  listIndexes(
+  async listIndexes(
     req: operations.SearchListIndexesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchListIndexesResponse> {
@@ -586,41 +592,42 @@ export class Search {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchListIndexesResponse =
-        new operations.SearchListIndexesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listIndexesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListIndexesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchListIndexesResponse =
+      new operations.SearchListIndexesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listIndexesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListIndexesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -630,7 +637,7 @@ export class Search {
    * DeleteByQuery is used to delete documents that match the filter. A filter is required. To delete document by id,
    *  you can pass the filter as follows ```{"id": "test"}```. Returns a count of number of documents deleted.
    */
-  queryDeleteDocuments(
+  async queryDeleteDocuments(
     req: operations.SearchDeleteByQueryRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchDeleteByQueryResponse> {
@@ -665,7 +672,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -673,35 +681,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchDeleteByQueryResponse =
-        new operations.SearchDeleteByQueryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteByQueryResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteByQueryResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchDeleteByQueryResponse =
+      new operations.SearchDeleteByQueryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteByQueryResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteByQueryResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -713,7 +721,7 @@ export class Search {
    *  document is created if "id" doesn't exists otherwise it is replaced. Returns an array of status indicating
    *  the status of each document.
    */
-  replaceDocuments(
+  async replaceDocuments(
     req: operations.SearchCreateOrReplaceRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchCreateOrReplaceResponse> {
@@ -748,7 +756,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -756,35 +765,35 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchCreateOrReplaceResponse =
-        new operations.SearchCreateOrReplaceResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrReplaceDocumentResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateOrReplaceDocumentResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchCreateOrReplaceResponse =
+      new operations.SearchCreateOrReplaceResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createOrReplaceDocumentResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateOrReplaceDocumentResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -796,7 +805,7 @@ export class Search {
    *  has an error field that is set to null in case document is updated successfully otherwise the error
    *  field is set with a code and message.
    */
-  updateDocuments(
+  async updateDocuments(
     req: operations.SearchUpdateRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchUpdateResponse> {
@@ -831,7 +840,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "patch",
       headers: headers,
@@ -839,41 +849,41 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchUpdateResponse =
-        new operations.SearchUpdateResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateDocumentResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.UpdateDocumentResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchUpdateResponse =
+      new operations.SearchUpdateResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateDocumentResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.UpdateDocumentResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates or updates search index
    */
-  updateIndex(
+  async updateIndex(
     req: operations.SearchCreateOrUpdateIndexRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SearchCreateOrUpdateIndexResponse> {
@@ -908,7 +918,8 @@ export class Search {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -916,34 +927,34 @@ export class Search {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SearchCreateOrUpdateIndexResponse =
-        new operations.SearchCreateOrUpdateIndexResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrUpdateIndexResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateOrUpdateIndexResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SearchCreateOrUpdateIndexResponse =
+      new operations.SearchCreateOrUpdateIndexResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createOrUpdateIndexResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateOrUpdateIndexResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

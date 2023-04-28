@@ -22,9 +22,8 @@ Creates the cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheCreateCacheRequest, CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -33,7 +32,7 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheCreateCacheRequest = {
+sdk.cache.create({
   createCacheRequest: {
     options: {
       ttlMs: 509624,
@@ -41,10 +40,8 @@ const req: CacheCreateCacheRequest = {
   },
   name: "Jose Moen",
   project: "perferendis",
-};
-
-sdk.cache.create(req).then((res: CacheCreateCacheResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheCreateCacheResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -57,9 +54,8 @@ Deletes the cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheDeleteCacheRequest, CacheDeleteCacheResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheDeleteCacheResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -68,16 +64,14 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheDeleteCacheRequest = {
+sdk.cache.delete({
   requestBody: {
     "reprehenderit": "ut",
   },
   name: "Willie Hessel",
   project: "dicta",
-};
-
-sdk.cache.delete(req).then((res: CacheDeleteCacheResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheDeleteCacheResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -90,9 +84,8 @@ Deletes an entry from cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheDelRequest, CacheDelResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheDelResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -101,7 +94,7 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheDelRequest = {
+sdk.cache.deleteKeys({
   requestBody: {
     "enim": "accusamus",
     "commodi": "repudiandae",
@@ -110,10 +103,8 @@ const req: CacheDelRequest = {
   key: "quidem",
   name: "Andy Streich",
   project: "rem",
-};
-
-sdk.cache.deleteKeys(req).then((res: CacheDelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheDelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -126,9 +117,8 @@ Reads an entry from cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheGetRequest, CacheGetResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheGetResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -137,14 +127,12 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheGetRequest = {
+sdk.cache.getKey({
   key: "voluptates",
   name: "Dr. Casey Mayer",
   project: "enim",
-};
-
-sdk.cache.getKey(req).then((res: CacheGetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheGetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -157,9 +145,8 @@ Sets an entry in the cache and returns the previous value if exists
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheGetSetRequest, CacheGetSetResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheGetSetResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -168,17 +155,15 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheGetSetRequest = {
+sdk.cache.getSetKey({
   getSetRequest: {
     value: "consequatur",
   },
   key: "est",
   name: "Benjamin O'Connell",
   project: "labore",
-};
-
-sdk.cache.getSetKey(req).then((res: CacheGetSetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheGetSetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -191,9 +176,8 @@ Lists all the caches for the given project
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheListCachesRequest, CacheListCachesResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheListCachesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -202,12 +186,10 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheListCachesRequest = {
+sdk.cache.list({
   project: "modi",
-};
-
-sdk.cache.list(req).then((res: CacheListCachesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheListCachesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -220,9 +202,8 @@ Lists all the key for this cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheKeysRequest, CacheKeysResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheKeysResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -231,16 +212,14 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheKeysRequest = {
+sdk.cache.listKeys({
   count: 183191,
   cursor: 397821,
   name: "Isaac Aufderhar",
   pattern: "ipsam",
   project: "alias",
-};
-
-sdk.cache.listKeys(req).then((res: CacheKeysResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheKeysResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -253,9 +232,8 @@ Sets an entry in the cache
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CacheSetRequest, CacheSetResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheSetResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -264,7 +242,7 @@ const sdk = new SDK({
   },
 });
 
-const req: CacheSetRequest = {
+sdk.cache.setKey({
   setRequest: {
     ex: 146441,
     nx: false,
@@ -275,10 +253,8 @@ const req: CacheSetRequest = {
   key: "tempora",
   name: "Geoffrey Green",
   project: "non",
-};
-
-sdk.cache.setKey(req).then((res: CacheSetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CacheSetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -42,7 +42,7 @@ export class Auth {
    *  two possible values <i>"REFRESH_TOKEN"</i> or <i>"CLIENT_CREDENTIALS"</i> based on which either Refresh token(`refresh_token`)
    *  needs to be set or client credentials(`client_id`, `client_secret`).
    */
-  get(
+  async get(
     config?: AxiosRequestConfig
   ): Promise<operations.AuthGetAccessTokenResponse> {
     const baseURL: string = this._serverURL;
@@ -50,40 +50,41 @@ export class Auth {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.AuthGetAccessTokenResponse =
-        new operations.AuthGetAccessTokenResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAccessTokenResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetAccessTokenResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.AuthGetAccessTokenResponse =
+      new operations.AuthGetAccessTokenResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getAccessTokenResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetAccessTokenResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

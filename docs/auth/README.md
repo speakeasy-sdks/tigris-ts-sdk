@@ -17,7 +17,6 @@ Endpoint for receiving access token from Tigris Server. The endpoint requires Gr
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { AuthGetAccessTokenResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -28,8 +27,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.auth.get().then((res: AuthGetAccessTokenResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.auth.get().then((res: AuthGetAccessTokenResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -40,7 +40,7 @@ export class User {
    * @remarks
    * GetUserMetadata inserts the user metadata object
    */
-  getMetadata(
+  async getMetadata(
     req: operations.ManagementGetUserMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementGetUserMetadataResponse> {
@@ -75,7 +75,8 @@ export class User {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -83,35 +84,35 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementGetUserMetadataResponse =
-        new operations.ManagementGetUserMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getUserMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetUserMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementGetUserMetadataResponse =
+      new operations.ManagementGetUserMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getUserMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetUserMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -120,7 +121,7 @@ export class User {
    * @remarks
    * insertUserMetadata inserts the user metadata object
    */
-  insertMetadata(
+  async insertMetadata(
     req: operations.ManagementInsertUserMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementInsertUserMetadataResponse> {
@@ -155,7 +156,8 @@ export class User {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -163,35 +165,35 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementInsertUserMetadataResponse =
-        new operations.ManagementInsertUserMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertUserMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.InsertUserMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementInsertUserMetadataResponse =
+      new operations.ManagementInsertUserMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.insertUserMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.InsertUserMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -200,7 +202,7 @@ export class User {
    * @remarks
    * updateUserMetadata updates the user metadata object
    */
-  updateMetadata(
+  async updateMetadata(
     req: operations.ManagementUpdateUserMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementUpdateUserMetadataResponse> {
@@ -235,7 +237,8 @@ export class User {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -243,34 +246,34 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementUpdateUserMetadataResponse =
-        new operations.ManagementUpdateUserMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateUserMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.UpdateUserMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementUpdateUserMetadataResponse =
+      new operations.ManagementUpdateUserMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateUserMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.UpdateUserMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

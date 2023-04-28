@@ -37,7 +37,7 @@ export class Channel {
   /**
    * Get the details about a channel
    */
-  get(
+  async get(
     req: operations.RealtimeGetRTChannelRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeGetRTChannelResponse> {
@@ -54,47 +54,48 @@ export class Channel {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimeGetRTChannelResponse =
-        new operations.RealtimeGetRTChannelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getRTChannelResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetRTChannelResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimeGetRTChannelResponse =
+      new operations.RealtimeGetRTChannelResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getRTChannelResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetRTChannelResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get all messages for a channel
    */
-  getMessages(
+  async getMessages(
     req: operations.RealtimeReadMessagesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeReadMessagesResponse> {
@@ -113,47 +114,48 @@ export class Channel {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimeReadMessagesResponse =
-        new operations.RealtimeReadMessagesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.readMessagesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ReadMessagesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimeReadMessagesResponse =
+      new operations.RealtimeReadMessagesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.readMessagesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ReadMessagesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get all channels for your application project
    */
-  list(
+  async list(
     req: operations.RealtimeGetRTChannelsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeGetRTChannelsResponse> {
@@ -170,47 +172,48 @@ export class Channel {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimeGetRTChannelsResponse =
-        new operations.RealtimeGetRTChannelsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getRTChannelsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetRTChannelsResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimeGetRTChannelsResponse =
+      new operations.RealtimeGetRTChannelsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getRTChannelsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetRTChannelsResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get the subscriptions details about a channel
    */
-  listSubscriptions(
+  async listSubscriptions(
     req: operations.RealtimeListSubscriptionsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeListSubscriptionsResponse> {
@@ -229,47 +232,48 @@ export class Channel {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimeListSubscriptionsResponse =
-        new operations.RealtimeListSubscriptionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSubscriptionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListSubscriptionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimeListSubscriptionsResponse =
+      new operations.RealtimeListSubscriptionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listSubscriptionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListSubscriptionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * push messages to a single channel
    */
-  pushMessages(
+  async pushMessages(
     req: operations.RealtimeMessagesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimeMessagesResponse> {
@@ -304,7 +308,8 @@ export class Channel {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -312,41 +317,41 @@ export class Channel {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimeMessagesResponse =
-        new operations.RealtimeMessagesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messagesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.MessagesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimeMessagesResponse =
+      new operations.RealtimeMessagesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messagesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.MessagesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Presence about the channel
    */
-  realtimePresence(
+  async realtimePresence(
     req: operations.RealtimePresenceRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RealtimePresenceResponse> {
@@ -363,40 +368,41 @@ export class Channel {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RealtimePresenceResponse =
-        new operations.RealtimePresenceResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.presenceResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.PresenceResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RealtimePresenceResponse =
+      new operations.RealtimePresenceResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.presenceResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.PresenceResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

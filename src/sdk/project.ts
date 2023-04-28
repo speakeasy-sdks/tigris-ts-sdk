@@ -40,7 +40,7 @@ export class Project {
    * @remarks
    * Creates a new project. Returns an AlreadyExists error with a status code 409 if the project already exists.
    */
-  create(
+  async create(
     req: operations.TigrisCreateProjectRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisCreateProjectResponse> {
@@ -75,7 +75,8 @@ export class Project {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -83,35 +84,35 @@ export class Project {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisCreateProjectResponse =
-        new operations.TigrisCreateProjectResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createProjectResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateProjectResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisCreateProjectResponse =
+      new operations.TigrisCreateProjectResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createProjectResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateProjectResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -120,7 +121,7 @@ export class Project {
    * @remarks
    * Delete Project deletes all the collections in this project along with all of the documents, and associated metadata for these collections.
    */
-  deleteProject(
+  async deleteProject(
     req: operations.TigrisDeleteProjectRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDeleteProjectResponse> {
@@ -155,7 +156,8 @@ export class Project {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -163,35 +165,35 @@ export class Project {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDeleteProjectResponse =
-        new operations.TigrisDeleteProjectResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteProjectResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteProjectResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDeleteProjectResponse =
+      new operations.TigrisDeleteProjectResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteProjectResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteProjectResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -200,7 +202,7 @@ export class Project {
    * @remarks
    * List returns all the projects.
    */
-  list(
+  async list(
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisListProjectsResponse> {
     const baseURL: string = this._serverURL;
@@ -208,40 +210,41 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisListProjectsResponse =
-        new operations.TigrisListProjectsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listProjectsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListProjectsResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisListProjectsResponse =
+      new operations.TigrisListProjectsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listProjectsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListProjectsResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

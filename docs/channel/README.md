@@ -20,9 +20,8 @@ Get the details about a channel
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimeGetRTChannelRequest, RealtimeGetRTChannelResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimeGetRTChannelResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -31,13 +30,11 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimeGetRTChannelRequest = {
+sdk.channel.get({
   channel: "eligendi",
   project: "sint",
-};
-
-sdk.channel.get(req).then((res: RealtimeGetRTChannelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimeGetRTChannelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,9 +47,8 @@ Get all messages for a channel
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimeReadMessagesRequest, RealtimeReadMessagesResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimeReadMessagesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -61,7 +57,7 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimeReadMessagesRequest = {
+sdk.channel.getMessages({
   channel: "aliquid",
   end: "provident",
   event: "necessitatibus",
@@ -70,10 +66,8 @@ const req: RealtimeReadMessagesRequest = {
   sessionId: "dolor",
   socketId: "debitis",
   start: "a",
-};
-
-sdk.channel.getMessages(req).then((res: RealtimeReadMessagesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimeReadMessagesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -86,9 +80,8 @@ Get all channels for your application project
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimeGetRTChannelsRequest, RealtimeGetRTChannelsResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimeGetRTChannelsResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -97,12 +90,10 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimeGetRTChannelsRequest = {
+sdk.channel.list({
   project: "dolorum",
-};
-
-sdk.channel.list(req).then((res: RealtimeGetRTChannelsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimeGetRTChannelsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -115,9 +106,8 @@ Get the subscriptions details about a channel
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimeListSubscriptionsRequest, RealtimeListSubscriptionsResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimeListSubscriptionsResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -126,15 +116,13 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimeListSubscriptionsRequest = {
+sdk.channel.listSubscriptions({
   channel: "in",
   page: 449198,
   pageSize: 846409,
   project: "maiores",
-};
-
-sdk.channel.listSubscriptions(req).then((res: RealtimeListSubscriptionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimeListSubscriptionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -147,9 +135,8 @@ push messages to a single channel
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimeMessagesRequest, RealtimeMessagesResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimeMessagesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -158,7 +145,7 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimeMessagesRequest = {
+sdk.channel.pushMessages({
   messagesRequest: {
     channel: "rerum",
     messages: [
@@ -173,10 +160,8 @@ const req: RealtimeMessagesRequest = {
   },
   channel: "architecto",
   project: "magnam",
-};
-
-sdk.channel.pushMessages(req).then((res: RealtimeMessagesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimeMessagesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -189,9 +174,8 @@ Presence about the channel
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { RealtimePresenceRequest, RealtimePresenceResponse } from "tigris-core/dist/sdk/models/operations";
+import { RealtimePresenceResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -200,13 +184,11 @@ const sdk = new SDK({
   },
 });
 
-const req: RealtimePresenceRequest = {
+sdk.channel.realtimePresence({
   channel: "et",
   project: "excepturi",
-};
-
-sdk.channel.realtimePresence(req).then((res: RealtimePresenceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RealtimePresenceResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

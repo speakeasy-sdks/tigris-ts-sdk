@@ -17,9 +17,8 @@ Creates a new project. Returns an AlreadyExists error with a status code 409 if 
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisCreateProjectRequest, TigrisCreateProjectResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisCreateProjectResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -28,16 +27,14 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisCreateProjectRequest = {
+sdk.project.create({
   requestBody: {
     "aspernatur": "vel",
     "possimus": "magnam",
   },
   project: "ratione",
-};
-
-sdk.project.create(req).then((res: TigrisCreateProjectResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisCreateProjectResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,9 +47,8 @@ Delete Project deletes all the collections in this project along with all of the
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDeleteProjectRequest, TigrisDeleteProjectResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDeleteProjectResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -61,16 +57,14 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDeleteProjectRequest = {
+sdk.project.deleteProject({
   requestBody: {
     "laudantium": "dicta",
     "dolor": "maiores",
   },
   project: "quasi",
-};
-
-sdk.project.deleteProject(req).then((res: TigrisDeleteProjectResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDeleteProjectResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -83,7 +77,6 @@ List returns all the projects.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { TigrisListProjectsResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -94,8 +87,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.project.list().then((res: TigrisListProjectsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.project.list().then((res: TigrisListProjectsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

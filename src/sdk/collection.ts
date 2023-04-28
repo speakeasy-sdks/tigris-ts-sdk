@@ -44,7 +44,7 @@ export class Collection {
    *     <li> `DOCUMENTS`: Offers rich CRUD APIs.
    *     <li> `MESSAGES`: Offers event streaming APIs.
    */
-  create(
+  async create(
     req: operations.TigrisCreateOrUpdateCollectionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisCreateOrUpdateCollectionResponse> {
@@ -79,7 +79,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -87,35 +88,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisCreateOrUpdateCollectionResponse =
-        new operations.TigrisCreateOrUpdateCollectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createOrUpdateCollectionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateOrUpdateCollectionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisCreateOrUpdateCollectionResponse =
+      new operations.TigrisCreateOrUpdateCollectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createOrUpdateCollectionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateOrUpdateCollectionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -124,7 +125,7 @@ export class Collection {
    * @remarks
    * Delete a range of documents in the collection using the condition provided in the filter.
    */
-  deleteDocuments(
+  async deleteDocuments(
     req: operations.TigrisDeleteRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDeleteResponse> {
@@ -159,7 +160,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -167,35 +169,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDeleteResponse =
-        new operations.TigrisDeleteResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDeleteResponse =
+      new operations.TigrisDeleteResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -204,7 +206,7 @@ export class Collection {
    * @remarks
    * Returns the information related to the collection. This can be used to retrieve the schema or size of the collection.
    */
-  describe(
+  async describe(
     req: operations.TigrisDescribeCollectionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDescribeCollectionResponse> {
@@ -239,7 +241,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -247,35 +250,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDescribeCollectionResponse =
-        new operations.TigrisDescribeCollectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeCollectionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DescribeCollectionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDescribeCollectionResponse =
+      new operations.TigrisDescribeCollectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.describeCollectionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DescribeCollectionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -285,7 +288,7 @@ export class Collection {
    * Drops the collection inside this project. This API deletes all of the
    *  documents inside this collection and any metadata associated with it.
    */
-  drop(
+  async drop(
     req: operations.TigrisDropCollectionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDropCollectionResponse> {
@@ -320,7 +323,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -328,35 +332,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDropCollectionResponse =
-        new operations.TigrisDropCollectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.dropCollectionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DropCollectionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDropCollectionResponse =
+      new operations.TigrisDropCollectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.dropCollectionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DropCollectionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -370,7 +374,7 @@ export class Collection {
    *   * Evolves the schema as soon as it's backward compatible
    *   * Creates collection with inferred schema (if requested)
    */
-  importDocuments(
+  async importDocuments(
     req: operations.TigrisImportRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisImportResponse> {
@@ -405,7 +409,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -413,35 +418,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisImportResponse =
-        new operations.TigrisImportResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.importResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ImportResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisImportResponse =
+      new operations.TigrisImportResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.importResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ImportResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -452,7 +457,7 @@ export class Collection {
    *  in the request already exists. Insert provides idempotency by returning an error if the document
    *  already exists. To replace documents, use REPLACE API instead of INSERT.
    */
-  insertDocuments(
+  async insertDocuments(
     req: operations.TigrisInsertRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisInsertResponse> {
@@ -487,7 +492,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -495,35 +501,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisInsertResponse =
-        new operations.TigrisInsertResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.InsertResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisInsertResponse =
+      new operations.TigrisInsertResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.insertResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.InsertResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -537,7 +543,7 @@ export class Collection {
    *  the `limit` parameter is used to specify the number of documents to read. You can find more detailed documentation
    *  of the Read API <a href="https://docs.tigrisdata.com/overview/query" title="here">here</a>.
    */
-  readDocuments(
+  async readDocuments(
     req: operations.TigrisReadRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisReadResponse> {
@@ -572,7 +578,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -580,35 +587,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisReadResponse =
-        new operations.TigrisReadResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.streamingReadResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.StreamingReadResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisReadResponse =
+      new operations.TigrisReadResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.streamingReadResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.StreamingReadResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -617,7 +624,7 @@ export class Collection {
    * @remarks
    * Inserts the documents or replaces the existing documents in the collections.
    */
-  replaceDocuments(
+  async replaceDocuments(
     req: operations.TigrisReplaceRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisReplaceResponse> {
@@ -652,7 +659,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -660,35 +668,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisReplaceResponse =
-        new operations.TigrisReplaceResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.replaceResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ReplaceResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisReplaceResponse =
+      new operations.TigrisReplaceResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.replaceResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ReplaceResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -700,7 +708,7 @@ export class Collection {
    *  You can also perform a faceted search by passing the fields in the facet parameter.
    *  You can find more detailed documentation of the Search API with multiple examples <a href="https://docs.tigrisdata.com/overview/search" title="here">here</a>.
    */
-  searchDocuments(
+  async searchDocuments(
     req: operations.TigrisSearchRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisSearchResponse> {
@@ -735,7 +743,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -743,35 +752,35 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisSearchResponse =
-        new operations.TigrisSearchResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.streamingSearchResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.StreamingSearchResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisSearchResponse =
+      new operations.TigrisSearchResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.streamingSearchResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.StreamingSearchResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -780,7 +789,7 @@ export class Collection {
    * @remarks
    * Update a range of documents in the collection using the condition provided in the filter.
    */
-  updateDocuments(
+  async updateDocuments(
     req: operations.TigrisUpdateRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisUpdateResponse> {
@@ -815,7 +824,8 @@ export class Collection {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -823,34 +833,34 @@ export class Collection {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisUpdateResponse =
-        new operations.TigrisUpdateResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.UpdateResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisUpdateResponse =
+      new operations.TigrisUpdateResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.UpdateResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

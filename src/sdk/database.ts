@@ -42,7 +42,7 @@ export class Database {
    *  within a transaction will run with serializable isolation. Tigris offers global transactions,
    *  with ACID properties and strict serializability.
    */
-  beginTransaction(
+  async beginTransaction(
     req: operations.TigrisBeginTransactionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisBeginTransactionResponse> {
@@ -77,7 +77,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -85,35 +86,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisBeginTransactionResponse =
-        new operations.TigrisBeginTransactionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.beginTransactionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.BeginTransactionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisBeginTransactionResponse =
+      new operations.TigrisBeginTransactionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.beginTransactionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.BeginTransactionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -123,7 +124,7 @@ export class Database {
    * Atomically commit all the changes performed in the context of the transaction. Commit provides all
    *  or nothing semantics by ensuring no partial updates are in the project due to a transaction failure.
    */
-  commitTransaction(
+  async commitTransaction(
     req: operations.TigrisCommitTransactionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisCommitTransactionResponse> {
@@ -158,7 +159,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -166,35 +168,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisCommitTransactionResponse =
-        new operations.TigrisCommitTransactionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.commitTransactionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CommitTransactionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisCommitTransactionResponse =
+      new operations.TigrisCommitTransactionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.commitTransactionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CommitTransactionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -203,7 +205,7 @@ export class Database {
    * @remarks
    * Creates a new database branch, if not already existing.
    */
-  createBranch(
+  async createBranch(
     req: operations.TigrisCreateBranchRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisCreateBranchResponse> {
@@ -238,7 +240,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -246,35 +249,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisCreateBranchResponse =
-        new operations.TigrisCreateBranchResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBranchResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateBranchResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisCreateBranchResponse =
+      new operations.TigrisCreateBranchResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createBranchResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateBranchResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -284,7 +287,7 @@ export class Database {
    * Deletes a database branch, if exists.
    *  Throws 400 Bad Request if "main" branch is being deleted
    */
-  deleteBranch(
+  async deleteBranch(
     req: operations.TigrisDeleteBranchRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDeleteBranchResponse> {
@@ -319,7 +322,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -327,35 +331,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDeleteBranchResponse =
-        new operations.TigrisDeleteBranchResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteBranchResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteBranchResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDeleteBranchResponse =
+      new operations.TigrisDeleteBranchResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteBranchResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteBranchResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -365,7 +369,7 @@ export class Database {
    * This API returns information related to the project along with all the collections inside the project.
    *  This can be used to retrieve the size of the project or to retrieve schemas, branches and the size of all the collections present in this project.
    */
-  describe(
+  async describe(
     req: operations.TigrisDescribeDatabaseRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDescribeDatabaseResponse> {
@@ -400,7 +404,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -408,35 +413,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDescribeDatabaseResponse =
-        new operations.TigrisDescribeDatabaseResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeDatabaseResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DescribeDatabaseResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDescribeDatabaseResponse =
+      new operations.TigrisDescribeDatabaseResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.describeDatabaseResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DescribeDatabaseResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -445,7 +450,7 @@ export class Database {
    * @remarks
    * List all the collections present in the project passed in the request.
    */
-  listCollections(
+  async listCollections(
     req: operations.TigrisListCollectionsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisListCollectionsResponse> {
@@ -464,41 +469,42 @@ export class Database {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisListCollectionsResponse =
-        new operations.TigrisListCollectionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCollectionsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListCollectionsResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisListCollectionsResponse =
+      new operations.TigrisListCollectionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listCollectionsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListCollectionsResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -508,7 +514,7 @@ export class Database {
    * Rollback transaction discards all the changes
    *  performed in the transaction
    */
-  rollbackTransaction(
+  async rollbackTransaction(
     req: operations.TigrisRollbackTransactionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisRollbackTransactionResponse> {
@@ -543,7 +549,8 @@ export class Database {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -551,35 +558,35 @@ export class Database {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisRollbackTransactionResponse =
-        new operations.TigrisRollbackTransactionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rollbackTransactionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.RollbackTransactionResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisRollbackTransactionResponse =
+      new operations.TigrisRollbackTransactionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rollbackTransactionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.RollbackTransactionResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -588,7 +595,7 @@ export class Database {
    * @remarks
    * List database branches
    */
-  tigrisListBranches(
+  async tigrisListBranches(
     req: operations.TigrisListBranchesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisListBranchesResponse> {
@@ -605,40 +612,41 @@ export class Database {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisListBranchesResponse =
-        new operations.TigrisListBranchesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBranchesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListBranchesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisListBranchesResponse =
+      new operations.TigrisListBranchesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listBranchesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListBranchesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

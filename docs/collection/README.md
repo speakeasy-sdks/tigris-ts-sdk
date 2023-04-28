@@ -28,9 +28,8 @@ Creates a new collection or atomically upgrades the collection to the new schema
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisCreateOrUpdateCollectionRequest, TigrisCreateOrUpdateCollectionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisCreateOrUpdateCollectionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -39,7 +38,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisCreateOrUpdateCollectionRequest = {
+sdk.collection.create({
   createOrUpdateCollectionRequest: {
     branch: "ullam",
     onlyCreate: false,
@@ -55,10 +54,8 @@ const req: TigrisCreateOrUpdateCollectionRequest = {
   },
   collection: "nemo",
   project: "quasi",
-};
-
-sdk.collection.create(req).then((res: TigrisCreateOrUpdateCollectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisCreateOrUpdateCollectionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -71,9 +68,8 @@ Delete a range of documents in the collection using the condition provided in th
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDeleteRequest, TigrisDeleteResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDeleteResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -82,7 +78,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDeleteRequest = {
+sdk.collection.deleteDocuments({
   deleteRequest: {
     branch: "iure",
     filter: {
@@ -105,10 +101,8 @@ const req: TigrisDeleteRequest = {
   },
   collection: "accusantium",
   project: "consequuntur",
-};
-
-sdk.collection.deleteDocuments(req).then((res: TigrisDeleteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDeleteResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -121,9 +115,8 @@ Returns the information related to the collection. This can be used to retrieve 
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDescribeCollectionRequest, TigrisDescribeCollectionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDescribeCollectionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -132,7 +125,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDescribeCollectionRequest = {
+sdk.collection.describe({
   describeCollectionRequest: {
     branch: "praesentium",
     collection: "natus",
@@ -144,10 +137,8 @@ const req: TigrisDescribeCollectionRequest = {
   },
   collection: "maxime",
   project: "ea",
-};
-
-sdk.collection.describe(req).then((res: TigrisDescribeCollectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDescribeCollectionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -161,9 +152,8 @@ Drops the collection inside this project. This API deletes all of the
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDropCollectionRequest, TigrisDropCollectionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDropCollectionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -172,7 +162,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDropCollectionRequest = {
+sdk.collection.drop({
   dropCollectionRequest: {
     branch: "excepturi",
     options: {
@@ -181,10 +171,8 @@ const req: TigrisDropCollectionRequest = {
   },
   collection: "ab",
   project: "maiores",
-};
-
-sdk.collection.drop(req).then((res: TigrisDropCollectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDropCollectionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -202,9 +190,8 @@ Imports documents into the collection.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisImportRequest, TigrisImportResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisImportResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -213,7 +200,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisImportRequest = {
+sdk.collection.importDocuments({
   importRequest: {
     autogenerated: [
       "ipsam",
@@ -244,10 +231,8 @@ const req: TigrisImportRequest = {
   },
   collection: "perferendis",
   project: "dolores",
-};
-
-sdk.collection.importDocuments(req).then((res: TigrisImportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisImportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -262,9 +247,8 @@ Inserts new documents in the collection and returns an AlreadyExists error if an
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisInsertRequest, TigrisInsertResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisInsertResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -273,7 +257,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisInsertRequest = {
+sdk.collection.insertDocuments({
   insertRequest: {
     branch: "minus",
     documents: [
@@ -297,10 +281,8 @@ const req: TigrisInsertRequest = {
   },
   collection: "modi",
   project: "iste",
-};
-
-sdk.collection.insertDocuments(req).then((res: TigrisInsertResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisInsertResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -318,9 +300,8 @@ Reads a range of documents from the collection, or messages from a collection in
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisReadRequest, TigrisReadResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisReadResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -329,7 +310,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisReadRequest = {
+sdk.collection.readDocuments({
   readRequest: {
     branch: "dolorum",
     fields: {
@@ -354,10 +335,8 @@ const req: TigrisReadRequest = {
   },
   collection: "reiciendis",
   project: "amet",
-};
-
-sdk.collection.readDocuments(req).then((res: TigrisReadResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisReadResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -370,9 +349,8 @@ Inserts the documents or replaces the existing documents in the collections.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisReplaceRequest, TigrisReplaceResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisReplaceResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -381,7 +359,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisReplaceRequest = {
+sdk.collection.replaceDocuments({
   replaceRequest: {
     branch: "dolorum",
     documents: [
@@ -404,10 +382,8 @@ const req: TigrisReplaceRequest = {
   },
   collection: "dolorum",
   project: "iusto",
-};
-
-sdk.collection.replaceDocuments(req).then((res: TigrisReplaceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisReplaceResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -423,9 +399,8 @@ Searches a collection for the documents matching the query, or messages in case 
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisSearchRequest, TigrisSearchResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisSearchResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -434,7 +409,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisSearchRequest = {
+sdk.collection.searchDocuments({
   searchRequest: {
     branch: "voluptate",
     collation: {
@@ -478,10 +453,8 @@ const req: TigrisSearchRequest = {
   },
   collection: "quisquam",
   project: "tenetur",
-};
-
-sdk.collection.searchDocuments(req).then((res: TigrisSearchResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisSearchResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -494,9 +467,8 @@ Update a range of documents in the collection using the condition provided in th
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisUpdateRequest, TigrisUpdateResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisUpdateResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -505,7 +477,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisUpdateRequest = {
+sdk.collection.updateDocuments({
   updateRequest: {
     branch: "amet",
     fields: {
@@ -530,10 +502,8 @@ const req: TigrisUpdateRequest = {
   },
   collection: "qui",
   project: "cupiditate",
-};
-
-sdk.collection.updateDocuments(req).then((res: TigrisUpdateResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisUpdateResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -29,9 +29,8 @@ CreateById is used for indexing a single document. The API expects a single docu
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchCreateByIdRequest, SearchCreateByIdResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchCreateByIdResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -40,7 +39,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchCreateByIdRequest = {
+sdk.search.createDocument({
   createByIdRequest: {
     document: "ex",
     id: "d9f5fce6-c556-4146-83e2-50fb008c42e1",
@@ -50,10 +49,8 @@ const req: SearchCreateByIdRequest = {
   id: "aac366c8-dd6b-4144-a907-474778a7bd46",
   index: "suscipit",
   project: "assumenda",
-};
-
-sdk.search.createDocument(req).then((res: SearchCreateByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchCreateByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -70,9 +67,8 @@ Create is used for indexing a single or multiple documents. The API expects an a
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchCreateRequest, SearchCreateResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchCreateResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -81,7 +77,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchCreateRequest = {
+sdk.search.createDocuments({
   createDocumentRequest: {
     documents: [
       "praesentium",
@@ -91,10 +87,8 @@ const req: SearchCreateRequest = {
   },
   index: "ipsa",
   project: "id",
-};
-
-sdk.search.createDocuments(req).then((res: SearchCreateResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchCreateResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -109,9 +103,8 @@ Delete one or more documents by id. Returns an array of status indicating the st
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchDeleteRequest, SearchDeleteResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchDeleteResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -120,7 +113,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchDeleteRequest = {
+sdk.search.deleteDocuments({
   deleteDocumentRequest: {
     ids: [
       "neque",
@@ -132,10 +125,8 @@ const req: SearchDeleteRequest = {
   },
   index: "eius",
   project: "eos",
-};
-
-sdk.search.deleteDocuments(req).then((res: SearchDeleteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchDeleteResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -148,9 +139,8 @@ Deletes search index
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchDeleteIndexRequest, SearchDeleteIndexResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchDeleteIndexResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -159,17 +149,15 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchDeleteIndexRequest = {
+sdk.search.deleteIndex({
   deleteIndexRequest: {
     name: "Mrs. Virginia McGlynn",
     project: "ipsam",
   },
   name: "Emily Satterfield",
   project: "aperiam",
-};
-
-sdk.search.deleteIndex(req).then((res: SearchDeleteIndexResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchDeleteIndexResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -186,9 +174,8 @@ Searches an index for the documents matching the query. A search can be a term s
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchSearchRequest, SearchSearchResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchSearchResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -197,7 +184,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchSearchRequest = {
+sdk.search.findDocuments({
   searchIndexRequest: {
     collation: {
       case: "distinctio",
@@ -229,10 +216,8 @@ const req: SearchSearchRequest = {
   },
   index: "fugit",
   project: "fuga",
-};
-
-sdk.search.findDocuments(req).then((res: SearchSearchResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchSearchResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -246,9 +231,8 @@ Retrieves one or more documents by id. The response is an array of documents in 
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchGetRequest, SearchGetResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchGetResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -257,7 +241,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchGetRequest = {
+sdk.search.getDocuments({
   ids: [
     "incidunt",
     "atque",
@@ -265,10 +249,8 @@ const req: SearchGetRequest = {
   ],
   index: "minima",
   project: "nisi",
-};
-
-sdk.search.getDocuments(req).then((res: SearchGetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchGetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -281,9 +263,8 @@ Get information about a search index
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchGetIndexRequest, SearchGetIndexResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchGetIndexResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -292,13 +273,11 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchGetIndexRequest = {
+sdk.search.getIndex({
   name: "Jeannie Cronin",
   project: "saepe",
-};
-
-sdk.search.getIndex(req).then((res: SearchGetIndexResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchGetIndexResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -311,9 +290,8 @@ List search indexes
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchListIndexesRequest, SearchListIndexesResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchListIndexesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -322,15 +300,13 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchListIndexesRequest = {
+sdk.search.listIndexes({
   filterBranch: "occaecati",
   filterCollection: "atque",
   filterType: "et",
   project: "esse",
-};
-
-sdk.search.listIndexes(req).then((res: SearchListIndexesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchListIndexesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -344,9 +320,8 @@ DeleteByQuery is used to delete documents that match the filter. A filter is req
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchDeleteByQueryRequest, SearchDeleteByQueryResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchDeleteByQueryResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -355,7 +330,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchDeleteByQueryRequest = {
+sdk.search.queryDeleteDocuments({
   deleteByQueryRequest: {
     filter: "eveniet",
     index: "accusamus",
@@ -363,10 +338,8 @@ const req: SearchDeleteByQueryRequest = {
   },
   index: "esse",
   project: "quod",
-};
-
-sdk.search.queryDeleteDocuments(req).then((res: SearchDeleteByQueryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchDeleteByQueryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -382,9 +355,8 @@ Creates or replaces one or more documents. Each document is a JSON object. A doc
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchCreateOrReplaceRequest, SearchCreateOrReplaceResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchCreateOrReplaceResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -393,7 +365,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchCreateOrReplaceRequest = {
+sdk.search.replaceDocuments({
   createOrReplaceDocumentRequest: {
     documents: [
       "vero",
@@ -405,10 +377,8 @@ const req: SearchCreateOrReplaceRequest = {
   },
   index: "harum",
   project: "molestiae",
-};
-
-sdk.search.replaceDocuments(req).then((res: SearchCreateOrReplaceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchCreateOrReplaceResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -424,9 +394,8 @@ Updates one or more documents by "id". Each document is required to have the
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchUpdateRequest, SearchUpdateResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchUpdateResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -435,7 +404,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchUpdateRequest = {
+sdk.search.updateDocuments({
   updateDocumentRequest: {
     documents: [
       "occaecati",
@@ -447,10 +416,8 @@ const req: SearchUpdateRequest = {
   },
   index: "culpa",
   project: "tempore",
-};
-
-sdk.search.updateDocuments(req).then((res: SearchUpdateResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchUpdateResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -463,9 +430,8 @@ Creates or updates search index
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { SearchCreateOrUpdateIndexRequest, SearchCreateOrUpdateIndexResponse } from "tigris-core/dist/sdk/models/operations";
+import { SearchCreateOrUpdateIndexResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -474,7 +440,7 @@ const sdk = new SDK({
   },
 });
 
-const req: SearchCreateOrUpdateIndexRequest = {
+sdk.search.updateIndex({
   createOrUpdateIndexRequest: {
     name: "Miss Blanca Cronin",
     onlyCreate: false,
@@ -483,10 +449,8 @@ const req: SearchCreateOrUpdateIndexRequest = {
   },
   name: "Mattie McLaughlin",
   project: "quas",
-};
-
-sdk.search.updateIndex(req).then((res: SearchCreateOrUpdateIndexResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SearchCreateOrUpdateIndexResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

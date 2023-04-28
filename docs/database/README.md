@@ -24,9 +24,8 @@ Starts a new transaction and returns a transactional object. All reads/writes pe
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisBeginTransactionRequest, TigrisBeginTransactionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisBeginTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -35,7 +34,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisBeginTransactionRequest = {
+sdk.database.beginTransaction({
   beginTransactionRequest: {
     branch: "maxime",
     options: {
@@ -46,10 +45,8 @@ const req: TigrisBeginTransactionRequest = {
     },
   },
   project: "facilis",
-};
-
-sdk.database.beginTransaction(req).then((res: TigrisBeginTransactionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisBeginTransactionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -63,9 +60,8 @@ Atomically commit all the changes performed in the context of the transaction. C
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisCommitTransactionRequest, TigrisCommitTransactionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisCommitTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -74,15 +70,13 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisCommitTransactionRequest = {
+sdk.database.commitTransaction({
   commitTransactionRequest: {
     branch: "aliquid",
   },
   project: "quam",
-};
-
-sdk.database.commitTransaction(req).then((res: TigrisCommitTransactionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisCommitTransactionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -95,9 +89,8 @@ Creates a new database branch, if not already existing.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisCreateBranchRequest, TigrisCreateBranchResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisCreateBranchResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -106,7 +99,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisCreateBranchRequest = {
+sdk.database.createBranch({
   requestBody: {
     "temporibus": "qui",
     "neque": "fugit",
@@ -114,10 +107,8 @@ const req: TigrisCreateBranchRequest = {
   },
   branch: "sunt",
   project: "ullam",
-};
-
-sdk.database.createBranch(req).then((res: TigrisCreateBranchResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisCreateBranchResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -131,9 +122,8 @@ Deletes a database branch, if exists.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDeleteBranchRequest, TigrisDeleteBranchResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDeleteBranchResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -142,7 +132,7 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDeleteBranchRequest = {
+sdk.database.deleteBranch({
   requestBody: {
     "hic": "voluptatem",
     "cumque": "soluta",
@@ -150,10 +140,8 @@ const req: TigrisDeleteBranchRequest = {
   },
   branch: "saepe",
   project: "ipsum",
-};
-
-sdk.database.deleteBranch(req).then((res: TigrisDeleteBranchResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDeleteBranchResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -167,9 +155,8 @@ This API returns information related to the project along with all the collectio
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDescribeDatabaseRequest, TigrisDescribeDatabaseResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDescribeDatabaseResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -178,17 +165,15 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDescribeDatabaseRequest = {
+sdk.database.describe({
   describeDatabaseRequest: {
     branch: "veritatis",
     project: "nobis",
     schemaFormat: "quos",
   },
   project: "tempore",
-};
-
-sdk.database.describe(req).then((res: TigrisDescribeDatabaseResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDescribeDatabaseResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -201,9 +186,8 @@ List all the collections present in the project passed in the request.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisListCollectionsRequest, TigrisListCollectionsResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisListCollectionsResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -212,13 +196,11 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisListCollectionsRequest = {
+sdk.database.listCollections({
   branch: "cupiditate",
   project: "aperiam",
-};
-
-sdk.database.listCollections(req).then((res: TigrisListCollectionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisListCollectionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -232,9 +214,8 @@ Rollback transaction discards all the changes
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisRollbackTransactionRequest, TigrisRollbackTransactionResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisRollbackTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -243,15 +224,13 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisRollbackTransactionRequest = {
+sdk.database.rollbackTransaction({
   rollbackTransactionRequest: {
     branch: "delectus",
   },
   project: "dolorem",
-};
-
-sdk.database.rollbackTransaction(req).then((res: TigrisRollbackTransactionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisRollbackTransactionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -264,9 +243,8 @@ List database branches
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisListBranchesRequest, TigrisListBranchesResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisListBranchesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -275,12 +253,10 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisListBranchesRequest = {
+sdk.database.tigrisListBranches({
   project: "dolore",
-};
-
-sdk.database.tigrisListBranches(req).then((res: TigrisListBranchesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisListBranchesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

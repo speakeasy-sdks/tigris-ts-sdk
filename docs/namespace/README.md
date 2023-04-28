@@ -20,9 +20,8 @@ Creates a new namespace, if it does not exist
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { CreateNamespaceRequest, CreateNamespaceResponse } from "tigris-core/dist/sdk/models/operations";
+import { CreateNamespaceResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -31,14 +30,12 @@ const sdk = new SDK({
   },
 });
 
-const req: shared.CreateNamespaceRequest = {
+sdk.namespace.create({
   code: 286915,
   id: "3a1108e0-adcf-44b9-a187-9fce953f73ef",
   name: "Darla Rau",
-};
-
-sdk.namespace.create(req).then((res: CreateNamespaceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateNamespaceResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +48,6 @@ Get details for all namespaces
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { ManagementDescribeNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -62,8 +58,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.namespace.get().then((res: ManagementDescribeNamespacesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.namespace.get().then((res: ManagementDescribeNamespacesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -76,9 +72,8 @@ GetNamespaceMetadata inserts the user metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { ManagementGetNamespaceMetadataRequest, ManagementGetNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
+import { ManagementGetNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -87,7 +82,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementGetNamespaceMetadataRequest = {
+sdk.namespace.getMetadata({
   getNamespaceMetadataRequest: {
     metadataKey: "similique",
     value: {
@@ -97,10 +92,8 @@ const req: ManagementGetNamespaceMetadataRequest = {
     },
   },
   metadataKey: "natus",
-};
-
-sdk.namespace.getMetadata(req).then((res: ManagementGetNamespaceMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementGetNamespaceMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -113,12 +106,8 @@ InsertNamespaceMetadata inserts the namespace metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import {
-  ManagementInsertNamespaceMetadataRequest,
-  ManagementInsertNamespaceMetadataResponse,
-} from "tigris-core/dist/sdk/models/operations";
+import { ManagementInsertNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -127,7 +116,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementInsertNamespaceMetadataRequest = {
+sdk.namespace.insertMetadata({
   insertNamespaceMetadataRequest: {
     metadataKey: "impedit",
     value: {
@@ -135,10 +124,8 @@ const req: ManagementInsertNamespaceMetadataRequest = {
     },
   },
   metadataKey: "nulla",
-};
-
-sdk.namespace.insertMetadata(req).then((res: ManagementInsertNamespaceMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementInsertNamespaceMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -151,7 +138,6 @@ List all namespace
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
 import { ManagementListNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
@@ -162,8 +148,8 @@ const sdk = new SDK({
   },
 });
 
-sdk.namespace.list().then((res: ManagementListNamespacesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.namespace.list().then((res: ManagementListNamespacesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -176,12 +162,8 @@ UpdateNamespaceMetadata updates the user metadata object
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import {
-  ManagementUpdateNamespaceMetadataRequest,
-  ManagementUpdateNamespaceMetadataResponse,
-} from "tigris-core/dist/sdk/models/operations";
+import { ManagementUpdateNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -190,7 +172,7 @@ const sdk = new SDK({
   },
 });
 
-const req: ManagementUpdateNamespaceMetadataRequest = {
+sdk.namespace.updateMetadata({
   updateNamespaceMetadataRequest: {
     metadataKey: "fugit",
     value: {
@@ -201,10 +183,8 @@ const req: ManagementUpdateNamespaceMetadataRequest = {
     },
   },
   metadataKey: "ipsam",
-};
-
-sdk.namespace.updateMetadata(req).then((res: ManagementUpdateNamespaceMetadataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ManagementUpdateNamespaceMetadataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

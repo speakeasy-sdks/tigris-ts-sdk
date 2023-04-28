@@ -40,7 +40,7 @@ export class AppKey {
    * @remarks
    * Delete an app key.
    */
-  delete(
+  async delete(
     req: operations.TigrisDeleteAppKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisDeleteAppKeyResponse> {
@@ -75,7 +75,8 @@ export class AppKey {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       headers: headers,
@@ -83,35 +84,35 @@ export class AppKey {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisDeleteAppKeyResponse =
-        new operations.TigrisDeleteAppKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteAppKeyResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteAppKeyResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisDeleteAppKeyResponse =
+      new operations.TigrisDeleteAppKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteAppKeyResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteAppKeyResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -120,7 +121,7 @@ export class AppKey {
    * @remarks
    * Lists all app keys visible to requesting actor.
    */
-  list(
+  async list(
     req: operations.TigrisListAppKeysRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisListAppKeysResponse> {
@@ -137,41 +138,42 @@ export class AppKey {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisListAppKeysResponse =
-        new operations.TigrisListAppKeysResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAppKeysResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListAppKeysResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisListAppKeysResponse =
+      new operations.TigrisListAppKeysResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listAppKeysResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListAppKeysResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -180,7 +182,7 @@ export class AppKey {
    * @remarks
    * Endpoint is used to rotate the secret for the app key.
    */
-  rotate(
+  async rotate(
     req: operations.TigrisRotateAppKeySecretRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisRotateAppKeySecretResponse> {
@@ -215,7 +217,8 @@ export class AppKey {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -223,35 +226,35 @@ export class AppKey {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisRotateAppKeySecretResponse =
-        new operations.TigrisRotateAppKeySecretResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rotateAppKeyResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.RotateAppKeyResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisRotateAppKeySecretResponse =
+      new operations.TigrisRotateAppKeySecretResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rotateAppKeyResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.RotateAppKeyResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -260,7 +263,7 @@ export class AppKey {
    * @remarks
    * Create an app key.
    */
-  tigrisCreateAppKey(
+  async tigrisCreateAppKey(
     req: operations.TigrisCreateAppKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisCreateAppKeyResponse> {
@@ -295,7 +298,8 @@ export class AppKey {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -303,35 +307,35 @@ export class AppKey {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisCreateAppKeyResponse =
-        new operations.TigrisCreateAppKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createAppKeyResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateAppKeyResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisCreateAppKeyResponse =
+      new operations.TigrisCreateAppKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createAppKeyResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateAppKeyResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -340,7 +344,7 @@ export class AppKey {
    * @remarks
    * Update the description of an app key.
    */
-  update(
+  async update(
     req: operations.TigrisUpdateAppKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TigrisUpdateAppKeyResponse> {
@@ -375,7 +379,8 @@ export class AppKey {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -383,34 +388,34 @@ export class AppKey {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TigrisUpdateAppKeyResponse =
-        new operations.TigrisUpdateAppKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateAppKeyResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.UpdateAppKeyResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TigrisUpdateAppKeyResponse =
+      new operations.TigrisUpdateAppKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateAppKeyResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.UpdateAppKeyResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

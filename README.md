@@ -19,9 +19,8 @@ yarn add https://github.com/speakeasy-sdks/tigris-ts-sdk
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDeleteAppKeyRequest, TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -30,15 +29,13 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDeleteAppKeyRequest = {
+sdk.appKey.delete({
   deleteAppKeyRequest: {
     id: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
   },
   project: "deserunt",
-};
-
-sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDeleteAppKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

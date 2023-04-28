@@ -40,7 +40,7 @@ export class Namespace {
    * @remarks
    * Creates a new namespace, if it does not exist
    */
-  create(
+  async create(
     req: shared.CreateNamespaceRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateNamespaceResponse> {
@@ -72,7 +72,8 @@ export class Namespace {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -80,35 +81,35 @@ export class Namespace {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateNamespaceResponse =
-        new operations.CreateNamespaceResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createNamespaceResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateNamespaceResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateNamespaceResponse =
+      new operations.CreateNamespaceResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createNamespaceResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateNamespaceResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -117,7 +118,7 @@ export class Namespace {
    * @remarks
    * Get details for all namespaces
    */
-  get(
+  async get(
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementDescribeNamespacesResponse> {
     const baseURL: string = this._serverURL;
@@ -126,41 +127,42 @@ export class Namespace {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementDescribeNamespacesResponse =
-        new operations.ManagementDescribeNamespacesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.describeNamespacesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DescribeNamespacesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementDescribeNamespacesResponse =
+      new operations.ManagementDescribeNamespacesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.describeNamespacesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DescribeNamespacesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -169,7 +171,7 @@ export class Namespace {
    * @remarks
    * GetNamespaceMetadata inserts the user metadata object
    */
-  getMetadata(
+  async getMetadata(
     req: operations.ManagementGetNamespaceMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementGetNamespaceMetadataResponse> {
@@ -204,7 +206,8 @@ export class Namespace {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -212,35 +215,35 @@ export class Namespace {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementGetNamespaceMetadataResponse =
-        new operations.ManagementGetNamespaceMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getNamespaceMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.GetNamespaceMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementGetNamespaceMetadataResponse =
+      new operations.ManagementGetNamespaceMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getNamespaceMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.GetNamespaceMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -249,7 +252,7 @@ export class Namespace {
    * @remarks
    * InsertNamespaceMetadata inserts the namespace metadata object
    */
-  insertMetadata(
+  async insertMetadata(
     req: operations.ManagementInsertNamespaceMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementInsertNamespaceMetadataResponse> {
@@ -284,7 +287,8 @@ export class Namespace {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -292,35 +296,35 @@ export class Namespace {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementInsertNamespaceMetadataResponse =
-        new operations.ManagementInsertNamespaceMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.insertNamespaceMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.InsertNamespaceMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementInsertNamespaceMetadataResponse =
+      new operations.ManagementInsertNamespaceMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.insertNamespaceMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.InsertNamespaceMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -329,7 +333,7 @@ export class Namespace {
    * @remarks
    * List all namespace
    */
-  list(
+  async list(
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementListNamespacesResponse> {
     const baseURL: string = this._serverURL;
@@ -338,41 +342,42 @@ export class Namespace {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementListNamespacesResponse =
-        new operations.ManagementListNamespacesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listNamespacesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListNamespacesResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementListNamespacesResponse =
+      new operations.ManagementListNamespacesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listNamespacesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListNamespacesResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -381,7 +386,7 @@ export class Namespace {
    * @remarks
    * UpdateNamespaceMetadata updates the user metadata object
    */
-  updateMetadata(
+  async updateMetadata(
     req: operations.ManagementUpdateNamespaceMetadataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ManagementUpdateNamespaceMetadataResponse> {
@@ -416,7 +421,8 @@ export class Namespace {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -424,34 +430,34 @@ export class Namespace {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ManagementUpdateNamespaceMetadataResponse =
-        new operations.ManagementUpdateNamespaceMetadataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateNamespaceMetadataResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.UpdateNamespaceMetadataResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ManagementUpdateNamespaceMetadataResponse =
+      new operations.ManagementUpdateNamespaceMetadataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateNamespaceMetadataResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.UpdateNamespaceMetadataResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 }

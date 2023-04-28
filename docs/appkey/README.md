@@ -19,9 +19,8 @@ Delete an app key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisDeleteAppKeyRequest, TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -30,15 +29,13 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisDeleteAppKeyRequest = {
+sdk.appKey.delete({
   deleteAppKeyRequest: {
     id: "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
   },
   project: "cum",
-};
-
-sdk.appKey.delete(req).then((res: TigrisDeleteAppKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisDeleteAppKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,9 +48,8 @@ Lists all app keys visible to requesting actor.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisListAppKeysRequest, TigrisListAppKeysResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisListAppKeysResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -62,12 +58,10 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisListAppKeysRequest = {
+sdk.appKey.list({
   project: "esse",
-};
-
-sdk.appKey.list(req).then((res: TigrisListAppKeysResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisListAppKeysResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,9 +74,8 @@ Endpoint is used to rotate the secret for the app key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisRotateAppKeySecretRequest, TigrisRotateAppKeySecretResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisRotateAppKeySecretResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -91,16 +84,14 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisRotateAppKeySecretRequest = {
+sdk.appKey.rotate({
   rotateAppKeyRequest: {
     id: "39205929-396f-4ea7-996e-b10faaa2352c",
     project: "enim",
   },
   project: "omnis",
-};
-
-sdk.appKey.rotate(req).then((res: TigrisRotateAppKeySecretResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisRotateAppKeySecretResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -113,9 +104,8 @@ Create an app key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisCreateAppKeyRequest, TigrisCreateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisCreateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -124,16 +114,14 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisCreateAppKeyRequest = {
+sdk.appKey.tigrisCreateAppKey({
   createAppKeyRequest: {
     description: "nemo",
     name: "Velma Batz",
   },
   project: "doloribus",
-};
-
-sdk.appKey.tigrisCreateAppKey(req).then((res: TigrisCreateAppKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisCreateAppKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -146,9 +134,8 @@ Update the description of an app key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "tigris-core";
-import { TigrisUpdateAppKeyRequest, TigrisUpdateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { TigrisUpdateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -157,17 +144,15 @@ const sdk = new SDK({
   },
 });
 
-const req: TigrisUpdateAppKeyRequest = {
+sdk.appKey.update({
   updateAppKeyRequest: {
     description: "sapiente",
     id: "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
     name: "Ryan Witting",
   },
   project: "nihil",
-};
-
-sdk.appKey.update(req).then((res: TigrisUpdateAppKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TigrisUpdateAppKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
