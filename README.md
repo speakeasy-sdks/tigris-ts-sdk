@@ -20,7 +20,7 @@ yarn add https://github.com/speakeasy-sdks/tigris-ts-sdk
 <!-- Start SDK Example Usage -->
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
+import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
 import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -29,12 +29,15 @@ const sdk = new SDK({
   },
 });
 
-sdk.appKey.delete({
-  deleteAppKeyRequest: {
-    id: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+sdk.cache.create({
+  createCacheRequest: {
+    options: {
+      ttlMs: 548814,
+    },
   },
-  project: "deserunt",
-}).then((res: TigrisDeleteAppKeyResponse) => {
+  name: "Kelvin Sporer",
+  project: "corrupti",
+}).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

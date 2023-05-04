@@ -31,9 +31,9 @@ const sdk = new SDK({
 
 sdk.appKey.delete({
   deleteAppKeyRequest: {
-    id: "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
+    id: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
   },
-  project: "cum",
+  project: "at",
 }).then((res: TigrisDeleteAppKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,7 +59,7 @@ const sdk = new SDK({
 });
 
 sdk.appKey.list({
-  project: "esse",
+  project: "at",
 }).then((res: TigrisListAppKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,10 +86,10 @@ const sdk = new SDK({
 
 sdk.appKey.rotate({
   rotateAppKeyRequest: {
-    id: "39205929-396f-4ea7-996e-b10faaa2352c",
-    project: "enim",
+    id: "f7cc78ca-1ba9-428f-8816-742cb7392059",
+    project: "sed",
   },
-  project: "omnis",
+  project: "iste",
 }).then((res: TigrisRotateAppKeySecretResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,10 +116,10 @@ const sdk = new SDK({
 
 sdk.appKey.tigrisCreateAppKey({
   createAppKeyRequest: {
-    description: "nemo",
-    name: "Velma Batz",
+    description: "dolor",
+    name: "Lester Welch",
   },
-  project: "doloribus",
+  project: "in",
 }).then((res: TigrisCreateAppKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,11 +146,11 @@ const sdk = new SDK({
 
 sdk.appKey.update({
   updateAppKeyRequest: {
-    description: "sapiente",
-    id: "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
-    name: "Ryan Witting",
+    description: "corporis",
+    id: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
+    name: "Tracy Fritsch",
   },
-  project: "nihil",
+  project: "molestiae",
 }).then((res: TigrisUpdateAppKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response

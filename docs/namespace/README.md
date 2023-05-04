@@ -31,9 +31,9 @@ const sdk = new SDK({
 });
 
 sdk.namespace.create({
-  code: 286915,
-  id: "3a1108e0-adcf-44b9-a187-9fce953f73ef",
-  name: "Darla Rau",
+  code: 606476,
+  id: "53f73ef7-fbc7-4abd-b4dd-39c0f5d2cff7",
+  name: "Kurt Abernathy",
 }).then((res: CreateNamespaceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -84,14 +84,13 @@ const sdk = new SDK({
 
 sdk.namespace.getMetadata({
   getNamespaceMetadataRequest: {
-    metadataKey: "similique",
+    metadataKey: "ipsam",
     value: {
-      "vero": "ducimus",
-      "dolore": "quibusdam",
-      "illum": "sequi",
+      "aspernatur": "vel",
+      "possimus": "magnam",
     },
   },
-  metadataKey: "natus",
+  metadataKey: "ratione",
 }).then((res: ManagementGetNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,12 +117,14 @@ const sdk = new SDK({
 
 sdk.namespace.insertMetadata({
   insertNamespaceMetadataRequest: {
-    metadataKey: "impedit",
+    metadataKey: "ex",
     value: {
-      "voluptatibus": "exercitationem",
+      "dicta": "dolor",
+      "maiores": "quasi",
+      "ex": "nulla",
     },
   },
-  metadataKey: "nulla",
+  metadataKey: "excepturi",
 }).then((res: ManagementInsertNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -174,15 +175,13 @@ const sdk = new SDK({
 
 sdk.namespace.updateMetadata({
   updateNamespaceMetadataRequest: {
-    metadataKey: "fugit",
+    metadataKey: "voluptatibus",
     value: {
-      "maiores": "doloribus",
-      "iusto": "eligendi",
-      "ducimus": "alias",
-      "officia": "tempora",
+      "sapiente": "quisquam",
+      "saepe": "ea",
     },
   },
-  metadataKey: "ipsam",
+  metadataKey: "impedit",
 }).then((res: ManagementUpdateNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response

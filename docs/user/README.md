@@ -29,15 +29,12 @@ const sdk = new SDK({
 
 sdk.user.getMetadata({
   getUserMetadataRequest: {
-    metadataKey: "qui",
+    metadataKey: "consectetur",
     value: {
-      "ex": "deleniti",
-      "itaque": "dolorum",
-      "architecto": "omnis",
-      "tenetur": "quasi",
+      "iste": "temporibus",
     },
   },
-  metadataKey: "at",
+  metadataKey: "accusantium",
 }).then((res: ManagementGetUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -64,13 +61,12 @@ const sdk = new SDK({
 
 sdk.user.insertMetadata({
   insertUserMetadataRequest: {
-    metadataKey: "et",
+    metadataKey: "rem",
     value: {
-      "ipsa": "minima",
-      "veritatis": "consectetur",
+      "laudantium": "eum",
     },
   },
-  metadataKey: "adipisci",
+  metadataKey: "mollitia",
 }).then((res: ManagementInsertUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -97,15 +93,14 @@ const sdk = new SDK({
 
 sdk.user.updateMetadata({
   updateUserMetadataRequest: {
-    metadataKey: "iste",
+    metadataKey: "ab",
     value: {
-      "accusantium": "rem",
-      "aut": "laudantium",
-      "eum": "mollitia",
-      "ab": "corrupti",
+      "non": "voluptatem",
+      "dolor": "occaecati",
+      "numquam": "impedit",
     },
   },
-  metadataKey: "non",
+  metadataKey: "explicabo",
 }).then((res: ManagementUpdateUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response

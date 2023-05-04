@@ -78,8 +78,8 @@ const sdk = new SDK({
 });
 
 sdk.system.observabilityQuotaUsage({
-  "quasi": "a",
-  "error": "sint",
+  "libero": "illum",
+  "soluta": "accusantium",
 }).then((res: ObservabilityQuotaUsageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -105,10 +105,8 @@ const sdk = new SDK({
 });
 
 sdk.system.queryQuotaLimits({
-  "possimus": "quia",
-  "eveniet": "asperiores",
-  "facere": "veritatis",
-  "consequuntur": "quasi",
+  "sapiente": "dicta",
+  "ullam": "reprehenderit",
 }).then((res: ObservabilityQuotaLimitsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -143,39 +141,33 @@ sdk.system.queryTimeSeriesMetrics({
   additionalFunctions: [
     {
       rollup: {
-        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorMax,
-        interval: 398434,
+        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorCount,
+        interval: 16328,
       },
     },
     {
       rollup: {
-        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorAvg,
-        interval: 62713,
-      },
-    },
-    {
-      rollup: {
-        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorAvg,
-        interval: 424032,
+        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorMin,
+        interval: 185232,
       },
     },
   ],
-  branch: "in",
-  collection: "eius",
-  db: "libero",
-  from: 849039,
+  branch: "quibusdam",
+  collection: "ex",
+  db: "deleniti",
+  from: 929292,
   function: QueryTimeSeriesMetricsRequestFunctionEnum.None,
-  metricName: "accusantium",
-  quantile: 3069.86,
+  metricName: "architecto",
+  quantile: 6091.78,
   spaceAggregatedBy: [
-    "dicta",
-    "ullam",
-    "reprehenderit",
-    "ullam",
+    "quasi",
+    "at",
+    "et",
+    "voluptate",
   ],
-  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregationEnum.Min,
-  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperationEnum.All,
-  to: 531849,
+  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregationEnum.Avg,
+  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperationEnum.Read,
+  to: 86532,
 }).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response

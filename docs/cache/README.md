@@ -35,11 +35,11 @@ const sdk = new SDK({
 sdk.cache.create({
   createCacheRequest: {
     options: {
-      ttlMs: 509624,
+      ttlMs: 244425,
     },
   },
-  name: "Jose Moen",
-  project: "perferendis",
+  name: "Miss Eugene Hauck",
+  project: "enim",
 }).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -66,10 +66,10 @@ const sdk = new SDK({
 
 sdk.cache.delete({
   requestBody: {
-    "reprehenderit": "ut",
+    "quo": "sequi",
   },
-  name: "Willie Hessel",
-  project: "dicta",
+  name: "Vernon Ondricka Sr.",
+  project: "error",
 }).then((res: CacheDeleteCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -96,13 +96,14 @@ const sdk = new SDK({
 
 sdk.cache.deleteKeys({
   requestBody: {
-    "enim": "accusamus",
-    "commodi": "repudiandae",
-    "quae": "ipsum",
+    "laborum": "quasi",
+    "reiciendis": "voluptatibus",
+    "vero": "nihil",
+    "praesentium": "voluptatibus",
   },
-  key: "quidem",
-  name: "Andy Streich",
-  project: "rem",
+  key: "ipsa",
+  name: "Mr. Jared Ritchie",
+  project: "ut",
 }).then((res: CacheDelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,8 +129,8 @@ const sdk = new SDK({
 });
 
 sdk.cache.getKey({
-  key: "voluptates",
-  name: "Dr. Casey Mayer",
+  key: "maiores",
+  name: "Stacy Gulgowski MD",
   project: "enim",
 }).then((res: CacheGetResponse) => {
   if (res.statusCode == 200) {
@@ -157,11 +158,11 @@ const sdk = new SDK({
 
 sdk.cache.getSetKey({
   getSetRequest: {
-    value: "consequatur",
+    value: "accusamus",
   },
-  key: "est",
-  name: "Benjamin O'Connell",
-  project: "labore",
+  key: "commodi",
+  name: "Eric Emmerich",
+  project: "excepturi",
 }).then((res: CacheGetSetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,7 +188,7 @@ const sdk = new SDK({
 });
 
 sdk.cache.list({
-  project: "modi",
+  project: "pariatur",
 }).then((res: CacheListCachesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -213,11 +214,11 @@ const sdk = new SDK({
 });
 
 sdk.cache.listKeys({
-  count: 183191,
-  cursor: 397821,
-  name: "Isaac Aufderhar",
-  pattern: "ipsam",
-  project: "alias",
+  count: 265389,
+  cursor: 508969,
+  name: "Grady Botsford",
+  pattern: "veritatis",
+  project: "itaque",
 }).then((res: CacheKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -244,15 +245,15 @@ const sdk = new SDK({
 
 sdk.cache.setKey({
   setRequest: {
-    ex: 146441,
+    ex: 277718,
     nx: false,
-    px: 677817,
-    value: "excepturi",
+    px: 318569,
+    value: "consequatur",
     xx: false,
   },
-  key: "tempora",
-  name: "Geoffrey Green",
-  project: "non",
+  key: "est",
+  name: "Benjamin O'Connell",
+  project: "labore",
 }).then((res: CacheSetResponse) => {
   if (res.statusCode == 200) {
     // handle response

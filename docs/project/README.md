@@ -29,10 +29,10 @@ const sdk = new SDK({
 
 sdk.project.create({
   requestBody: {
-    "aspernatur": "vel",
-    "possimus": "magnam",
+    "veniam": "aliquid",
+    "inventore": "magnam",
   },
-  project: "ratione",
+  project: "ea",
 }).then((res: TigrisCreateProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,10 +59,12 @@ const sdk = new SDK({
 
 sdk.project.deleteProject({
   requestBody: {
-    "laudantium": "dicta",
-    "dolor": "maiores",
+    "consectetur": "recusandae",
+    "aspernatur": "minima",
+    "eaque": "a",
+    "libero": "aut",
   },
-  project: "quasi",
+  project: "aut",
 }).then((res: TigrisDeleteProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -41,14 +41,14 @@ const sdk = new SDK({
 
 sdk.search.createDocument({
   createByIdRequest: {
-    document: "ex",
-    id: "d9f5fce6-c556-4146-83e2-50fb008c42e1",
-    index: "non",
-    project: "et",
+    document: "deleniti",
+    id: "c42e141a-ac36-46c8-9d6b-144290747477",
+    index: "rem",
+    project: "fuga",
   },
-  id: "aac366c8-dd6b-4144-a907-474778a7bd46",
-  index: "suscipit",
-  project: "assumenda",
+  id: "7bd466d2-8c10-4ab3-8dca-4251904e523c",
+  index: "esse",
+  project: "recusandae",
 }).then((res: SearchCreateByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -80,13 +80,13 @@ const sdk = new SDK({
 sdk.search.createDocuments({
   createDocumentRequest: {
     documents: [
-      "praesentium",
+      "distinctio",
     ],
-    index: "quisquam",
-    project: "veritatis",
+    index: "quod",
+    project: "dignissimos",
   },
-  index: "ipsa",
-  project: "id",
+  index: "inventore",
+  project: "nihil",
 }).then((res: SearchCreateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,15 +116,15 @@ const sdk = new SDK({
 sdk.search.deleteDocuments({
   deleteDocumentRequest: {
     ids: [
-      "neque",
-      "quo",
-      "illum",
+      "accusamus",
+      "aliquam",
+      "odio",
     ],
-    index: "quo",
-    project: "fuga",
+    index: "occaecati",
+    project: "commodi",
   },
-  index: "eius",
-  project: "eos",
+  index: "sapiente",
+  project: "dolores",
 }).then((res: SearchDeleteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,11 +151,11 @@ const sdk = new SDK({
 
 sdk.search.deleteIndex({
   deleteIndexRequest: {
-    name: "Mrs. Virginia McGlynn",
-    project: "ipsam",
+    name: "Fernando Barton",
+    project: "quas",
   },
-  name: "Emily Satterfield",
-  project: "aperiam",
+  name: "Eugene Leuschke",
+  project: "mollitia",
 }).then((res: SearchDeleteIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,35 +187,31 @@ const sdk = new SDK({
 sdk.search.findDocuments({
   searchIndexRequest: {
     collation: {
-      case: "distinctio",
+      case: "incidunt",
     },
     excludeFields: [
-      "dignissimos",
-      "inventore",
-      "nihil",
-      "totam",
+      "explicabo",
+      "minima",
+      "nisi",
     ],
-    facet: "accusamus",
-    filter: "aliquam",
+    facet: "fugit",
+    filter: "sapiente",
     includeFields: [
-      "occaecati",
-      "commodi",
+      "ratione",
     ],
-    index: "sapiente",
-    page: 174112,
-    pageSize: 645570,
-    project: "molestiae",
-    q: "accusantium",
+    index: "explicabo",
+    page: 903984,
+    pageSize: 578922,
+    project: "atque",
+    q: "et",
     searchFields: [
-      "eum",
-      "quas",
-      "praesentium",
-      "consequuntur",
+      "eveniet",
+      "accusamus",
     ],
-    sort: "deleniti",
+    sort: "veritatis",
   },
-  index: "fugit",
-  project: "fuga",
+  index: "esse",
+  project: "quod",
 }).then((res: SearchSearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -243,12 +239,12 @@ const sdk = new SDK({
 
 sdk.search.getDocuments({
   ids: [
-    "incidunt",
-    "atque",
-    "explicabo",
+    "vero",
+    "aliquid",
+    "quasi",
   ],
-  index: "minima",
-  project: "nisi",
+  index: "saepe",
+  project: "vel",
 }).then((res: SearchGetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -274,8 +270,8 @@ const sdk = new SDK({
 });
 
 sdk.search.getIndex({
-  name: "Jeannie Cronin",
-  project: "saepe",
+  name: "Javier Price",
+  project: "distinctio",
 }).then((res: SearchGetIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -301,10 +297,10 @@ const sdk = new SDK({
 });
 
 sdk.search.listIndexes({
-  filterBranch: "occaecati",
-  filterCollection: "atque",
-  filterType: "et",
-  project: "esse",
+  filterBranch: "eligendi",
+  filterCollection: "sit",
+  filterType: "culpa",
+  project: "tempore",
 }).then((res: SearchListIndexesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -332,12 +328,12 @@ const sdk = new SDK({
 
 sdk.search.queryDeleteDocuments({
   deleteByQueryRequest: {
-    filter: "eveniet",
-    index: "accusamus",
-    project: "veritatis",
+    filter: "adipisci",
+    index: "cumque",
+    project: "consequuntur",
   },
-  index: "esse",
-  project: "quod",
+  index: "consequatur",
+  project: "minus",
 }).then((res: SearchDeleteByQueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -368,15 +364,14 @@ const sdk = new SDK({
 sdk.search.replaceDocuments({
   createOrReplaceDocumentRequest: {
     documents: [
-      "vero",
-      "aliquid",
-      "quasi",
+      "sapiente",
+      "consectetur",
     ],
-    index: "saepe",
-    project: "vel",
+    index: "esse",
+    project: "blanditiis",
   },
-  index: "harum",
-  project: "molestiae",
+  index: "provident",
+  project: "a",
 }).then((res: SearchCreateOrReplaceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -407,15 +402,16 @@ const sdk = new SDK({
 sdk.search.updateDocuments({
   updateDocumentRequest: {
     documents: [
-      "occaecati",
-      "minima",
-      "distinctio",
+      "quas",
+      "esse",
+      "quasi",
+      "a",
     ],
-    index: "eligendi",
-    project: "sit",
+    index: "error",
+    project: "sint",
   },
-  index: "culpa",
-  project: "tempore",
+  index: "pariatur",
+  project: "possimus",
 }).then((res: SearchUpdateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -442,13 +438,13 @@ const sdk = new SDK({
 
 sdk.search.updateIndex({
   createOrUpdateIndexRequest: {
-    name: "Miss Blanca Cronin",
+    name: "Laverne Zemlak Sr.",
     onlyCreate: false,
-    project: "sapiente",
-    schema: "consectetur",
+    project: "quasi",
+    schema: "similique",
   },
-  name: "Mattie McLaughlin",
-  project: "quas",
+  name: "Dr. Gene Wiegand",
+  project: "in",
 }).then((res: SearchCreateOrUpdateIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response
