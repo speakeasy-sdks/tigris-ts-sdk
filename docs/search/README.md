@@ -35,7 +35,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -73,7 +73,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -109,7 +109,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -145,7 +145,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -180,7 +180,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -233,7 +233,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -265,7 +265,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -292,7 +292,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -322,7 +322,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -357,7 +357,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -395,7 +395,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
@@ -432,7 +432,7 @@ import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
-    bearerAuth: "Bearer YOUR_BEARER_TOKEN_HERE",
+    bearerAuth: "YOUR_BEARER_TOKEN_HERE",
   },
 });
 
