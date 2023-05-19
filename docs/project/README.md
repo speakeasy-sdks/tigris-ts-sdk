@@ -19,7 +19,7 @@ Creates a new project. Returns an AlreadyExists error with a status code 409 if 
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisCreateProjectResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -49,7 +49,7 @@ Delete Project deletes all the collections in this project along with all of the
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDeleteProjectResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -81,7 +81,7 @@ List returns all the projects.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisListProjectsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

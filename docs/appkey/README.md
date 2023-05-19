@@ -21,7 +21,7 @@ Delete an app key.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -50,7 +50,7 @@ Lists all app keys visible to requesting actor.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisListAppKeysResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -76,7 +76,7 @@ Endpoint is used to rotate the secret for the app key.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisRotateAppKeySecretResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -106,7 +106,7 @@ Create an app key.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisCreateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -136,7 +136,7 @@ Update the description of an app key.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisUpdateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

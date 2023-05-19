@@ -21,7 +21,7 @@ This endpoint can be used to check the liveness of the server.
 ```typescript
 import { SDK } from "tigris-core";
 import { HealthAPIHealthResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -45,7 +45,7 @@ Provides the information about the server. This information includes returning t
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityGetInfoResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -69,7 +69,7 @@ Returns current namespace quota limits
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityQuotaUsageResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -96,7 +96,7 @@ Returns current namespace quota limits
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityQuotaLimitsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -124,11 +124,11 @@ Queries time series metrics
 import { SDK } from "tigris-core";
 import { ObservabilityQueryTimeSeriesMetricsResponse } from "tigris-core/dist/sdk/models/operations";
 import {
-  ErrorCodeEnum,
-  QueryTimeSeriesMetricsRequestFunctionEnum,
-  QueryTimeSeriesMetricsRequestSpaceAggregationEnum,
-  QueryTimeSeriesMetricsRequestTigrisOperationEnum,
-  RollupFunctionAggregatorEnum,
+  ErrorCode,
+  QueryTimeSeriesMetricsRequestFunction,
+  QueryTimeSeriesMetricsRequestSpaceAggregation,
+  QueryTimeSeriesMetricsRequestTigrisOperation,
+  RollupFunctionAggregator,
 } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
@@ -141,13 +141,13 @@ sdk.system.queryTimeSeriesMetrics({
   additionalFunctions: [
     {
       rollup: {
-        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorCount,
+        aggregator: RollupFunctionAggregator.RollupAggregatorCount,
         interval: 16328,
       },
     },
     {
       rollup: {
-        aggregator: RollupFunctionAggregatorEnum.RollupAggregatorMin,
+        aggregator: RollupFunctionAggregator.RollupAggregatorMin,
         interval: 185232,
       },
     },
@@ -156,7 +156,7 @@ sdk.system.queryTimeSeriesMetrics({
   collection: "ex",
   db: "deleniti",
   from: 929292,
-  function: QueryTimeSeriesMetricsRequestFunctionEnum.None,
+  function: QueryTimeSeriesMetricsRequestFunction.None,
   metricName: "architecto",
   quantile: 6091.78,
   spaceAggregatedBy: [
@@ -165,8 +165,8 @@ sdk.system.queryTimeSeriesMetrics({
     "et",
     "voluptate",
   ],
-  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregationEnum.Avg,
-  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperationEnum.Read,
+  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregation.Avg,
+  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.Read,
   to: 86532,
 }).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
   if (res.statusCode == 200) {

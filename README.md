@@ -21,7 +21,7 @@ yarn add https://github.com/speakeasy-sdks/tigris-ts-sdk
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

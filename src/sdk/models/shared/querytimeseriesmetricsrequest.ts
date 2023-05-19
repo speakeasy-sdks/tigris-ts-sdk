@@ -6,20 +6,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AdditionalFunction } from "./additionalfunction";
 import { Expose, Type } from "class-transformer";
 
-export enum QueryTimeSeriesMetricsRequestFunctionEnum {
+export enum QueryTimeSeriesMetricsRequestFunction {
   Rate = "RATE",
   Count = "COUNT",
   None = "NONE",
 }
 
-export enum QueryTimeSeriesMetricsRequestSpaceAggregationEnum {
+export enum QueryTimeSeriesMetricsRequestSpaceAggregation {
   Avg = "AVG",
   Min = "MIN",
   Max = "MAX",
   Sum = "SUM",
 }
 
-export enum QueryTimeSeriesMetricsRequestTigrisOperationEnum {
+export enum QueryTimeSeriesMetricsRequestTigrisOperation {
   All = "ALL",
   Read = "READ",
   Write = "WRITE",
@@ -53,7 +53,7 @@ export class QueryTimeSeriesMetricsRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "function" })
-  function?: QueryTimeSeriesMetricsRequestFunctionEnum;
+  function?: QueryTimeSeriesMetricsRequestFunction;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metric_name" })
@@ -69,11 +69,11 @@ export class QueryTimeSeriesMetricsRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "space_aggregation" })
-  spaceAggregation?: QueryTimeSeriesMetricsRequestSpaceAggregationEnum;
+  spaceAggregation?: QueryTimeSeriesMetricsRequestSpaceAggregation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "tigris_operation" })
-  tigrisOperation?: QueryTimeSeriesMetricsRequestTigrisOperationEnum;
+  tigrisOperation?: QueryTimeSeriesMetricsRequestTigrisOperation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "to" })

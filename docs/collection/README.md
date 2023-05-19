@@ -30,7 +30,7 @@ Creates a new collection or atomically upgrades the collection to the new schema
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisCreateOrUpdateCollectionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -71,7 +71,7 @@ Delete a range of documents in the collection using the condition provided in th
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDeleteResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -117,7 +117,7 @@ Returns the information related to the collection. This can be used to retrieve 
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDescribeCollectionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -154,7 +154,7 @@ Drops the collection inside this project. This API deletes all of the
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDropCollectionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -195,7 +195,7 @@ Imports documents into the collection.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisImportResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -251,7 +251,7 @@ Inserts new documents in the collection and returns an AlreadyExists error if an
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisInsertResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -309,7 +309,7 @@ Reads a range of documents from the collection, or messages from a collection in
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisReadResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -357,7 +357,7 @@ Inserts the documents or replaces the existing documents in the collections.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisReplaceResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -407,7 +407,7 @@ Searches a collection for the documents matching the query, or messages in case 
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisSearchResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -477,7 +477,7 @@ Update a range of documents in the collection using the condition provided in th
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisUpdateResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCodeEnum } from "tigris-core/dist/sdk/models/shared";
+import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
