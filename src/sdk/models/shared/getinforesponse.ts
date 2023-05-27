@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class GetInfoResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "server_version" })
-  serverVersion?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "server_version" })
+    serverVersion?: string;
 }

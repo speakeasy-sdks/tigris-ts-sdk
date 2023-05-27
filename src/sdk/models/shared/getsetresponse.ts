@@ -9,24 +9,24 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class GetSetResponse extends SpeakeasyBase {
-  /**
-   * A detailed response message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A detailed response message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  /**
-   * An old value if exists
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "old_value" })
-  oldValue?: string;
+    /**
+     * An old value if exists
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "old_value" })
+    oldValue?: string;
 
-  /**
-   * An enum with value set as "set"
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * An enum with value set as "set"
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

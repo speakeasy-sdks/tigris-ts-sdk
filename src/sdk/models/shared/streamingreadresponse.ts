@@ -11,16 +11,16 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class StreamingReadResponse extends SpeakeasyBase {
-  /**
-   * The Error type defines a logical error model
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  @Type(() => ErrorT)
-  error?: ErrorT;
+    /**
+     * The Error type defines a logical error model
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    @Type(() => ErrorT)
+    error?: ErrorT;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "result" })
-  @Type(() => ReadResponse)
-  result?: ReadResponse;
+    @SpeakeasyMetadata()
+    @Expose({ name: "result" })
+    @Type(() => ReadResponse)
+    result?: ReadResponse;
 }

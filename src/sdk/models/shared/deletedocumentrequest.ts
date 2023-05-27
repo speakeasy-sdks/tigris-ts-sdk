@@ -6,24 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DeleteDocumentRequest extends SpeakeasyBase {
-  /**
-   * A list of ids
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ids" })
-  ids?: string[];
+    /**
+     * A list of ids
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ids" })
+    ids?: string[];
 
-  /**
-   * The index name of the documents that needs deletion.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: string;
+    /**
+     * The index name of the documents that needs deletion.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: string;
 
-  /**
-   * The project name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * The project name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 }

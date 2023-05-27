@@ -7,58 +7,50 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RealtimeReadMessagesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=channel",
-  })
-  channel: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=channel" })
+    channel: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end" })
-  end?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end" })
+    end?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=event" })
-  event?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=event" })
+    event?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
-  limit?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
+    limit?: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=session_id",
-  })
-  sessionId?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=session_id" })
+    sessionId?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=socket_id",
-  })
-  socketId?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=socket_id" })
+    socketId?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start" })
-  start?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start" })
+    start?: string;
 }
 
 export class RealtimeReadMessagesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  readMessagesResponse?: shared.ReadMessagesResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    readMessagesResponse?: shared.ReadMessagesResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

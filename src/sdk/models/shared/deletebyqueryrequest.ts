@@ -6,24 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DeleteByQueryRequest extends SpeakeasyBase {
-  /**
-   * A filter is required to delete matching documents. To delete document by id, you can pass the filter as follows ```{"id": "test"}```
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "filter" })
-  filter?: string;
+    /**
+     * A filter is required to delete matching documents. To delete document by id, you can pass the filter as follows ```{"id": "test"}```
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "filter" })
+    filter?: string;
 
-  /**
-   * The index name of the documents that needs deletion.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: string;
+    /**
+     * The index name of the documents that needs deletion.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: string;
 
-  /**
-   * The project name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * The project name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 }

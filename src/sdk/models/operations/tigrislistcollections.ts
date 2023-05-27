@@ -7,42 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisListCollectionsRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=branch",
-  })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+    branch?: string;
 
-  /**
-   * Project name whose db is under target to list collections.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to list collections.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisListCollectionsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listCollectionsResponse?: shared.ListCollectionsResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    listCollectionsResponse?: shared.ListCollectionsResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

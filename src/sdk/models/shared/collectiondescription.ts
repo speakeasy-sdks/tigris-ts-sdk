@@ -6,28 +6,28 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CollectionDescription extends SpeakeasyBase {
-  /**
-   * Name of the collection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "collection" })
-  collection?: string;
+    /**
+     * Name of the collection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "collection" })
+    collection?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  metadata?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    metadata?: Record<string, any>;
 
-  /**
-   * Collections schema
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "schema" })
-  schema?: Record<string, any>;
+    /**
+     * Collections schema
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "schema" })
+    schema?: Record<string, any>;
 
-  /**
-   * Collection size in bytes
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "size" })
-  size?: number;
+    /**
+     * Collection size in bytes
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "size" })
+    size?: number;
 }

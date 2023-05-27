@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisCreateBranchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody: Record<string, any>;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    requestBody: Record<string, any>;
 
-  /**
-   * Name of the database branch to be created. <p></p>**Note**: `main` is a reserved branch name for primary database and is automatically created with CreateProject
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=branch",
-  })
-  branch: string;
+    /**
+     * Name of the database branch to be created. <p></p>**Note**: `main` is a reserved branch name for primary database and is automatically created with CreateProject
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=branch" })
+    branch: string;
 
-  /**
-   * Create a database branch in this project
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Create a database branch in this project
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisCreateBranchResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createBranchResponse?: shared.CreateBranchResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createBranchResponse?: shared.CreateBranchResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisImportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  importRequest: shared.ImportRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    importRequest: shared.ImportRequest;
 
-  /**
-   * Collection name where to import documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=collection",
-  })
-  collection: string;
+    /**
+     * Collection name where to import documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=collection" })
+    collection: string;
 
-  /**
-   * Project name whose db is under target to import documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to import documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisImportResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  importResponse?: shared.ImportResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    importResponse?: shared.ImportResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

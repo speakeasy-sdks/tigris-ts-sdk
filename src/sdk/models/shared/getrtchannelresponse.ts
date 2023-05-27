@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class GetRTChannelResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "channel" })
-  channel?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "channel" })
+    channel?: string;
 }

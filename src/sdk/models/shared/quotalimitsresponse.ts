@@ -9,24 +9,24 @@ import { Expose } from "class-transformer";
  * Contains current quota limits
  */
 export class QuotaLimitsResponse extends SpeakeasyBase {
-  /**
-   * Number of allowed read units per second
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ReadUnits" })
-  readUnits?: number;
+    /**
+     * Number of allowed read units per second
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ReadUnits" })
+    readUnits?: number;
 
-  /**
-   * Maximum number of bytes allowed to store
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "StorageSize" })
-  storageSize?: number;
+    /**
+     * Maximum number of bytes allowed to store
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "StorageSize" })
+    storageSize?: number;
 
-  /**
-   * Number of allowed write units per second
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "WriteUnits" })
-  writeUnits?: number;
+    /**
+     * Number of allowed write units per second
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "WriteUnits" })
+    writeUnits?: number;
 }

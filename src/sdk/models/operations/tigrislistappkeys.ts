@@ -7,34 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisListAppKeysRequest extends SpeakeasyBase {
-  /**
-   * Project name filter
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name filter
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisListAppKeysResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listAppKeysResponse?: shared.ListAppKeysResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    listAppKeysResponse?: shared.ListAppKeysResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Start new transaction in project specified by "project".
  */
 export class BeginTransactionRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a project branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a project branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * Options that can be used to modify the transaction semantics.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "options" })
-  options?: Record<string, any>;
+    /**
+     * Options that can be used to modify the transaction semantics.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "options" })
+    options?: Record<string, any>;
 }

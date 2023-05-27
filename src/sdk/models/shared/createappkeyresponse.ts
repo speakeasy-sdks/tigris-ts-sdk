@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * CreateAppKeyResponse returns created app keys
  */
 export class CreateAppKeyResponse extends SpeakeasyBase {
-  /**
-   * An user AppKey
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_app_key" })
-  @Type(() => AppKey)
-  createdAppKey?: AppKey;
+    /**
+     * An user AppKey
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_app_key" })
+    @Type(() => AppKey)
+    createdAppKey?: AppKey;
 }

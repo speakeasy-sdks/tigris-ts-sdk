@@ -7,37 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisDescribeDatabaseRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  describeDatabaseRequest: shared.DescribeDatabaseRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    describeDatabaseRequest: shared.DescribeDatabaseRequest;
 
-  /**
-   * Project name whose db is under target to get description.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to get description.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisDescribeDatabaseResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  describeDatabaseResponse?: shared.DescribeDatabaseResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    describeDatabaseResponse?: shared.DescribeDatabaseResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

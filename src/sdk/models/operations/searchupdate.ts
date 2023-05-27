@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchUpdateRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  updateDocumentRequest: shared.UpdateDocumentRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    updateDocumentRequest: shared.UpdateDocumentRequest;
 
-  /**
-   * Index name where to create documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=index",
-  })
-  index: string;
+    /**
+     * Index name where to create documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+    index: string;
 
-  /**
-   * Project name whose db is under target to insert documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to insert documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchUpdateResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  updateDocumentResponse?: shared.UpdateDocumentResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    updateDocumentResponse?: shared.UpdateDocumentResponse;
 }

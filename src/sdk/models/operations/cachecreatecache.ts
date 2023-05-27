@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CacheCreateCacheRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  createCacheRequest: shared.CreateCacheRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    createCacheRequest: shared.CreateCacheRequest;
 
-  /**
-   * cache name
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=name",
-  })
-  name: string;
+    /**
+     * cache name
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=name" })
+    name: string;
 
-  /**
-   * Tigris project name
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Tigris project name
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class CacheCreateCacheResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createCacheResponse?: shared.CreateCacheResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createCacheResponse?: shared.CreateCacheResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

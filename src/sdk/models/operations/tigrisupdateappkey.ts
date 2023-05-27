@@ -7,37 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisUpdateAppKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  updateAppKeyRequest: shared.UpdateAppKeyRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    updateAppKeyRequest: shared.UpdateAppKeyRequest;
 
-  /**
-   * project name -  this is not allowed to update
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * project name -  this is not allowed to update
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisUpdateAppKeyResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  updateAppKeyResponse?: shared.UpdateAppKeyResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    updateAppKeyResponse?: shared.UpdateAppKeyResponse;
 }

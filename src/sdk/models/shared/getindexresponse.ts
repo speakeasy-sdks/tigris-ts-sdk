@@ -10,8 +10,8 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class GetIndexResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  @Type(() => IndexInfo)
-  index?: IndexInfo;
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    @Type(() => IndexInfo)
+    index?: IndexInfo;
 }

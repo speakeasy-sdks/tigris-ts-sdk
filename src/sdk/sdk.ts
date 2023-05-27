@@ -22,32 +22,32 @@ import { AxiosInstance } from "axios";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  /**
-   * Tigris Cloud
-   */
-  "https://api.preview.tigrisdata.cloud",
-  /**
-   * Localhost
-   */
-  "http://localhost:8081",
+    /**
+     * Tigris Cloud
+     */
+    "https://api.preview.tigrisdata.cloud",
+    /**
+     * Localhost
+     */
+    "http://localhost:8081",
 ] as const;
 
 /**
  * The available configuration options for the SDK
  */
 export type SDKProps = {
-  /**
-   * The security details required to authenticate the SDK
-   */
-  security?: shared.Security;
-  /**
-   * Allows overriding the default axios client used by the SDK
-   */
-  defaultClient?: AxiosInstance;
-  /**
-   * Allows overriding the default server URL used by the SDK
-   */
-  serverURL?: string;
+    /**
+     * The security details required to authenticate the SDK
+     */
+    security?: shared.Security;
+    /**
+     * Allows overriding the default axios client used by the SDK
+     */
+    defaultClient?: AxiosInstance;
+    /**
+     * Allows overriding the default server URL used by the SDK
+     */
+    serverURL?: string;
 };
 
 /**
@@ -113,173 +113,169 @@ export type SDKProps = {
  *
  */
 export class SDK {
-  /**
-   * The application keys section provide APIs that can be used to manage application keys for your project. A single project can have one or more application keys.
-   */
-  public appKey: AppKey;
-  /**
-   * The auth section of API provides OAuth 2.0 APIs. Tigris supports pluggable OAuth provider. Pass the token in the headers for authentication, as an example `-H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6I"`(replace it with your token). All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-   */
-  public auth: Auth;
-  /**
-   * The cache section provide APIs that can be used to perform cache operations.
-   */
-  public cache: Cache;
-  /**
-   * The realtime section provide APIs that can be used realtime operations.
-   */
-  public channel: Channel;
-  /**
-   * The Collections section provide APIs that can be used to manage collections. A collection can have one or more documents.
-   */
-  public collection: Collection;
-  /**
-   * The Database section provide APIs that can be used to interact with the database. A single Database can have one or more collections. A database is created automatically for you when you create a project.
-   */
-  public database: Database;
-  /**
-   * The Management section provide APIs that can be used to manage users, and app_keys.
-   */
-  public namespace: Namespace;
-  /**
-   * Every Tigris projects comes with a transactional document database built on FoundationDB, one of the most resilient and battle-tested open source distributed key-value store. A database is created automatically for you when you create a project.
-   */
-  public project: Project;
-  /**
-   * The search section provides you APIs that can be used to implement powerful apps with search experiences. You can manage storing documents on your own or you can simply integrate it with your database.
-   */
-  public search: Search;
-  /**
-   * The Observability section has APIs that provides full visibility into the health, metrics, and monitoring of the Server.
-   */
-  public system: System;
-  /**
-   * A User on the Tigris Platform.
-   */
-  public user: User;
+    /**
+     * The application keys section provide APIs that can be used to manage application keys for your project. A single project can have one or more application keys.
+     */
+    public appKey: AppKey;
+    /**
+     * The auth section of API provides OAuth 2.0 APIs. Tigris supports pluggable OAuth provider. Pass the token in the headers for authentication, as an example `-H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6I"`(replace it with your token). All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+     */
+    public auth: Auth;
+    /**
+     * The cache section provide APIs that can be used to perform cache operations.
+     */
+    public cache: Cache;
+    /**
+     * The realtime section provide APIs that can be used realtime operations.
+     */
+    public channel: Channel;
+    /**
+     * The Collections section provide APIs that can be used to manage collections. A collection can have one or more documents.
+     */
+    public collection: Collection;
+    /**
+     * The Database section provide APIs that can be used to interact with the database. A single Database can have one or more collections. A database is created automatically for you when you create a project.
+     */
+    public database: Database;
+    /**
+     * The Management section provide APIs that can be used to manage users, and app_keys.
+     */
+    public namespace: Namespace;
+    /**
+     * Every Tigris projects comes with a transactional document database built on FoundationDB, one of the most resilient and battle-tested open source distributed key-value store. A database is created automatically for you when you create a project.
+     */
+    public project: Project;
+    /**
+     * The search section provides you APIs that can be used to implement powerful apps with search experiences. You can manage storing documents on your own or you can simply integrate it with your database.
+     */
+    public search: Search;
+    /**
+     * The Observability section has APIs that provides full visibility into the health, metrics, and monitoring of the Server.
+     */
+    public system: System;
+    /**
+     * A User on the Tigris Platform.
+     */
+    public user: User;
 
-  public _defaultClient: AxiosInstance;
-  public _securityClient: AxiosInstance;
-  public _serverURL: string;
-  private _language = "typescript";
-  private _sdkVersion = "0.20.0";
-  private _genVersion = "2.32.2";
-  private _globals: any;
+    public _defaultClient: AxiosInstance;
+    public _securityClient: AxiosInstance;
+    public _serverURL: string;
+    private _language = "typescript";
+    private _sdkVersion = "0.20.1";
+    private _genVersion = "2.32.7";
+    private _globals: any;
 
-  constructor(props?: SDKProps) {
-    this._serverURL = props?.serverURL ?? ServerList[0];
+    constructor(props?: SDKProps) {
+        this._serverURL = props?.serverURL ?? ServerList[0];
 
-    this._defaultClient =
-      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-    if (props?.security) {
-      let security: shared.Security = props.security;
-      if (!(props.security instanceof utils.SpeakeasyBase))
-        security = new shared.Security(props.security);
-      this._securityClient = utils.createSecurityClient(
-        this._defaultClient,
-        security
-      );
-    } else {
-      this._securityClient = this._defaultClient;
+        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase))
+                security = new shared.Security(props.security);
+            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
+        } else {
+            this._securityClient = this._defaultClient;
+        }
+
+        this.appKey = new AppKey(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.auth = new Auth(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.cache = new Cache(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.channel = new Channel(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.collection = new Collection(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.database = new Database(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.namespace = new Namespace(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.project = new Project(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.search = new Search(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.system = new System(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.user = new User(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
     }
-
-    this.appKey = new AppKey(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.auth = new Auth(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.cache = new Cache(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.channel = new Channel(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.collection = new Collection(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.database = new Database(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.namespace = new Namespace(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.project = new Project(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.search = new Search(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.system = new System(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.user = new User(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-  }
 }

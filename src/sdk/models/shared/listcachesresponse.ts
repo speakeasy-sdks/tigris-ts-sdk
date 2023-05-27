@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ListCachesResponse extends SpeakeasyBase {
-  /**
-   * List of caches metadata
-   */
-  @SpeakeasyMetadata({ elemType: CacheMetadata })
-  @Expose({ name: "caches" })
-  @Type(() => CacheMetadata)
-  caches?: CacheMetadata[];
+    /**
+     * List of caches metadata
+     */
+    @SpeakeasyMetadata({ elemType: CacheMetadata })
+    @Expose({ name: "caches" })
+    @Type(() => CacheMetadata)
+    caches?: CacheMetadata[];
 }

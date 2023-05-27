@@ -7,51 +7,47 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchCreateByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  createByIdRequest: shared.CreateByIdRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    createByIdRequest: shared.CreateByIdRequest;
 
-  /**
-   * document id.
-   */
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
-  id: string;
+    /**
+     * document id.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
+    id: string;
 
-  /**
-   * index name where to create document.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=index",
-  })
-  index: string;
+    /**
+     * index name where to create document.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+    index: string;
 
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Tigris project name.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchCreateByIdResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createByIdResponse?: shared.CreateByIdResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createByIdResponse?: shared.CreateByIdResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

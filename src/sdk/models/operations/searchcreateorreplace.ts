@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchCreateOrReplaceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  createOrReplaceDocumentRequest: shared.CreateOrReplaceDocumentRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    createOrReplaceDocumentRequest: shared.CreateOrReplaceDocumentRequest;
 
-  /**
-   * index name where to create documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=index",
-  })
-  index: string;
+    /**
+     * index name where to create documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+    index: string;
 
-  /**
-   * Project name whose db is under target to insert documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to insert documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchCreateOrReplaceResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createOrReplaceDocumentResponse?: shared.CreateOrReplaceDocumentResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createOrReplaceDocumentResponse?: shared.CreateOrReplaceDocumentResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

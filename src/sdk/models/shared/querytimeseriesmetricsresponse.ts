@@ -10,20 +10,20 @@ import { Expose, Type } from "class-transformer";
  * QueryTimeSeriesMetric responds with this type.
  */
 export class QueryTimeSeriesMetricsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "from" })
-  from?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "from" })
+    from?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "query" })
-  query?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "query" })
+    query?: string;
 
-  @SpeakeasyMetadata({ elemType: MetricSeries })
-  @Expose({ name: "series" })
-  @Type(() => MetricSeries)
-  series?: MetricSeries[];
+    @SpeakeasyMetadata({ elemType: MetricSeries })
+    @Expose({ name: "series" })
+    @Type(() => MetricSeries)
+    series?: MetricSeries[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "to" })
-  to?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "to" })
+    to?: number;
 }

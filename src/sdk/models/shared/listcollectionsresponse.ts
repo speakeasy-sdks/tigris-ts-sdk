@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ListCollectionsResponse extends SpeakeasyBase {
-  /**
-   * List of the collections info in the database.
-   */
-  @SpeakeasyMetadata({ elemType: CollectionInfo })
-  @Expose({ name: "collections" })
-  @Type(() => CollectionInfo)
-  collections?: CollectionInfo[];
+    /**
+     * List of the collections info in the database.
+     */
+    @SpeakeasyMetadata({ elemType: CollectionInfo })
+    @Expose({ name: "collections" })
+    @Type(() => CollectionInfo)
+    collections?: CollectionInfo[];
 }

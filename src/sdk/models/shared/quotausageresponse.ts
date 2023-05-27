@@ -9,45 +9,45 @@ import { Expose } from "class-transformer";
  * Contains current quota usage
  */
 export class QuotaUsageResponse extends SpeakeasyBase {
-  /**
-   * Number of read units used per second
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ReadUnits" })
-  readUnits?: number;
+    /**
+     * Number of read units used per second
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ReadUnits" })
+    readUnits?: number;
 
-  /**
-   * Number of read units throttled per second. Units which was rejected with "resource exhausted error".
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ReadUnitsThrottled" })
-  readUnitsThrottled?: number;
+    /**
+     * Number of read units throttled per second. Units which was rejected with "resource exhausted error".
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ReadUnitsThrottled" })
+    readUnitsThrottled?: number;
 
-  /**
-   * Number of bytes stored
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "StorageSize" })
-  storageSize?: number;
+    /**
+     * Number of bytes stored
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "StorageSize" })
+    storageSize?: number;
 
-  /**
-   * Number of bytes throttled. Number of bytes which were attempted to write in excess of quota and were rejected.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "StorageSizeThrottled" })
-  storageSizeThrottled?: number;
+    /**
+     * Number of bytes throttled. Number of bytes which were attempted to write in excess of quota and were rejected.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "StorageSizeThrottled" })
+    storageSizeThrottled?: number;
 
-  /**
-   * Number of write units used per second
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "WriteUnits" })
-  writeUnits?: number;
+    /**
+     * Number of write units used per second
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "WriteUnits" })
+    writeUnits?: number;
 
-  /**
-   * Number of write units throttled per second. Units which was rejected with "resource exhausted error".
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "WriteUnitsThrottled" })
-  writeUnitsThrottled?: number;
+    /**
+     * Number of write units throttled per second. Units which was rejected with "resource exhausted error".
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "WriteUnitsThrottled" })
+    writeUnitsThrottled?: number;
 }

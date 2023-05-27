@@ -6,31 +6,31 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateByIdRequest extends SpeakeasyBase {
-  /**
-   * A JSON document that needs to be indexed.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "document" })
-  document?: string;
+    /**
+     * A JSON document that needs to be indexed.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "document" })
+    document?: string;
 
-  /**
-   * document id.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * document id.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * index name where to create document.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: string;
+    /**
+     * index name where to create document.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: string;
 
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * Tigris project name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 }

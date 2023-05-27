@@ -9,11 +9,11 @@ import { Expose } from "class-transformer";
  * Request user metadata
  */
 export class GetUserMetadataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadataKey" })
-  metadataKey?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadataKey" })
+    metadataKey?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: Record<string, any>;
 }

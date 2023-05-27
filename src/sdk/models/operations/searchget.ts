@@ -7,48 +7,44 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchGetRequest extends SpeakeasyBase {
-  /**
-   * document id.
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=ids" })
-  ids?: string[];
+    /**
+     * document id.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=ids" })
+    ids?: string[];
 
-  /**
-   * index name where to create documents.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=index",
-  })
-  index: string;
+    /**
+     * index name where to create documents.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+    index: string;
 
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Tigris project name.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchGetResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getDocumentResponse?: shared.GetDocumentResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    getDocumentResponse?: shared.GetDocumentResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

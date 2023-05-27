@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchDeleteByQueryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  deleteByQueryRequest: shared.DeleteByQueryRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    deleteByQueryRequest: shared.DeleteByQueryRequest;
 
-  /**
-   * The index name of the documents that needs deletion.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=index",
-  })
-  index: string;
+    /**
+     * The index name of the documents that needs deletion.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=index" })
+    index: string;
 
-  /**
-   * The project name.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * The project name.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchDeleteByQueryResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  deleteByQueryResponse?: shared.DeleteByQueryResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    deleteByQueryResponse?: shared.DeleteByQueryResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

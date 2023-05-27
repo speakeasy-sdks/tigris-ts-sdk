@@ -11,19 +11,19 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class StreamingSearchResponse extends SpeakeasyBase {
-  /**
-   * The Error type defines a logical error model
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  @Type(() => ErrorT)
-  error?: ErrorT;
+    /**
+     * The Error type defines a logical error model
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    @Type(() => ErrorT)
+    error?: ErrorT;
 
-  /**
-   * Response struct for search
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "result" })
-  @Type(() => SearchResponse)
-  result?: SearchResponse;
+    /**
+     * Response struct for search
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "result" })
+    @Type(() => SearchResponse)
+    result?: SearchResponse;
 }

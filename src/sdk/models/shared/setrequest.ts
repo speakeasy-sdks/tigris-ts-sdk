@@ -6,38 +6,38 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class SetRequest extends SpeakeasyBase {
-  /**
-   * optional - ttl specific to this key in second
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ex" })
-  ex?: number;
+    /**
+     * optional - ttl specific to this key in second
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ex" })
+    ex?: number;
 
-  /**
-   * set only if the key doesn't exist
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "nx" })
-  nx?: boolean;
+    /**
+     * set only if the key doesn't exist
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "nx" })
+    nx?: boolean;
 
-  /**
-   * optional - ttl specific to this key in millisecond
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "px" })
-  px?: number;
+    /**
+     * optional - ttl specific to this key in millisecond
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "px" })
+    px?: number;
 
-  /**
-   * free form byte[] value
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: string;
+    /**
+     * free form byte[] value
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: string;
 
-  /**
-   * set only if the key exist
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "xx" })
-  xx?: boolean;
+    /**
+     * set only if the key exist
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "xx" })
+    xx?: boolean;
 }

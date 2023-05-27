@@ -7,88 +7,88 @@ import { Collation } from "./collation";
 import { Expose, Type } from "class-transformer";
 
 export class SearchIndexRequest extends SpeakeasyBase {
-  /**
-   * A collation allows you to specify string comparison rules. Default is case-sensitive, to override it you can set this option to 'ci' that will apply to all the text fields in the filters.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "collation" })
-  @Type(() => Collation)
-  collation?: Collation;
+    /**
+     * A collation allows you to specify string comparison rules. Default is case-sensitive, to override it you can set this option to 'ci' that will apply to all the text fields in the filters.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "collation" })
+    @Type(() => Collation)
+    collation?: Collation;
 
-  /**
-   * Array of document field names to exclude from results. `include_fields`, if specified, takes precedence over `exclude_fields`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "exclude_fields" })
-  excludeFields?: string[];
+    /**
+     * Array of document field names to exclude from results. `include_fields`, if specified, takes precedence over `exclude_fields`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "exclude_fields" })
+    excludeFields?: string[];
 
-  /**
-   * Facet query to aggregate results on given fields. The field name for the facet search can be passed like this `{"brand": { "size": 10 }}` where the size controls the total facets for this field.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "facet" })
-  facet?: string;
+    /**
+     * Facet query to aggregate results on given fields. The field name for the facet search can be passed like this `{"brand": { "size": 10 }}` where the size controls the total facets for this field.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "facet" })
+    facet?: string;
 
-  /**
-   * Filter stacks on top of query results to further narrow down the results. Similar to `ReadRequest.filter`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "filter" })
-  filter?: string;
+    /**
+     * Filter stacks on top of query results to further narrow down the results. Similar to `ReadRequest.filter`
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "filter" })
+    filter?: string;
 
-  /**
-   * Array of document field names to include in results. By default, all fields are included.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "include_fields" })
-  includeFields?: string[];
+    /**
+     * Array of document field names to include in results. By default, all fields are included.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "include_fields" })
+    includeFields?: string[];
 
-  /**
-   * The index name to search documents from.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: string;
+    /**
+     * The index name to search documents from.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: string;
 
-  /**
-   * Optionally can specify the page to retrieve. If page is set then only hits for this page is returned
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "page" })
-  page?: number;
+    /**
+     * Optionally can specify the page to retrieve. If page is set then only hits for this page is returned
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "page" })
+    page?: number;
 
-  /**
-   * Optionally can set the number of hits to be returned per page, default is 20.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "page_size" })
-  pageSize?: number;
+    /**
+     * Optionally can set the number of hits to be returned per page, default is 20.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "page_size" })
+    pageSize?: number;
 
-  /**
-   * Project name whose db is under target to search documents from.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * Project name whose db is under target to search documents from.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 
-  /**
-   * Query string for searching across text fields
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "q" })
-  q?: string;
+    /**
+     * Query string for searching across text fields
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "q" })
+    q?: string;
 
-  /**
-   * Array of fields to project search query against
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "search_fields" })
-  searchFields?: string[];
+    /**
+     * Array of fields to project search query against
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "search_fields" })
+    searchFields?: string[];
 
-  /**
-   * Array of fields and corresponding sort orders to order the results `[{ "salary": "$desc" }]`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sort" })
-  sort?: string;
+    /**
+     * Array of fields and corresponding sort orders to order the results `[{ "salary": "$desc" }]`
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "sort" })
+    sort?: string;
 }

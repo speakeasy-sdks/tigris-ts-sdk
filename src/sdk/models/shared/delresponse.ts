@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class DelResponse extends SpeakeasyBase {
-  /**
-   * A detailed response message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A detailed response message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  /**
-   * An enum with value set as "deleted" or "not_found"
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * An enum with value set as "deleted" or "not_found"
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

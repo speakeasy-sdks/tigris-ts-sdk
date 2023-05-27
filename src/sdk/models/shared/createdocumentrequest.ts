@@ -6,24 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateDocumentRequest extends SpeakeasyBase {
-  /**
-   * An array of documents to be created or replaced. Each document is a JSON object.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "documents" })
-  documents?: string[];
+    /**
+     * An array of documents to be created or replaced. Each document is a JSON object.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "documents" })
+    documents?: string[];
 
-  /**
-   * index name where to create documents.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: string;
+    /**
+     * index name where to create documents.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: string;
 
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * Tigris project name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 }

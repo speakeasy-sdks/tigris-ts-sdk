@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class GetDocumentResponse extends SpeakeasyBase {
-  /**
-   * An array of documents.
-   */
-  @SpeakeasyMetadata({ elemType: IndexDoc })
-  @Expose({ name: "documents" })
-  @Type(() => IndexDoc)
-  documents?: IndexDoc[];
+    /**
+     * An array of documents.
+     */
+    @SpeakeasyMetadata({ elemType: IndexDoc })
+    @Expose({ name: "documents" })
+    @Type(() => IndexDoc)
+    documents?: IndexDoc[];
 }

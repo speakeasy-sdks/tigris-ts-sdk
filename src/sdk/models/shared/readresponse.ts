@@ -7,25 +7,25 @@ import { ResponseMetadata } from "./responsemetadata";
 import { Expose, Type } from "class-transformer";
 
 export class ReadResponse extends SpeakeasyBase {
-  /**
-   * Object containing the collection document.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  data?: Record<string, any>;
+    /**
+     * Object containing the collection document.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "data" })
+    data?: Record<string, any>;
 
-  /**
-   * Has metadata related to the documents stored.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => ResponseMetadata)
-  metadata?: ResponseMetadata;
+    /**
+     * Has metadata related to the documents stored.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => ResponseMetadata)
+    metadata?: ResponseMetadata;
 
-  /**
-   * An internal key, used for pagination.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "resume_token" })
-  resumeToken?: string;
+    /**
+     * An internal key, used for pagination.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "resume_token" })
+    resumeToken?: string;
 }

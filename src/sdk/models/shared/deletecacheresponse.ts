@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class DeleteCacheResponse extends SpeakeasyBase {
-  /**
-   * A detailed response message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A detailed response message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  /**
-   * An enum with value set as "deleted"
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * An enum with value set as "deleted"
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

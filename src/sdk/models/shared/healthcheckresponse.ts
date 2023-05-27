@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class HealthCheckResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "response" })
-  response?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "response" })
+    response?: string;
 }

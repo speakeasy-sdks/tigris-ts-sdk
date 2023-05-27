@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisDeleteBranchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody: Record<string, any>;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    requestBody: Record<string, any>;
 
-  /**
-   * Name of the database branch to delete. <p></p>**Note**: `main` branch cannot be deleted, use DeleteProject instead
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=branch",
-  })
-  branch: string;
+    /**
+     * Name of the database branch to delete. <p></p>**Note**: `main` branch cannot be deleted, use DeleteProject instead
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=branch" })
+    branch: string;
 
-  /**
-   * Delete a database branch in this project
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Delete a database branch in this project
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisDeleteBranchResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  deleteBranchResponse?: shared.DeleteBranchResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    deleteBranchResponse?: shared.DeleteBranchResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

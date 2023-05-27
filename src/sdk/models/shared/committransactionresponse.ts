@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class CommitTransactionResponse extends SpeakeasyBase {
-  /**
-   * Status of commit transaction operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * Status of commit transaction operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

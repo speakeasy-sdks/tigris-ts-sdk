@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * AppKeys returns the flag to convey if app key was deleted
  */
 export class DeleteAppKeyResponse extends SpeakeasyBase {
-  /**
-   * status flag for delete operation
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "deleted" })
-  deleted?: boolean;
+    /**
+     * status flag for delete operation
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "deleted" })
+    deleted?: boolean;
 }

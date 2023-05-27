@@ -7,39 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RealtimeMessagesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  messagesRequest: shared.MessagesRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    messagesRequest: shared.MessagesRequest;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=channel",
-  })
-  channel: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=channel" })
+    channel: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class RealtimeMessagesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  messagesResponse?: shared.MessagesResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    messagesResponse?: shared.MessagesResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

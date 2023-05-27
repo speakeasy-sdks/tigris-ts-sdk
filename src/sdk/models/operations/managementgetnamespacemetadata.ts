@@ -7,34 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class ManagementGetNamespaceMetadataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  getNamespaceMetadataRequest: shared.GetNamespaceMetadataRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    getNamespaceMetadataRequest: shared.GetNamespaceMetadataRequest;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=metadataKey",
-  })
-  metadataKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=metadataKey" })
+    metadataKey: string;
 }
 
 export class ManagementGetNamespaceMetadataResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getNamespaceMetadataResponse?: shared.GetNamespaceMetadataResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    getNamespaceMetadataResponse?: shared.GetNamespaceMetadataResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

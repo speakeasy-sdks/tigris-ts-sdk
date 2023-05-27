@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class DeleteByQueryResponse extends SpeakeasyBase {
-  /**
-   * The number of documents deleted.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "count" })
-  count?: number;
+    /**
+     * The number of documents deleted.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "count" })
+    count?: number;
 }

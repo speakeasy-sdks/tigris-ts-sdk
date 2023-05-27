@@ -10,25 +10,25 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ReplaceResponse extends SpeakeasyBase {
-  /**
-   * an array returns the value of the primary keys.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "keys" })
-  keys?: string[];
+    /**
+     * an array returns the value of the primary keys.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "keys" })
+    keys?: string[];
 
-  /**
-   * Has metadata related to the documents stored.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => ResponseMetadata)
-  metadata?: ResponseMetadata;
+    /**
+     * Has metadata related to the documents stored.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => ResponseMetadata)
+    metadata?: ResponseMetadata;
 
-  /**
-   * an enum with value set as "replaced"
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * an enum with value set as "replaced"
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

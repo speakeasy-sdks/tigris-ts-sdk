@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class RollbackTransactionResponse extends SpeakeasyBase {
-  /**
-   * Status of rollback transaction operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * Status of rollback transaction operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

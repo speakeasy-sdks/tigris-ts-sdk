@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class MessagesResponse extends SpeakeasyBase {
-  /**
-   * ids of the published messages
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ids" })
-  ids?: string[];
+    /**
+     * ids of the published messages
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ids" })
+    ids?: string[];
 }

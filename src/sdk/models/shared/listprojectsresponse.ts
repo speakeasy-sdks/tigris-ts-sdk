@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ListProjectsResponse extends SpeakeasyBase {
-  /**
-   * List of the projects.
-   */
-  @SpeakeasyMetadata({ elemType: ProjectInfo })
-  @Expose({ name: "projects" })
-  @Type(() => ProjectInfo)
-  projects?: ProjectInfo[];
+    /**
+     * List of the projects.
+     */
+    @SpeakeasyMetadata({ elemType: ProjectInfo })
+    @Expose({ name: "projects" })
+    @Type(() => ProjectInfo)
+    projects?: ProjectInfo[];
 }

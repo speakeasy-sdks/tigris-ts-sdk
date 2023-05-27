@@ -10,18 +10,18 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class DeleteResponse extends SpeakeasyBase {
-  /**
-   * Has metadata related to the documents stored.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => ResponseMetadata)
-  metadata?: ResponseMetadata;
+    /**
+     * Has metadata related to the documents stored.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => ResponseMetadata)
+    metadata?: ResponseMetadata;
 
-  /**
-   * an enum with value set as "deleted"
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * an enum with value set as "deleted"
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

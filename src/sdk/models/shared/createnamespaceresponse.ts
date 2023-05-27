@@ -10,22 +10,22 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class CreateNamespaceResponse extends SpeakeasyBase {
-  /**
-   * A detailed response message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A detailed response message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "namespace" })
-  @Type(() => NamespaceInfo)
-  namespace?: NamespaceInfo;
+    @SpeakeasyMetadata()
+    @Expose({ name: "namespace" })
+    @Type(() => NamespaceInfo)
+    namespace?: NamespaceInfo;
 
-  /**
-   * An enum with value set as "created".
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * An enum with value set as "created".
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

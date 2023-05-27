@@ -6,24 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateNamespaceRequest extends SpeakeasyBase {
-  /**
-   * Optional: unique id
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "code" })
-  code?: number;
+    /**
+     * Optional: unique id
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "code" })
+    code?: number;
 
-  /**
-   * Optional: unique string id
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Optional: unique string id
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Required: The display name for namespace.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Required: The display name for namespace.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

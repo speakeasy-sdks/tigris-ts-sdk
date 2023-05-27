@@ -11,255 +11,237 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Every Tigris projects comes with a transactional document database built on FoundationDB, one of the most resilient and battle-tested open source distributed key-value store. A database is created automatically for you when you create a project.
  */
 export class Project {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Create Project
-   *
-   * @remarks
-   * Creates a new project. Returns an AlreadyExists error with a status code 409 if the project already exists.
-   */
-  async create(
-    req: operations.TigrisCreateProjectRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisCreateProjectResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisCreateProjectRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/create",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.TigrisCreateProjectResponse =
-      new operations.TigrisCreateProjectResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createProjectResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateProjectResponse
-          );
+    /**
+     * Create Project
+     *
+     * @remarks
+     * Creates a new project. Returns an AlreadyExists error with a status code 409 if the project already exists.
+     */
+    async create(
+        req: operations.TigrisCreateProjectRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.TigrisCreateProjectResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.TigrisCreateProjectRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/create", req);
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Delete Project and all resources under project
-   *
-   * @remarks
-   * Delete Project deletes all the collections in this project along with all of the documents, and associated metadata for these collections.
-   */
-  async deleteProject(
-    req: operations.TigrisDeleteProjectRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisDeleteProjectResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.TigrisDeleteProjectRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/delete",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.TigrisDeleteProjectResponse =
-      new operations.TigrisDeleteProjectResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteProjectResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.DeleteProjectResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.TigrisCreateProjectResponse =
+            new operations.TigrisCreateProjectResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createProjectResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateProjectResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Delete Project and all resources under project
+     *
+     * @remarks
+     * Delete Project deletes all the collections in this project along with all of the documents, and associated metadata for these collections.
+     */
+    async deleteProject(
+        req: operations.TigrisDeleteProjectRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.TigrisDeleteProjectResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.TigrisDeleteProjectRequest(req);
+        }
 
-  /**
-   * List Projects
-   *
-   * @remarks
-   * List returns all the projects.
-   */
-  async list(
-    config?: AxiosRequestConfig
-  ): Promise<operations.TigrisListProjectsResponse> {
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/v1/projects";
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/v1/projects/{project}/delete", req);
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.TigrisDeleteProjectResponse =
+            new operations.TigrisDeleteProjectResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteProjectResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.DeleteProjectResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    const res: operations.TigrisListProjectsResponse =
-      new operations.TigrisListProjectsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listProjectsResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.ListProjectsResponse
-          );
-        }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
-        }
-        break;
-    }
+    /**
+     * List Projects
+     *
+     * @remarks
+     * List returns all the projects.
+     */
+    async list(config?: AxiosRequestConfig): Promise<operations.TigrisListProjectsResponse> {
+        const baseURL: string = this._serverURL;
+        const url: string = baseURL.replace(/\/$/, "") + "/v1/projects";
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.TigrisListProjectsResponse =
+            new operations.TigrisListProjectsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listProjectsResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.ListProjectsResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

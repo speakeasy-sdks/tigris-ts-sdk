@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * Default error response
  */
 export class Status extends SpeakeasyBase {
-  /**
-   * The Error type defines a logical error model
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  @Type(() => ErrorT)
-  error?: ErrorT;
+    /**
+     * The Error type defines a logical error model
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    @Type(() => ErrorT)
+    error?: ErrorT;
 }

@@ -9,27 +9,27 @@ import { Expose, Transform } from "class-transformer";
  * Has metadata related to the documents stored.
  */
 export class ResponseMetadata extends SpeakeasyBase {
-  /**
-   * Time at which the document was inserted/replaced. Measured in nano-seconds since the Unix epoch.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt?: Date;
+    /**
+     * Time at which the document was inserted/replaced. Measured in nano-seconds since the Unix epoch.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt?: Date;
 
-  /**
-   * Time at which the document was deleted. Measured in nano-seconds since the Unix epoch.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "deleted_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  deletedAt?: Date;
+    /**
+     * Time at which the document was deleted. Measured in nano-seconds since the Unix epoch.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "deleted_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    deletedAt?: Date;
 
-  /**
-   * Time at which the document was updated. Measured in nano-seconds since the Unix epoch.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt?: Date;
+    /**
+     * Time at which the document was updated. Measured in nano-seconds since the Unix epoch.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt?: Date;
 }

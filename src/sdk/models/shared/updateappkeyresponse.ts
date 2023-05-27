@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * Returns response for updating the app key description
  */
 export class UpdateAppKeyResponse extends SpeakeasyBase {
-  /**
-   * An user AppKey
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated_app_key" })
-  @Type(() => AppKey)
-  updatedAppKey?: AppKey;
+    /**
+     * An user AppKey
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated_app_key" })
+    @Type(() => AppKey)
+    updatedAppKey?: AppKey;
 }

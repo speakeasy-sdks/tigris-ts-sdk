@@ -7,25 +7,25 @@ import { Page } from "./page";
 import { Expose, Type } from "class-transformer";
 
 export class SearchMetadata extends SpeakeasyBase {
-  /**
-   * Total number of search results across all pages
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "found" })
-  found?: number;
+    /**
+     * Total number of search results across all pages
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "found" })
+    found?: number;
 
-  /**
-   * Pagination metadata for SearchResponse
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "page" })
-  @Type(() => Page)
-  page?: Page;
+    /**
+     * Pagination metadata for SearchResponse
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "page" })
+    @Type(() => Page)
+    page?: Page;
 
-  /**
-   * Number representing the total pages of results
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_pages" })
-  totalPages?: number;
+    /**
+     * Number representing the total pages of results
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_pages" })
+    totalPages?: number;
 }

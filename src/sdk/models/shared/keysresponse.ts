@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class KeysResponse extends SpeakeasyBase {
-  /**
-   * cursor - 0 is the keys scan is finished, non-zero cursor can be passed in next keys request to continue the scan this is useful if streaming breaks and user wants to resume stream
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "cursor" })
-  cursor?: number;
+    /**
+     * cursor - 0 is the keys scan is finished, non-zero cursor can be passed in next keys request to continue the scan this is useful if streaming breaks and user wants to resume stream
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "cursor" })
+    cursor?: number;
 
-  /**
-   * keys
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "keys" })
-  keys?: string[];
+    /**
+     * keys
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "keys" })
+    keys?: string[];
 }

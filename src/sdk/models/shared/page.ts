@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Pagination metadata for SearchResponse
  */
 export class Page extends SpeakeasyBase {
-  /**
-   * Number representing the current page of results
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  current?: number;
+    /**
+     * Number representing the current page of results
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "current" })
+    current?: number;
 
-  /**
-   * Maximum number of results per page
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "size" })
-  size?: number;
+    /**
+     * Maximum number of results per page
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "size" })
+    size?: number;
 }

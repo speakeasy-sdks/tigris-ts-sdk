@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class IndexInfo extends SpeakeasyBase {
-  /**
-   * Name of the index.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the index.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Schema of the index.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "schema" })
-  schema?: string;
+    /**
+     * Schema of the index.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "schema" })
+    schema?: string;
 }

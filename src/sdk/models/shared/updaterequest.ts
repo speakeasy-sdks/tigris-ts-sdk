@@ -7,32 +7,32 @@ import { UpdateRequestOptions } from "./updaterequestoptions";
 import { Expose, Type } from "class-transformer";
 
 export class UpdateRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * Fields contains set of fields with the values which need to be updated. Should be proper JSON object.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "fields" })
-  fields?: Record<string, any>;
+    /**
+     * Fields contains set of fields with the values which need to be updated. Should be proper JSON object.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "fields" })
+    fields?: Record<string, any>;
 
-  /**
-   * Update documents which matching specified filter. A filter can simply be key, value where key is the field name and value would be the value for this field. Or a filter can be logical where two or more fields can be logically joined using $or and $and. A few examples of filter: <li> To update a user document where the id has a value 1: ```{"id": 1 }``` <li> To update all the user documents where the key "id" has a value 1 or 2 or 3: `{"$or": [{"id": 1}, {"id": 2}, {"id": 3}]}`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "filter" })
-  filter?: Record<string, any>;
+    /**
+     * Update documents which matching specified filter. A filter can simply be key, value where key is the field name and value would be the value for this field. Or a filter can be logical where two or more fields can be logically joined using $or and $and. A few examples of filter: <li> To update a user document where the id has a value 1: ```{"id": 1 }``` <li> To update all the user documents where the key "id" has a value 1 or 2 or 3: `{"$or": [{"id": 1}, {"id": 2}, {"id": 3}]}`
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "filter" })
+    filter?: Record<string, any>;
 
-  /**
-   * Additional options for update requests.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "options" })
-  @Type(() => UpdateRequestOptions)
-  options?: UpdateRequestOptions;
+    /**
+     * Additional options for update requests.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "options" })
+    @Type(() => UpdateRequestOptions)
+    options?: UpdateRequestOptions;
 }

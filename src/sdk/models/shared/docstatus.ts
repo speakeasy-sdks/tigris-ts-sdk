@@ -7,18 +7,18 @@ import { ErrorT } from "./error";
 import { Expose, Type } from "class-transformer";
 
 export class DocStatus extends SpeakeasyBase {
-  /**
-   * The Error type defines a logical error model
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  @Type(() => ErrorT)
-  error?: ErrorT;
+    /**
+     * The Error type defines a logical error model
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    @Type(() => ErrorT)
+    error?: ErrorT;
 
-  /**
-   * An id of the document.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * An id of the document.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }

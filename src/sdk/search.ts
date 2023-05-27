@@ -11,1005 +11,997 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * The search section provides you APIs that can be used to implement powerful apps with search experiences. You can manage storing documents on your own or you can simply integrate it with your database.
  */
 export class Search {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Create a single document
-   *
-   * @remarks
-   * CreateById is used for indexing a single document. The API expects a single document. An "id" is optional
-   *  and the server can automatically generate it for you in case it is missing. In cases an id is provided in
-   *  the document and the document already exists then that document will not be indexed and an error is returned
-   *  with HTTP status code 409.
-   */
-  async createDocument(
-    req: operations.SearchCreateByIdRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchCreateByIdResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchCreateByIdRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents/{id}",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "createByIdRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchCreateByIdResponse =
-      new operations.SearchCreateByIdResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createByIdResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateByIdResponse
-          );
+    /**
+     * Create a single document
+     *
+     * @remarks
+     * CreateById is used for indexing a single document. The API expects a single document. An "id" is optional
+     *  and the server can automatically generate it for you in case it is missing. In cases an id is provided in
+     *  the document and the document already exists then that document will not be indexed and an error is returned
+     *  with HTTP status code 409.
+     */
+    async createDocument(
+        req: operations.SearchCreateByIdRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchCreateByIdResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchCreateByIdRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents/{id}",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createByIdRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Create multiple documents
-   *
-   * @remarks
-   * Create is used for indexing a single or multiple documents. The API expects an array of documents.
-   *  Each document is a JSON object. An "id" is optional and the server can automatically generate it for you in
-   *  case it is missing. In cases when an id is provided in the document and the document already exists then that
-   *  document will not be indexed and in the response there will be an error corresponding to that document id other
-   *  documents will succeed. Returns an array of status indicating the status of each document.
-   */
-  async createDocuments(
-    req: operations.SearchCreateRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchCreateResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchCreateRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "createDocumentRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchCreateResponse =
-      new operations.SearchCreateResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createDocumentResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateDocumentResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.SearchCreateByIdResponse = new operations.SearchCreateByIdResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createByIdResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateByIdResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Delete documents by ids
-   *
-   * @remarks
-   * Delete one or more documents by id. Returns an array of status indicating the status of each document. Each status
-   *  has an error field that is set to null in case document is deleted successfully otherwise it will non null with
-   *  an error code and message.
-   */
-  async deleteDocuments(
-    req: operations.SearchDeleteRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchDeleteResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchDeleteRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "deleteDocumentRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchDeleteResponse =
-      new operations.SearchDeleteResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteDocumentResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.DeleteDocumentResponse
-          );
+    /**
+     * Create multiple documents
+     *
+     * @remarks
+     * Create is used for indexing a single or multiple documents. The API expects an array of documents.
+     *  Each document is a JSON object. An "id" is optional and the server can automatically generate it for you in
+     *  case it is missing. In cases when an id is provided in the document and the document already exists then that
+     *  document will not be indexed and in the response there will be an error corresponding to that document id other
+     *  documents will succeed. Returns an array of status indicating the status of each document.
+     */
+    async createDocuments(
+        req: operations.SearchCreateRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchCreateResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchCreateRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createDocumentRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Deletes search index
-   */
-  async deleteIndex(
-    req: operations.SearchDeleteIndexRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchDeleteIndexResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchDeleteIndexRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{name}",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "deleteIndexRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchDeleteIndexResponse =
-      new operations.SearchDeleteIndexResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteIndexResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.DeleteIndexResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.SearchCreateResponse = new operations.SearchCreateResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createDocumentResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateDocumentResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Search Documents.
-   *
-   * @remarks
-   * Searches an index for the documents matching the query. A search can be a term search or a phrase search.
-   *  Search API allows filtering the result set using filters as documented
-   *  <a href="https://docs.tigrisdata.com/overview/query#specification-1" title="here">here</a>. You can also perform
-   *  a faceted search by passing the fields in the facet parameter. You can find more detailed documentation of the
-   *  Search API with multiple examples <a href="https://docs.tigrisdata.com/overview/search" title="here">here</a>.
-   */
-  async findDocuments(
-    req: operations.SearchSearchRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchSearchResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchSearchRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents/search",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "searchIndexRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchSearchResponse =
-      new operations.SearchSearchResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.searchIndexResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.SearchIndexResponse
-          );
+    /**
+     * Delete documents by ids
+     *
+     * @remarks
+     * Delete one or more documents by id. Returns an array of status indicating the status of each document. Each status
+     *  has an error field that is set to null in case document is deleted successfully otherwise it will non null with
+     *  an error code and message.
+     */
+    async deleteDocuments(
+        req: operations.SearchDeleteRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchDeleteResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchDeleteRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "deleteDocumentRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Get a single or multiple documents
-   *
-   * @remarks
-   * Retrieves one or more documents by id. The response is an array of documents in the same order it is requests.
-   *  A null is returned for the documents that are not found.
-   */
-  async getDocuments(
-    req: operations.SearchGetRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchGetResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchGetRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchGetResponse = new operations.SearchGetResponse({
-      statusCode: httpRes.status,
-      contentType: contentType,
-      rawResponse: httpRes,
-    });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getDocumentResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.GetDocumentResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.SearchDeleteResponse = new operations.SearchDeleteResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteDocumentResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.DeleteDocumentResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get information about a search index
-   */
-  async getIndex(
-    req: operations.SearchGetIndexRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchGetIndexResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchGetIndexRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{name}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchGetIndexResponse =
-      new operations.SearchGetIndexResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getIndexResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.GetIndexResponse
-          );
+    /**
+     * Deletes search index
+     */
+    async deleteIndex(
+        req: operations.SearchDeleteIndexRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchDeleteIndexResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchDeleteIndexRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{name}",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "deleteIndexRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * List search indexes
-   */
-  async listIndexes(
-    req: operations.SearchListIndexesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchListIndexesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchListIndexesRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchListIndexesResponse =
-      new operations.SearchListIndexesResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listIndexesResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.ListIndexesResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.SearchDeleteIndexResponse = new operations.SearchDeleteIndexResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteIndexResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.DeleteIndexResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Delete documents by query
-   *
-   * @remarks
-   * DeleteByQuery is used to delete documents that match the filter. A filter is required. To delete document by id,
-   *  you can pass the filter as follows ```{"id": "test"}```. Returns a count of number of documents deleted.
-   */
-  async queryDeleteDocuments(
-    req: operations.SearchDeleteByQueryRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchDeleteByQueryResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchDeleteByQueryRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents/deleteByQuery",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "deleteByQueryRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchDeleteByQueryResponse =
-      new operations.SearchDeleteByQueryResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteByQueryResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.DeleteByQueryResponse
-          );
+    /**
+     * Search Documents.
+     *
+     * @remarks
+     * Searches an index for the documents matching the query. A search can be a term search or a phrase search.
+     *  Search API allows filtering the result set using filters as documented
+     *  <a href="https://docs.tigrisdata.com/overview/query#specification-1" title="here">here</a>. You can also perform
+     *  a faceted search by passing the fields in the facet parameter. You can find more detailed documentation of the
+     *  Search API with multiple examples <a href="https://docs.tigrisdata.com/overview/search" title="here">here</a>.
+     */
+    async findDocuments(
+        req: operations.SearchSearchRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchSearchResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchSearchRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents/search",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "searchIndexRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Create or replace documents in an index
-   *
-   * @remarks
-   * Creates or replaces one or more documents. Each document is a JSON object. A document is replaced
-   *  if it already exists. An "id" is generated automatically in case it is missing in the document. The
-   *  document is created if "id" doesn't exists otherwise it is replaced. Returns an array of status indicating
-   *  the status of each document.
-   */
-  async replaceDocuments(
-    req: operations.SearchCreateOrReplaceRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchCreateOrReplaceResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchCreateOrReplaceRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "createOrReplaceDocumentRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchCreateOrReplaceResponse =
-      new operations.SearchCreateOrReplaceResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createOrReplaceDocumentResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateOrReplaceDocumentResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const res: operations.SearchSearchResponse = new operations.SearchSearchResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.searchIndexResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.SearchIndexResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Update documents in an index
-   *
-   * @remarks
-   * Updates one or more documents by "id". Each document is required to have the
-   *  "id" field in it. Returns an array of status indicating the status of each document. Each status
-   *  has an error field that is set to null in case document is updated successfully otherwise the error
-   *  field is set with a code and message.
-   */
-  async updateDocuments(
-    req: operations.SearchUpdateRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchUpdateResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchUpdateRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{index}/documents",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "updateDocumentRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchUpdateResponse =
-      new operations.SearchUpdateResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.updateDocumentResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.UpdateDocumentResponse
-          );
+    /**
+     * Get a single or multiple documents
+     *
+     * @remarks
+     * Retrieves one or more documents by id. The response is an array of documents in the same order it is requests.
+     *  A null is returned for the documents that are not found.
+     */
+    async getDocuments(
+        req: operations.SearchGetRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchGetResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchGetRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Creates or updates search index
-   */
-  async updateIndex(
-    req: operations.SearchCreateOrUpdateIndexRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SearchCreateOrUpdateIndexResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SearchCreateOrUpdateIndexRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/v1/projects/{project}/search/indexes/{name}",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "createOrUpdateIndexRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SearchCreateOrUpdateIndexResponse =
-      new operations.SearchCreateOrUpdateIndexResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createOrUpdateIndexResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateOrUpdateIndexResponse
-          );
+        const res: operations.SearchGetResponse = new operations.SearchGetResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getDocumentResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.GetDocumentResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.status = utils.objectToClass(httpRes?.data, shared.Status);
-        }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Get information about a search index
+     */
+    async getIndex(
+        req: operations.SearchGetIndexRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchGetIndexResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchGetIndexRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{name}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchGetIndexResponse = new operations.SearchGetIndexResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getIndexResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.GetIndexResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List search indexes
+     */
+    async listIndexes(
+        req: operations.SearchListIndexesRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchListIndexesResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchListIndexesRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchListIndexesResponse = new operations.SearchListIndexesResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listIndexesResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.ListIndexesResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Delete documents by query
+     *
+     * @remarks
+     * DeleteByQuery is used to delete documents that match the filter. A filter is required. To delete document by id,
+     *  you can pass the filter as follows ```{"id": "test"}```. Returns a count of number of documents deleted.
+     */
+    async queryDeleteDocuments(
+        req: operations.SearchDeleteByQueryRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchDeleteByQueryResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchDeleteByQueryRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents/deleteByQuery",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "deleteByQueryRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchDeleteByQueryResponse =
+            new operations.SearchDeleteByQueryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteByQueryResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.DeleteByQueryResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Create or replace documents in an index
+     *
+     * @remarks
+     * Creates or replaces one or more documents. Each document is a JSON object. A document is replaced
+     *  if it already exists. An "id" is generated automatically in case it is missing in the document. The
+     *  document is created if "id" doesn't exists otherwise it is replaced. Returns an array of status indicating
+     *  the status of each document.
+     */
+    async replaceDocuments(
+        req: operations.SearchCreateOrReplaceRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchCreateOrReplaceResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchCreateOrReplaceRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createOrReplaceDocumentRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "put",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchCreateOrReplaceResponse =
+            new operations.SearchCreateOrReplaceResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createOrReplaceDocumentResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateOrReplaceDocumentResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Update documents in an index
+     *
+     * @remarks
+     * Updates one or more documents by "id". Each document is required to have the
+     *  "id" field in it. Returns an array of status indicating the status of each document. Each status
+     *  has an error field that is set to null in case document is updated successfully otherwise the error
+     *  field is set with a code and message.
+     */
+    async updateDocuments(
+        req: operations.SearchUpdateRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchUpdateResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchUpdateRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{index}/documents",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "updateDocumentRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "patch",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchUpdateResponse = new operations.SearchUpdateResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.updateDocumentResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.UpdateDocumentResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Creates or updates search index
+     */
+    async updateIndex(
+        req: operations.SearchCreateOrUpdateIndexRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SearchCreateOrUpdateIndexResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SearchCreateOrUpdateIndexRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/v1/projects/{project}/search/indexes/{name}",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createOrUpdateIndexRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "put",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SearchCreateOrUpdateIndexResponse =
+            new operations.SearchCreateOrUpdateIndexResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createOrUpdateIndexResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateOrUpdateIndexResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

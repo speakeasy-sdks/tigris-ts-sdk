@@ -7,18 +7,18 @@ import { DocMeta } from "./docmeta";
 import { Expose, Type } from "class-transformer";
 
 export class IndexDoc extends SpeakeasyBase {
-  /**
-   * Actual search document
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "doc" })
-  doc?: string;
+    /**
+     * Actual search document
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "doc" })
+    doc?: string;
 
-  /**
-   * Contains metadata related to the search hit, has information about document created_at/updated_at as well.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => DocMeta)
-  metadata?: DocMeta;
+    /**
+     * Contains metadata related to the search hit, has information about document created_at/updated_at as well.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => DocMeta)
+    metadata?: DocMeta;
 }

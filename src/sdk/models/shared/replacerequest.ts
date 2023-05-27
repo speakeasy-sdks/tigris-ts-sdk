@@ -7,25 +7,25 @@ import { ReplaceRequestOptions } from "./replacerequestoptions";
 import { Expose, Type } from "class-transformer";
 
 export class ReplaceRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * Array of documents to be replaced. Each document is a JSON object.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "documents" })
-  documents?: Record<string, any>[];
+    /**
+     * Array of documents to be replaced. Each document is a JSON object.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "documents" })
+    documents?: Record<string, any>[];
 
-  /**
-   * Additional options for replace requests.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "options" })
-  @Type(() => ReplaceRequestOptions)
-  options?: ReplaceRequestOptions;
+    /**
+     * Additional options for replace requests.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "options" })
+    @Type(() => ReplaceRequestOptions)
+    options?: ReplaceRequestOptions;
 }

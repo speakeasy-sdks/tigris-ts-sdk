@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class CreateByIdResponse extends SpeakeasyBase {
-  /**
-   * Returns the id of the created document.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Returns the id of the created document.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }

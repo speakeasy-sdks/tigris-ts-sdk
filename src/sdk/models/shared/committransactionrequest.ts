@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * Commit transaction with the given ID
  */
 export class CommitTransactionRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 }

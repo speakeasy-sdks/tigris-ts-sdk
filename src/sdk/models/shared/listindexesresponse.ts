@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ListIndexesResponse extends SpeakeasyBase {
-  /**
-   * List of indexes.
-   */
-  @SpeakeasyMetadata({ elemType: IndexInfo })
-  @Expose({ name: "indexes" })
-  @Type(() => IndexInfo)
-  indexes?: IndexInfo[];
+    /**
+     * List of indexes.
+     */
+    @SpeakeasyMetadata({ elemType: IndexInfo })
+    @Expose({ name: "indexes" })
+    @Type(() => IndexInfo)
+    indexes?: IndexInfo[];
 }

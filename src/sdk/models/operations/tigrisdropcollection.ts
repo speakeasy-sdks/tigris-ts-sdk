@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisDropCollectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  dropCollectionRequest: shared.DropCollectionRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    dropCollectionRequest: shared.DropCollectionRequest;
 
-  /**
-   * Collection name to delete.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=collection",
-  })
-  collection: string;
+    /**
+     * Collection name to delete.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=collection" })
+    collection: string;
 
-  /**
-   * Project name whose db is under target to delete collection.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target to delete collection.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisDropCollectionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  dropCollectionResponse?: shared.DropCollectionResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    dropCollectionResponse?: shared.DropCollectionResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

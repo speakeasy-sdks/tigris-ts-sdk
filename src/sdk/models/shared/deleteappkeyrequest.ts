@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * Request deletion of an app key
  */
 export class DeleteAppKeyRequest extends SpeakeasyBase {
-  /**
-   * app_key id
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * app_key id
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }

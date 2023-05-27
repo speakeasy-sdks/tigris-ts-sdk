@@ -10,29 +10,29 @@ import { Expose, Type } from "class-transformer";
  * A detailed description of the database and all the associated collections. Description of the collection includes schema details as well.
  */
 export class DescribeDatabaseResponse extends SpeakeasyBase {
-  /**
-   * List of all the branches in this database
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branches" })
-  branches?: string[];
+    /**
+     * List of all the branches in this database
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branches" })
+    branches?: string[];
 
-  /**
-   * A detailed description about all the collections. The description returns collection metadata and the schema.
-   */
-  @SpeakeasyMetadata({ elemType: CollectionDescription })
-  @Expose({ name: "collections" })
-  @Type(() => CollectionDescription)
-  collections?: CollectionDescription[];
+    /**
+     * A detailed description about all the collections. The description returns collection metadata and the schema.
+     */
+    @SpeakeasyMetadata({ elemType: CollectionDescription })
+    @Expose({ name: "collections" })
+    @Type(() => CollectionDescription)
+    collections?: CollectionDescription[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  metadata?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    metadata?: Record<string, any>;
 
-  /**
-   * Sum of all the collections sizes present in this database
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "size" })
-  size?: number;
+    /**
+     * Sum of all the collections sizes present in this database
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "size" })
+    size?: number;
 }

@@ -7,45 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class TigrisUpdateRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  updateRequest: shared.UpdateRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    updateRequest: shared.UpdateRequest;
 
-  /**
-   * Collection name where to update documents
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=collection",
-  })
-  collection: string;
+    /**
+     * Collection name where to update documents
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=collection" })
+    collection: string;
 
-  /**
-   * Project name whose db is under target  to update documents
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Project name whose db is under target  to update documents
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class TigrisUpdateResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  updateResponse?: shared.UpdateResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    updateResponse?: shared.UpdateResponse;
 }

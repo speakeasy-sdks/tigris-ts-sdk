@@ -7,58 +7,50 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SearchListIndexesRequest extends SpeakeasyBase {
-  /**
-   * Applicable only in case index is backed by Tigris collection. This is the database branch for the above collection. For primary database it can be omitted or "main" can be passed.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=filter.branch",
-  })
-  filterBranch?: string;
+    /**
+     * Applicable only in case index is backed by Tigris collection. This is the database branch for the above collection. For primary database it can be omitted or "main" can be passed.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.branch" })
+    filterBranch?: string;
 
-  /**
-   * Applicable only in case index is backed by Tigris collection.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=filter.collection",
-  })
-  filterCollection?: string;
+    /**
+     * Applicable only in case index is backed by Tigris collection.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.collection" })
+    filterCollection?: string;
 
-  /**
-   * An index can be either managed by user explicitly then the type is set as "user" or the index is backed by Tigris collection. In case it is backed by Tigris collection the type is "tigris".
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=filter.type",
-  })
-  filterType?: string;
+    /**
+     * An index can be either managed by user explicitly then the type is set as "user" or the index is backed by Tigris collection. In case it is backed by Tigris collection the type is "tigris".
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter.type" })
+    filterType?: string;
 
-  /**
-   * Tigris project name.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project",
-  })
-  project: string;
+    /**
+     * Tigris project name.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project" })
+    project: string;
 }
 
 export class SearchListIndexesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listIndexesResponse?: shared.ListIndexesResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    listIndexesResponse?: shared.ListIndexesResponse;
 
-  /**
-   * Default error response
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

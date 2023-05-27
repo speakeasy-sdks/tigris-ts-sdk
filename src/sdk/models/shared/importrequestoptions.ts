@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * additional options for import requests.
  */
 export class ImportRequestOptions extends SpeakeasyBase {
-  /**
-   * Additional options to modify write requests.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "write_options" })
-  writeOptions?: Record<string, any>;
+    /**
+     * Additional options to modify write requests.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "write_options" })
+    writeOptions?: Record<string, any>;
 }

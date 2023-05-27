@@ -9,11 +9,11 @@ import { Expose } from "class-transformer";
  * Request insertion of namespace metadata
  */
 export class InsertNamespaceMetadataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadataKey" })
-  metadataKey?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadataKey" })
+    metadataKey?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: Record<string, any>;
 }

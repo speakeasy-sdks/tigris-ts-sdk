@@ -10,11 +10,11 @@ import { Expose, Type } from "class-transformer";
  * RotateAppKeyResponse returns the new app key with rotated secret
  */
 export class RotateAppKeyResponse extends SpeakeasyBase {
-  /**
-   * An user AppKey
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "app_key" })
-  @Type(() => AppKey)
-  appKey?: AppKey;
+    /**
+     * An user AppKey
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "app_key" })
+    @Type(() => AppKey)
+    appKey?: AppKey;
 }

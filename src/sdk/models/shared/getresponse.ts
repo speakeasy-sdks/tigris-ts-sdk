@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class GetResponse extends SpeakeasyBase {
-  /**
-   * expiration ms
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "expires_in_ms" })
-  expiresInMs?: number;
+    /**
+     * expiration ms
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "expires_in_ms" })
+    expiresInMs?: number;
 
-  /**
-   * value
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: string;
+    /**
+     * value
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: string;
 }

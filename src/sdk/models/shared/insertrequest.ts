@@ -7,25 +7,25 @@ import { InsertRequestOptions } from "./insertrequestoptions";
 import { Expose, Type } from "class-transformer";
 
 export class InsertRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * Array of documents to insert. Each document is a JSON object.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "documents" })
-  documents?: Record<string, any>[];
+    /**
+     * Array of documents to insert. Each document is a JSON object.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "documents" })
+    documents?: Record<string, any>[];
 
-  /**
-   * additional options for insert requests.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "options" })
-  @Type(() => InsertRequestOptions)
-  options?: InsertRequestOptions;
+    /**
+     * additional options for insert requests.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "options" })
+    @Type(() => InsertRequestOptions)
+    options?: InsertRequestOptions;
 }

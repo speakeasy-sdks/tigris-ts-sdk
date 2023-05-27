@@ -9,15 +9,15 @@ import { Expose } from "class-transformer";
  * Update of namespace metadata response
  */
 export class UpdateNamespaceMetadataResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadataKey" })
-  metadataKey?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadataKey" })
+    metadataKey?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "namespaceId" })
-  namespaceId?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "namespaceId" })
+    namespaceId?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: Record<string, any>;
 }

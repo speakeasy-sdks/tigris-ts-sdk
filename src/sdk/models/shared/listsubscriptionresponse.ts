@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class ListSubscriptionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "devices" })
-  devices?: string[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "devices" })
+    devices?: string[];
 }

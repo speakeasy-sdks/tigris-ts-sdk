@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Request rotation of an app key secret
  */
 export class RotateAppKeyRequest extends SpeakeasyBase {
-  /**
-   * app key id
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * app key id
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * project name
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * project name
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 }

@@ -6,24 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DescribeDatabaseRequest extends SpeakeasyBase {
-  /**
-   * Optionally specify a database branch name to perform operation on
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * Optionally specify a database branch name to perform operation on
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * Project name whose db is under target to get description.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  project?: string;
+    /**
+     * Project name whose db is under target to get description.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    project?: string;
 
-  /**
-   * Return schema in the requested format. Format can be JSON, Go, TypeScript, Java. Default is JSON.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "schema_format" })
-  schemaFormat?: string;
+    /**
+     * Return schema in the requested format. Format can be JSON, Go, TypeScript, Java. Default is JSON.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "schema_format" })
+    schemaFormat?: string;
 }

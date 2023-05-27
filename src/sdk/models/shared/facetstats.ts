@@ -9,38 +9,38 @@ import { Expose } from "class-transformer";
  * Additional stats for faceted field
  */
 export class FacetStats extends SpeakeasyBase {
-  /**
-   * Average of all values in a field. Only available for numeric fields
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "avg" })
-  avg?: number;
+    /**
+     * Average of all values in a field. Only available for numeric fields
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "avg" })
+    avg?: number;
 
-  /**
-   * Total number of values in a field
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "count" })
-  count?: number;
+    /**
+     * Total number of values in a field
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "count" })
+    count?: number;
 
-  /**
-   * Maximum of all values in a field. Only available for numeric fields
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "max" })
-  max?: number;
+    /**
+     * Maximum of all values in a field. Only available for numeric fields
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "max" })
+    max?: number;
 
-  /**
-   * Minimum of all values in a field. Only available for numeric fields
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "min" })
-  min?: number;
+    /**
+     * Minimum of all values in a field. Only available for numeric fields
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "min" })
+    min?: number;
 
-  /**
-   * Sum of all values in a field. Only available for numeric fields
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sum" })
-  sum?: number;
+    /**
+     * Sum of all values in a field. Only available for numeric fields
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "sum" })
+    sum?: number;
 }
