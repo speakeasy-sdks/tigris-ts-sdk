@@ -62,8 +62,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.22.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.22.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -71,7 +71,7 @@ export class SDKConfiguration {
 }
 
 /**
- * # Overview
+ * Tigris API Reference: # Overview
  *
  * @remarks
  * This section is organized around HTTP APIs. The APIs accepts JSON requests and returns JSON-encoded responses.The APIs conforms to standard HTTP status codes.
