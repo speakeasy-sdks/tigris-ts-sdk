@@ -6,6 +6,8 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ReplaceRequestOptions } from "./replacerequestoptions";
 import { Expose, Type } from "class-transformer";
 
+export class ReplaceRequestDocuments extends SpeakeasyBase {}
+
 export class ReplaceRequest extends SpeakeasyBase {
     /**
      * Optionally specify a database branch name to perform operation on
@@ -17,9 +19,10 @@ export class ReplaceRequest extends SpeakeasyBase {
     /**
      * Array of documents to be replaced. Each document is a JSON object.
      */
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: ReplaceRequestDocuments })
     @Expose({ name: "documents" })
-    documents?: Record<string, any>[];
+    @Type(() => ReplaceRequestDocuments)
+    documents?: ReplaceRequestDocuments[];
 
     /**
      * Additional options for replace requests.

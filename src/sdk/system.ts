@@ -148,9 +148,13 @@ export class System {
      * Returns current namespace quota limits
      */
     async observabilityQuotaUsage(
-        req: Record<string, any>,
+        req: shared.QuotaUsageRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ObservabilityQuotaUsageResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new shared.QuotaUsageRequest(req);
+        }
+
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -225,9 +229,13 @@ export class System {
      * Returns current namespace quota limits
      */
     async queryQuotaLimits(
-        req: Record<string, any>,
+        req: shared.QuotaLimitsRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ObservabilityQuotaLimitsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new shared.QuotaLimitsRequest(req);
+        }
+
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

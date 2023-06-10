@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { BranchMetadata } from "./branchmetadata";
+import { Expose, Type } from "class-transformer";
 
 export class BranchInfo extends SpeakeasyBase {
     /**
@@ -15,5 +16,6 @@ export class BranchInfo extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => BranchMetadata)
+    metadata?: BranchMetadata;
 }

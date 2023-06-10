@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class TigrisCreateBranchRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Record<string, any>;
+    createBranchRequest: shared.CreateBranchRequest;
 
     /**
      * Name of the database branch to be created. <p></p>**Note**: `main` is a reserved branch name for primary database and is automatically created with CreateProject

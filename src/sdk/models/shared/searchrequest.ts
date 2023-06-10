@@ -6,6 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Collation } from "./collation";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Facet query to aggregate results on given fields. The field name for the facet search can be passed like this `{"brand": { "size": 10 }}` where the size controls the total facets for this field.
+ */
+export class SearchRequestFacet extends SpeakeasyBase {}
+
+export class SearchRequestFields extends SpeakeasyBase {}
+
+/**
+ * Filter stacks on top of query results to further narrow down the results. Similar to `ReadRequest.filter`
+ */
+export class SearchRequestFilter extends SpeakeasyBase {}
+
+/**
+ * Array of fields and corresponding sort orders to order the results `[{ "salary": "$desc" }]`
+ */
+export class SearchRequestSort extends SpeakeasyBase {}
+
 export class SearchRequest extends SpeakeasyBase {
     /**
      * Optionally specify a database branch name to perform operation on
@@ -34,18 +51,21 @@ export class SearchRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "facet" })
-    facet?: Record<string, any>;
+    @Type(() => SearchRequestFacet)
+    facet?: SearchRequestFacet;
 
     @SpeakeasyMetadata()
     @Expose({ name: "fields" })
-    fields?: Record<string, any>;
+    @Type(() => SearchRequestFields)
+    fields?: SearchRequestFields;
 
     /**
      * Filter stacks on top of query results to further narrow down the results. Similar to `ReadRequest.filter`
      */
     @SpeakeasyMetadata()
     @Expose({ name: "filter" })
-    filter?: Record<string, any>;
+    @Type(() => SearchRequestFilter)
+    filter?: SearchRequestFilter;
 
     /**
      * Array of document field names to include in results. By default, all fields are included.
@@ -87,5 +107,6 @@ export class SearchRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sort" })
-    sort?: Record<string, any>;
+    @Type(() => SearchRequestSort)
+    sort?: SearchRequestSort;
 }

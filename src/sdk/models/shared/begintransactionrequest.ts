@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { TransactionOptions } from "./transactionoptions";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Start new transaction in project specified by "project".
@@ -21,5 +22,6 @@ export class BeginTransactionRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "options" })
-    options?: Record<string, any>;
+    @Type(() => TransactionOptions)
+    options?: TransactionOptions;
 }

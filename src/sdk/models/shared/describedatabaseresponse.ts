@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CollectionDescription } from "./collectiondescription";
+import { DatabaseMetadata } from "./databasemetadata";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -27,7 +28,8 @@ export class DescribeDatabaseResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => DatabaseMetadata)
+    metadata?: DatabaseMetadata;
 
     /**
      * Sum of all the collections sizes present in this database

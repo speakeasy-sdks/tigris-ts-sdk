@@ -3,12 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { ProjectMetadata } from "./projectmetadata";
+import { Expose, Type } from "class-transformer";
 
 export class ProjectInfo extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => ProjectMetadata)
+    metadata?: ProjectMetadata;
 
     /**
      * Project name.
