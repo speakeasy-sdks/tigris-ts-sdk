@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { CollectionMetadata } from "./collectionmetadata";
+import { Expose, Type } from "class-transformer";
 
 export class CollectionInfo extends SpeakeasyBase {
     /**
@@ -15,5 +16,6 @@ export class CollectionInfo extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => CollectionMetadata)
+    metadata?: CollectionMetadata;
 }

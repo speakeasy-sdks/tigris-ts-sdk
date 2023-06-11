@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class TigrisCreateProjectRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Record<string, any>;
+    createProjectRequest: shared.CreateProjectRequest;
 
     /**
      * Create project with this name.

@@ -1,0 +1,12 @@
+# TigrisBeginTransactionResponse
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `beginTransactionResponse`                                                         | [shared.BeginTransactionResponse](../../models/shared/begintransactionresponse.md) | :heavy_minus_sign:                                                                 | OK                                                                                 |
+| `contentType`                                                                      | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `status`                                                                           | [shared.Status](../../models/shared/status.md)                                     | :heavy_minus_sign:                                                                 | Default error response                                                             |
+| `statusCode`                                                                       | *number*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `rawResponse`                                                                      | [AxiosResponse>](https://axios-http.com/docs/res_schema)                           | :heavy_minus_sign:                                                                 | N/A                                                                                |

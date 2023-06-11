@@ -1,0 +1,8 @@
+# DescribeNamespacesData
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `details`          | *string*           | :heavy_minus_sign: | N/A                |

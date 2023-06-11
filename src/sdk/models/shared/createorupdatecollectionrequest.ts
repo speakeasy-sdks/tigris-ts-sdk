@@ -3,7 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { CollectionOptions } from "./collectionoptions";
+import { Expose, Type } from "class-transformer";
+
+/**
+ * The schema specifications are same as JSON schema specification defined <a href="https://json-schema.org/specification.html" title="here">here</a>.<p></p> Schema example: `{  "title": "user",  "description": "Collection of documents with details of users",  "properties": {    "id": {      "description": "A unique identifier for the user",      "type": "integer"    },    "name": {      "description": "Name of the user",      "type": "string",      "maxLength": 128    },    "balance": {      "description": "User account balance",      "type": "number"    }  },  "primary_key": ["id"] }`
+ */
+export class CreateOrUpdateCollectionRequestSchema extends SpeakeasyBase {}
 
 export class CreateOrUpdateCollectionRequest extends SpeakeasyBase {
     /**
@@ -25,12 +31,14 @@ export class CreateOrUpdateCollectionRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "options" })
-    options?: Record<string, any>;
+    @Type(() => CollectionOptions)
+    options?: CollectionOptions;
 
     /**
      * The schema specifications are same as JSON schema specification defined <a href="https://json-schema.org/specification.html" title="here">here</a>.<p></p> Schema example: `{  "title": "user",  "description": "Collection of documents with details of users",  "properties": {    "id": {      "description": "A unique identifier for the user",      "type": "integer"    },    "name": {      "description": "Name of the user",      "type": "string",      "maxLength": 128    },    "balance": {      "description": "User account balance",      "type": "number"    }  },  "primary_key": ["id"] }`
      */
     @SpeakeasyMetadata()
     @Expose({ name: "schema" })
-    schema?: Record<string, any>;
+    @Type(() => CreateOrUpdateCollectionRequestSchema)
+    schema?: CreateOrUpdateCollectionRequestSchema;
 }

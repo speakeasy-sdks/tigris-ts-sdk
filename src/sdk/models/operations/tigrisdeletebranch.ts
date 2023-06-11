@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class TigrisDeleteBranchRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Record<string, any>;
+    deleteBranchRequest: shared.DeleteBranchRequest;
 
     /**
      * Name of the database branch to delete. <p></p>**Note**: `main` branch cannot be deleted, use DeleteProject instead
