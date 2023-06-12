@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Collation } from "./collation";
+import { WriteOptions } from "./writeoptions";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -30,5 +31,6 @@ export class UpdateRequestOptions extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "write_options" })
-    writeOptions?: Record<string, any>;
+    @Type(() => WriteOptions)
+    writeOptions?: WriteOptions;
 }

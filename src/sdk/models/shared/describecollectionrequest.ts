@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { CollectionOptions } from "./collectionoptions";
+import { Expose, Type } from "class-transformer";
 
 export class DescribeCollectionRequest extends SpeakeasyBase {
     /**
@@ -25,7 +26,8 @@ export class DescribeCollectionRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "options" })
-    options?: Record<string, any>;
+    @Type(() => CollectionOptions)
+    options?: CollectionOptions;
 
     /**
      * Project name whose db is under target to get description of its collection.

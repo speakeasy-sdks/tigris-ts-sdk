@@ -1,0 +1,12 @@
+# TigrisUpdateAppKeyResponse
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `contentType`                                                              | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `statusCode`                                                               | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `rawResponse`                                                              | [AxiosResponse>](https://axios-http.com/docs/res_schema)                   | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `status`                                                                   | [shared.Status](../../models/shared/status.md)                             | :heavy_minus_sign:                                                         | Default error response                                                     |
+| `updateAppKeyResponse`                                                     | [shared.UpdateAppKeyResponse](../../models/shared/updateappkeyresponse.md) | :heavy_minus_sign:                                                         | OK                                                                         |

@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CacheDeleteCacheRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Record<string, any>;
+    deleteCacheRequest: shared.DeleteCacheRequest;
 
     /**
      * cache name

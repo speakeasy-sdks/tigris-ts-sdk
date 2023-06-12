@@ -6,6 +6,8 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { InsertRequestOptions } from "./insertrequestoptions";
 import { Expose, Type } from "class-transformer";
 
+export class InsertRequestDocuments extends SpeakeasyBase {}
+
 export class InsertRequest extends SpeakeasyBase {
     /**
      * Optionally specify a database branch name to perform operation on
@@ -17,9 +19,10 @@ export class InsertRequest extends SpeakeasyBase {
     /**
      * Array of documents to insert. Each document is a JSON object.
      */
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: InsertRequestDocuments })
     @Expose({ name: "documents" })
-    documents?: Record<string, any>[];
+    @Type(() => InsertRequestDocuments)
+    documents?: InsertRequestDocuments[];
 
     /**
      * additional options for insert requests.

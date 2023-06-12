@@ -3,7 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
+
+export class InsertNamespaceMetadataRequestValue extends SpeakeasyBase {}
 
 /**
  * Request insertion of namespace metadata
@@ -15,5 +17,6 @@ export class InsertNamespaceMetadataRequest extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "value" })
-    value?: Record<string, any>;
+    @Type(() => InsertNamespaceMetadataRequestValue)
+    value?: InsertNamespaceMetadataRequestValue;
 }

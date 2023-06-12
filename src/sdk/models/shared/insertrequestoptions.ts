@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { WriteOptions } from "./writeoptions";
+import { Expose, Type } from "class-transformer";
 
 /**
  * additional options for insert requests.
@@ -14,5 +15,6 @@ export class InsertRequestOptions extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "write_options" })
-    writeOptions?: Record<string, any>;
+    @Type(() => WriteOptions)
+    writeOptions?: WriteOptions;
 }
