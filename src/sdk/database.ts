@@ -74,6 +74,7 @@ export class Database {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -90,18 +91,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.beginTransactionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.BeginTransactionResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -164,6 +166,7 @@ export class Database {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -180,18 +183,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.commitTransactionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CommitTransactionResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -226,7 +230,11 @@ export class Database {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createBranchRequest",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -249,6 +257,7 @@ export class Database {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -265,18 +274,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createBranchResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateBranchResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -312,7 +322,11 @@ export class Database {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "deleteBranchRequest",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -335,6 +349,7 @@ export class Database {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -351,18 +366,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteBranchResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteBranchResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -425,6 +441,7 @@ export class Database {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -441,18 +458,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.describeDatabaseResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DescribeDatabaseResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -499,6 +517,7 @@ export class Database {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -514,18 +533,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listCollectionsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListCollectionsResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -588,6 +608,7 @@ export class Database {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -604,18 +625,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.rollbackTransactionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.RollbackTransactionResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -661,6 +683,7 @@ export class Database {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -676,18 +699,19 @@ export class Database {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listBranchesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListBranchesResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }

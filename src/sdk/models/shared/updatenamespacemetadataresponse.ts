@@ -3,7 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
+
+export class UpdateNamespaceMetadataResponseValue extends SpeakeasyBase {}
 
 /**
  * Update of namespace metadata response
@@ -19,5 +21,6 @@ export class UpdateNamespaceMetadataResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "value" })
-    value?: Record<string, any>;
+    @Type(() => UpdateNamespaceMetadataResponseValue)
+    value?: UpdateNamespaceMetadataResponseValue;
 }

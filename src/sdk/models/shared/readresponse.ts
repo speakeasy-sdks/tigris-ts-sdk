@@ -6,13 +6,19 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ResponseMetadata } from "./responsemetadata";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Object containing the collection document.
+ */
+export class ReadResponseData extends SpeakeasyBase {}
+
 export class ReadResponse extends SpeakeasyBase {
     /**
      * Object containing the collection document.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data?: Record<string, any>;
+    @Type(() => ReadResponseData)
+    data?: ReadResponseData;
 
     /**
      * Has metadata related to the documents stored.

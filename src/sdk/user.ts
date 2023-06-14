@@ -72,6 +72,7 @@ export class User {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -88,18 +89,19 @@ export class User {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getUserMetadataResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.GetUserMetadataResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -161,6 +163,7 @@ export class User {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -177,18 +180,19 @@ export class User {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.insertUserMetadataResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.InsertUserMetadataResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -250,6 +254,7 @@ export class User {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -266,18 +271,19 @@ export class User {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.updateUserMetadataResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.UpdateUserMetadataResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }

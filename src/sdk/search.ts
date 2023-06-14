@@ -75,6 +75,7 @@ export class Search {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -90,18 +91,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createByIdResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateByIdResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -167,6 +169,7 @@ export class Search {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -182,18 +185,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createDocumentResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateDocumentResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -257,6 +261,7 @@ export class Search {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -272,18 +277,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteDocumentResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteDocumentResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -342,6 +348,7 @@ export class Search {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -357,18 +364,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteIndexResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteIndexResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -434,6 +442,7 @@ export class Search {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -449,18 +458,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.searchIndexResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.SearchIndexResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -508,6 +518,7 @@ export class Search {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -522,18 +533,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDocumentResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.GetDocumentResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -576,6 +588,7 @@ export class Search {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -590,18 +603,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getIndexResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.GetIndexResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -645,6 +659,7 @@ export class Search {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -659,18 +674,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listIndexesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListIndexesResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -733,6 +749,7 @@ export class Search {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -749,18 +766,19 @@ export class Search {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteByQueryResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteByQueryResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -825,6 +843,7 @@ export class Search {
             url: url,
             method: "put",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -841,18 +860,19 @@ export class Search {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createOrReplaceDocumentResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateOrReplaceDocumentResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -917,6 +937,7 @@ export class Search {
             url: url,
             method: "patch",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -932,18 +953,19 @@ export class Search {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.updateDocumentResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.UpdateDocumentResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }
@@ -1002,6 +1024,7 @@ export class Search {
             url: url,
             method: "put",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -1018,18 +1041,19 @@ export class Search {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createOrUpdateIndexResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateOrUpdateIndexResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }

@@ -47,6 +47,7 @@ export class Auth {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -62,18 +63,19 @@ export class Auth {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getAccessTokenResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.GetAccessTokenResponse
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
         }

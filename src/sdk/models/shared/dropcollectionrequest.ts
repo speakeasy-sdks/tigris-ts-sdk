@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { CollectionOptions } from "./collectionoptions";
+import { Expose, Type } from "class-transformer";
 
 export class DropCollectionRequest extends SpeakeasyBase {
     /**
@@ -18,5 +19,6 @@ export class DropCollectionRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "options" })
-    options?: Record<string, any>;
+    @Type(() => CollectionOptions)
+    options?: CollectionOptions;
 }

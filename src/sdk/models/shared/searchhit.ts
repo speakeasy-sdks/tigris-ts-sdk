@@ -6,13 +6,19 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { SearchHitMeta } from "./searchhitmeta";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Actual search document
+ */
+export class SearchHitData extends SpeakeasyBase {}
+
 export class SearchHit extends SpeakeasyBase {
     /**
      * Actual search document
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data?: Record<string, any>;
+    @Type(() => SearchHitData)
+    data?: SearchHitData;
 
     /**
      * Contains metadata related to the search hit, has information about document created_at/updated_at as well.

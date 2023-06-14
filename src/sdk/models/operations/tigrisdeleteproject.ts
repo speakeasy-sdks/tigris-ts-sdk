@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class TigrisDeleteProjectRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Record<string, any>;
+    deleteProjectRequest: shared.DeleteProjectRequest;
 
     /**
      * Delete Project with this name. <p></p>**Note**: Deletes all resources under this project. Use with caution.
