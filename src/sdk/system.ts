@@ -31,8 +31,7 @@ export class System {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/v1/health";
 
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json;q=1, application/json;q=0";
