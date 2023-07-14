@@ -21,7 +21,6 @@ This endpoint can be used to check the liveness of the server.
 ```typescript
 import { SDK } from "tigris-core";
 import { HealthAPIHealthResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -57,7 +56,6 @@ Provides the information about the server. This information includes returning t
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityGetInfoResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -93,7 +91,6 @@ Returns current namespace quota limits
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityQuotaUsageResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -130,7 +127,6 @@ Returns current namespace quota limits
 ```typescript
 import { SDK } from "tigris-core";
 import { ObservabilityQuotaLimitsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -168,7 +164,6 @@ Queries time series metrics
 import { SDK } from "tigris-core";
 import { ObservabilityQueryTimeSeriesMetricsResponse } from "tigris-core/dist/sdk/models/operations";
 import {
-  ErrorCode,
   QueryTimeSeriesMetricsRequestFunction,
   QueryTimeSeriesMetricsRequestSpaceAggregation,
   QueryTimeSeriesMetricsRequestTigrisOperation,

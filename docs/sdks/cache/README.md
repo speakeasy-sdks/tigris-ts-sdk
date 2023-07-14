@@ -24,7 +24,6 @@ Creates the cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -69,7 +68,6 @@ Deletes the cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheDeleteCacheResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -110,7 +108,6 @@ Deletes an entry from cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheDelResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -152,7 +149,6 @@ Reads an entry from cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheGetResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -193,7 +189,6 @@ Sets an entry in the cache and returns the previous value if exists
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheGetSetResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -237,7 +232,6 @@ Lists all the caches for the given project
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheListCachesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -276,7 +270,6 @@ Lists all the key for this cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheKeysResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -319,7 +312,6 @@ Sets an entry in the cache
 ```typescript
 import { SDK } from "tigris-core";
 import { CacheSetResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

@@ -26,7 +26,6 @@ Starts a new transaction and returns a transactional object. All reads/writes pe
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisBeginTransactionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -70,7 +69,6 @@ Atomically commit all the changes performed in the context of the transaction. C
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisCommitTransactionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -112,7 +110,6 @@ Creates a new database branch, if not already existing.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisCreateBranchResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -154,7 +151,6 @@ Deletes a database branch, if exists.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDeleteBranchResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -196,7 +192,6 @@ This API returns information related to the project along with all the collectio
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisDescribeDatabaseResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -240,7 +235,6 @@ List all the collections present in the project passed in the request.
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisListCollectionsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -281,7 +275,6 @@ Rollback transaction discards all the changes
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisRollbackTransactionResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -323,7 +316,6 @@ List database branches
 ```typescript
 import { SDK } from "tigris-core";
 import { TigrisListBranchesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

@@ -22,7 +22,6 @@ Creates a new namespace, if it does not exist
 ```typescript
 import { SDK } from "tigris-core";
 import { CreateNamespaceResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -63,7 +62,6 @@ Get details for all namespaces
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementDescribeNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -99,7 +97,6 @@ GetNamespaceMetadata inserts the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementGetNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -142,7 +139,6 @@ InsertNamespaceMetadata inserts the namespace metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementInsertNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -185,7 +181,6 @@ List all namespace
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementListNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -221,7 +216,6 @@ UpdateNamespaceMetadata updates the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementUpdateNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

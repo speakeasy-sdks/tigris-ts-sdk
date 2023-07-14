@@ -31,7 +31,6 @@ CreateById is used for indexing a single document. The API expects a single docu
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchCreateByIdResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -82,7 +81,6 @@ Create is used for indexing a single or multiple documents. The API expects an a
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchCreateResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -134,7 +132,6 @@ Delete one or more documents by id. Returns an array of status indicating the st
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchDeleteResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -183,7 +180,6 @@ Deletes search index
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchDeleteIndexResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -231,7 +227,6 @@ Searches an index for the documents matching the query. A search can be a term s
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchSearchResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -297,7 +292,6 @@ Retrieves one or more documents by id. The response is an array of documents in 
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchGetResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -343,7 +337,6 @@ Get information about a search index
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchGetIndexResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -383,7 +376,6 @@ List search indexes
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchListIndexesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -426,7 +418,6 @@ DeleteByQuery is used to delete documents that match the filter. A filter is req
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchDeleteByQueryResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -474,7 +465,6 @@ Creates or replaces one or more documents. Each document is a JSON object. A doc
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchCreateOrReplaceResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -527,7 +517,6 @@ Updates one or more documents by "id". Each document is required to have the
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchUpdateResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -576,7 +565,6 @@ Creates or updates search index
 ```typescript
 import { SDK } from "tigris-core";
 import { SearchCreateOrUpdateIndexResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

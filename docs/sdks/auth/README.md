@@ -19,7 +19,6 @@ Endpoint for receiving access token from Tigris Server. The endpoint requires Gr
 ```typescript
 import { SDK } from "tigris-core";
 import { AuthGetAccessTokenResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

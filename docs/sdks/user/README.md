@@ -19,7 +19,6 @@ GetUserMetadata inserts the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementGetUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -62,7 +61,6 @@ insertUserMetadata inserts the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementInsertUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -105,7 +103,6 @@ updateUserMetadata updates the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 import { ManagementUpdateUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {

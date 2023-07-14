@@ -22,7 +22,6 @@ Get the details about a channel
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimeGetRTChannelResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -62,7 +61,6 @@ Get all messages for a channel
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimeReadMessagesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -108,7 +106,6 @@ Get all channels for your application project
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimeGetRTChannelsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -147,7 +144,6 @@ Get the subscriptions details about a channel
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimeListSubscriptionsResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -189,7 +185,6 @@ push messages to a single channel
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimeMessagesResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
@@ -241,7 +236,6 @@ Presence about the channel
 ```typescript
 import { SDK } from "tigris-core";
 import { RealtimePresenceResponse } from "tigris-core/dist/sdk/models/operations";
-import { ErrorCode } from "tigris-core/dist/sdk/models/shared";
 
 const sdk = new SDK({
   security: {
