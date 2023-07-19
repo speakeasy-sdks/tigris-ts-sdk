@@ -1,6 +1,6 @@
 {
   "name": "tigris-core",
-  "version": "0.35.0",
+  "version": "0.35.1",
   "author": "tigris-data",
   "scripts": {
     "prepare": "tsc --build"
