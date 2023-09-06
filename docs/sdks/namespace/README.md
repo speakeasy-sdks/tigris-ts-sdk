@@ -30,9 +30,9 @@ const sdk = new SDK({
 });
 
 sdk.namespace.create({
-  code: 982575,
-  id: "b576b0d5-f0d3-40c5-bbb2-587053202c73",
-  name: "Dean Welch",
+  code: 868126,
+  id: "028921cd-dc69-4260-9fb5-76b0d5f0d30c",
+  name: "Mindy Renner",
 }).then((res: CreateNamespaceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,10 +106,10 @@ const sdk = new SDK({
 
 sdk.namespace.getMetadata({
   getNamespaceMetadataRequest: {
-    metadataKey: "facilis",
+    metadataKey: "quis",
     value: {},
   },
-  metadataKey: "perspiciatis",
+  metadataKey: "totam",
 }).then((res: ManagementGetNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,10 +148,10 @@ const sdk = new SDK({
 
 sdk.namespace.insertMetadata({
   insertNamespaceMetadataRequest: {
-    metadataKey: "voluptatem",
+    metadataKey: "dignissimos",
     value: {},
   },
-  metadataKey: "porro",
+  metadataKey: "eaque",
 }).then((res: ManagementInsertNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -225,10 +225,10 @@ const sdk = new SDK({
 
 sdk.namespace.updateMetadata({
   updateNamespaceMetadataRequest: {
-    metadataKey: "consequuntur",
+    metadataKey: "quis",
     value: {},
   },
-  metadataKey: "blanditiis",
+  metadataKey: "nesciunt",
 }).then((res: ManagementUpdateNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response

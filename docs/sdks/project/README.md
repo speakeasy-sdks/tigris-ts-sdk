@@ -28,7 +28,7 @@ const sdk = new SDK({
 
 sdk.project.create({
   createProjectRequest: {},
-  project: "error",
+  project: "eos",
 }).then((res: TigrisCreateProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,7 +67,7 @@ const sdk = new SDK({
 
 sdk.project.deleteProject({
   deleteProjectRequest: {},
-  project: "eaque",
+  project: "perferendis",
 }).then((res: TigrisDeleteProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response

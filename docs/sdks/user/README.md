@@ -28,10 +28,10 @@ const sdk = new SDK({
 
 sdk.user.getMetadata({
   getUserMetadataRequest: {
-    metadataKey: "distinctio",
+    metadataKey: "nobis",
     value: {},
   },
-  metadataKey: "quod",
+  metadataKey: "et",
 }).then((res: ManagementGetUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,10 +70,10 @@ const sdk = new SDK({
 
 sdk.user.insertMetadata({
   insertUserMetadataRequest: {
-    metadataKey: "odio",
+    metadataKey: "saepe",
     value: {},
   },
-  metadataKey: "similique",
+  metadataKey: "ipsum",
 }).then((res: ManagementInsertUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,10 +112,10 @@ const sdk = new SDK({
 
 sdk.user.updateMetadata({
   updateUserMetadataRequest: {
-    metadataKey: "facilis",
+    metadataKey: "veritatis",
     value: {},
   },
-  metadataKey: "vero",
+  metadataKey: "nobis",
 }).then((res: ManagementUpdateUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
