@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BranchInfo } from "./branchinfo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListBranchesResponse extends SpeakeasyBase {
     /**
      * List of all the branches in this database

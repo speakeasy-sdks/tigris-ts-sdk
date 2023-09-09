@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CacheMetadata } from "./cachemetadata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListCachesResponse extends SpeakeasyBase {
     /**
      * List of caches metadata

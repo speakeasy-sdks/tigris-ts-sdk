@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { IndexDoc } from "./indexdoc";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class GetDocumentResponse extends SpeakeasyBase {
     /**
      * An array of documents.

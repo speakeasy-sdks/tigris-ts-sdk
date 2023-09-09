@@ -7,9 +7,6 @@ import { ErrorT } from "./error";
 import { ReadResponse } from "./readresponse";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class StreamingReadResponse extends SpeakeasyBase {
     /**
      * The Error type defines a logical error model

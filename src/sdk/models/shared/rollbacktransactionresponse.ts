@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class RollbackTransactionResponse extends SpeakeasyBase {
     /**
      * Status of rollback transaction operation.

@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class CreateByIdResponse extends SpeakeasyBase {
     /**
      * Returns the id of the created document.

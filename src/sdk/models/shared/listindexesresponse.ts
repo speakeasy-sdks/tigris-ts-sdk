@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { IndexInfo } from "./indexinfo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListIndexesResponse extends SpeakeasyBase {
     /**
      * List of indexes.

@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ResponseMetadata } from "./responsemetadata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class DeleteResponse extends SpeakeasyBase {
     /**
      * Has metadata related to the documents stored.

@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ResponseMetadata } from "./responsemetadata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ImportResponse extends SpeakeasyBase {
     /**
      * an array returns the value of the primary keys.

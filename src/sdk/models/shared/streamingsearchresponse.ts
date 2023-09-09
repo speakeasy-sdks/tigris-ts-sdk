@@ -7,9 +7,6 @@ import { ErrorT } from "./error";
 import { SearchResponse } from "./searchresponse";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class StreamingSearchResponse extends SpeakeasyBase {
     /**
      * The Error type defines a logical error model

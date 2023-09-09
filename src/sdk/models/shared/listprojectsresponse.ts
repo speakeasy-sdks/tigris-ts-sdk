@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ProjectInfo } from "./projectinfo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListProjectsResponse extends SpeakeasyBase {
     /**
      * List of the projects.

@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { NamespaceInfo } from "./namespaceinfo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListNamespacesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: NamespaceInfo })
     @Expose({ name: "namespaces" })
