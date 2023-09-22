@@ -180,24 +180,24 @@ sdk.system.queryTimeSeriesMetrics({
   additionalFunctions: [
     {
       rollup: {
-        aggregator: RollupFunctionAggregator.RollupAggregatorAvg,
-        interval: 183280,
+        aggregator: RollupFunctionAggregator.RollupAggregatorSum,
+        interval: 355613,
       },
     },
   ],
-  branch: "neque",
-  collection: "fugit",
-  db: "magni",
-  from: 488056,
-  function: QueryTimeSeriesMetricsRequestFunction.Rate,
-  metricName: "ullam",
-  quantile: 7220.81,
+  branch: "nam",
+  collection: "hic",
+  db: "voluptatem",
+  from: 765326,
+  function: QueryTimeSeriesMetricsRequestFunction.None,
+  metricName: "nobis",
+  quantile: 925.96,
   spaceAggregatedBy: [
-    "hic",
+    "saepe",
   ],
   spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregation.Avg,
-  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.Metadata,
-  to: 746994,
+  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.All,
+  to: 749255,
 }).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response

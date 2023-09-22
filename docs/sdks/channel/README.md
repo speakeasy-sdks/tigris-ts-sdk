@@ -30,8 +30,8 @@ const sdk = new SDK({
 });
 
 sdk.channel.get({
-  channel: "quasi",
-  project: "repudiandae",
+  channel: "est",
+  project: "quibusdam",
 }).then((res: RealtimeGetRTChannelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -69,14 +69,14 @@ const sdk = new SDK({
 });
 
 sdk.channel.getMessages({
-  channel: "sint",
-  end: "veritatis",
-  event: "itaque",
-  limit: 277718,
-  project: "enim",
-  sessionId: "consequatur",
-  socketId: "est",
-  start: "quibusdam",
+  channel: "explicabo",
+  end: "deserunt",
+  event: "distinctio",
+  limit: 841386,
+  project: "labore",
+  sessionId: "modi",
+  socketId: "qui",
+  start: "aliquid",
 }).then((res: RealtimeReadMessagesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -114,7 +114,7 @@ const sdk = new SDK({
 });
 
 sdk.channel.list({
-  project: "explicabo",
+  project: "cupiditate",
 }).then((res: RealtimeGetRTChannelsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -152,10 +152,10 @@ const sdk = new SDK({
 });
 
 sdk.channel.listSubscriptions({
-  channel: "deserunt",
-  page: 716327,
-  pageSize: 841386,
-  project: "labore",
+  channel: "quos",
+  page: 20107,
+  pageSize: 164940,
+  project: "assumenda",
 }).then((res: RealtimeListSubscriptionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -194,19 +194,19 @@ const sdk = new SDK({
 
 sdk.channel.pushMessages({
   messagesRequest: {
-    channel: "modi",
+    channel: "ipsam",
     messages: [
       {
-        data: "qui",
-        id: "69802d50-2a94-4bb4-b63c-969e9a3efa77",
-        name: "Mrs. Emilio Price",
-        sequence: "facere",
+        data: "alias",
+        id: "2a94bb4f-63c9-469e-9a3e-fa77dfb14cd6",
+        name: "Kayla Thompson",
+        sequence: "enim",
       },
     ],
-    project: "ea",
+    project: "accusamus",
   },
-  channel: "aliquid",
-  project: "laborum",
+  channel: "delectus",
+  project: "quidem",
 }).then((res: RealtimeMessagesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -244,8 +244,8 @@ const sdk = new SDK({
 });
 
 sdk.channel.realtimePresence({
-  channel: "accusamus",
-  project: "non",
+  channel: "provident",
+  project: "nam",
 }).then((res: RealtimePresenceResponse) => {
   if (res.statusCode == 200) {
     // handle response

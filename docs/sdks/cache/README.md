@@ -34,11 +34,11 @@ const sdk = new SDK({
 sdk.cache.create({
   createCacheRequest: {
     options: {
-      ttlMs: 244425,
+      ttlMs: 138183,
     },
   },
-  name: "Miss Eugene Hauck",
-  project: "enim",
+  name: "Jimmy Wiegand",
+  project: "possimus",
 }).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,8 +77,8 @@ const sdk = new SDK({
 
 sdk.cache.delete({
   deleteCacheRequest: {},
-  name: "Angelica Dietrich",
-  project: "id",
+  name: "Joyce Mueller",
+  project: "quasi",
 }).then((res: CacheDeleteCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,9 +117,9 @@ const sdk = new SDK({
 
 sdk.cache.deleteKeys({
   delRequest: {},
-  key: "possimus",
-  name: "Joyce Mueller",
-  project: "quasi",
+  key: "reiciendis",
+  name: "Caleb Koss",
+  project: "ipsa",
 }).then((res: CacheDelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -157,9 +157,9 @@ const sdk = new SDK({
 });
 
 sdk.cache.getKey({
-  key: "reiciendis",
-  name: "Caleb Koss",
-  project: "ipsa",
+  key: "omnis",
+  name: "Ms. Karla Aufderhar",
+  project: "maiores",
 }).then((res: CacheGetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,11 +198,11 @@ const sdk = new SDK({
 
 sdk.cache.getSetKey({
   getSetRequest: {
-    value: "omnis",
+    value: "dicta",
   },
-  key: "voluptate",
-  name: "Thomas Batz",
-  project: "maiores",
+  key: "corporis",
+  name: "Heidi Carter",
+  project: "accusamus",
 }).then((res: CacheGetSetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,7 +240,7 @@ const sdk = new SDK({
 });
 
 sdk.cache.list({
-  project: "dicta",
+  project: "commodi",
 }).then((res: CacheListCachesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -278,11 +278,11 @@ const sdk = new SDK({
 });
 
 sdk.cache.listKeys({
-  count: 359444,
-  cursor: 296140,
-  name: "Mildred Pfeffer",
-  pattern: "commodi",
-  project: "repudiandae",
+  count: 918236,
+  cursor: 64147,
+  name: "Alison Mann",
+  pattern: "modi",
+  project: "praesentium",
 }).then((res: CacheKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -321,15 +321,15 @@ const sdk = new SDK({
 
 sdk.cache.setKey({
   setRequest: {
-    ex: 64147,
+    ex: 523248,
     nx: false,
-    px: 216822,
-    value: "quidem",
+    px: 916723,
+    value: "quasi",
     xx: false,
   },
-  key: "molestias",
-  name: "Ervin Gleason",
-  project: "voluptates",
+  key: "repudiandae",
+  name: "Patrick Ward",
+  project: "consequatur",
 }).then((res: CacheSetResponse) => {
   if (res.statusCode == 200) {
     // handle response
