@@ -18,6 +18,9 @@ export class TigrisCreateAppKeyRequest extends SpeakeasyBase {
 }
 
 export class TigrisCreateAppKeyResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -33,9 +36,15 @@ export class TigrisCreateAppKeyResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     status?: shared.Status;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
