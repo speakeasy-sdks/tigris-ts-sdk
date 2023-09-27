@@ -48,7 +48,7 @@ sdk.cache.create({
 ## Available Resources and Operations
 
 
-### [AppKey](docs/sdks/appkey/README.md)
+### [appKey](docs/sdks/appkey/README.md)
 
 * [delete](docs/sdks/appkey/README.md#delete) - Deletes the app key
 * [list](docs/sdks/appkey/README.md#list) - List all the app keys
@@ -56,11 +56,11 @@ sdk.cache.create({
 * [tigrisCreateAppKey](docs/sdks/appkey/README.md#tigriscreateappkey) - Creates the app key
 * [update](docs/sdks/appkey/README.md#update) - Updates the description of the app key
 
-### [Auth](docs/sdks/auth/README.md)
+### [auth](docs/sdks/auth/README.md)
 
 * [get](docs/sdks/auth/README.md#get) - Access Token
 
-### [Cache](docs/sdks/cache/README.md)
+### [cache](docs/sdks/cache/README.md)
 
 * [create](docs/sdks/cache/README.md#create) - Creates the cache
 * [delete](docs/sdks/cache/README.md#delete) - Deletes the cache
@@ -71,7 +71,7 @@ sdk.cache.create({
 * [listKeys](docs/sdks/cache/README.md#listkeys) - Lists all the key for this cache
 * [setKey](docs/sdks/cache/README.md#setkey) - Sets an entry in the cache
 
-### [Channel](docs/sdks/channel/README.md)
+### [channel](docs/sdks/channel/README.md)
 
 * [get](docs/sdks/channel/README.md#get) - Get the details about a channel
 * [getMessages](docs/sdks/channel/README.md#getmessages) - Get all messages for a channel
@@ -80,7 +80,7 @@ sdk.cache.create({
 * [pushMessages](docs/sdks/channel/README.md#pushmessages) - push messages to a single channel
 * [realtimePresence](docs/sdks/channel/README.md#realtimepresence) - Presence about the channel
 
-### [Collection](docs/sdks/collection/README.md)
+### [collection](docs/sdks/collection/README.md)
 
 * [create](docs/sdks/collection/README.md#create) - Create or update a collection
 * [deleteDocuments](docs/sdks/collection/README.md#deletedocuments) - Delete Documents
@@ -93,7 +93,7 @@ sdk.cache.create({
 * [searchDocuments](docs/sdks/collection/README.md#searchdocuments) - Search Documents.
 * [updateDocuments](docs/sdks/collection/README.md#updatedocuments) - Update Documents.
 
-### [Database](docs/sdks/database/README.md)
+### [database](docs/sdks/database/README.md)
 
 * [beginTransaction](docs/sdks/database/README.md#begintransaction) - Begin a transaction
 * [commitTransaction](docs/sdks/database/README.md#committransaction) - Commit a Transaction
@@ -104,7 +104,7 @@ sdk.cache.create({
 * [rollbackTransaction](docs/sdks/database/README.md#rollbacktransaction) - Rollback a transaction
 * [tigrisListBranches](docs/sdks/database/README.md#tigrislistbranches) - List database branches
 
-### [Namespace](docs/sdks/namespace/README.md)
+### [namespace](docs/sdks/namespace/README.md)
 
 * [create](docs/sdks/namespace/README.md#create) - Creates a Namespace
 * [get](docs/sdks/namespace/README.md#get) - Describe the details of all namespaces
@@ -113,13 +113,13 @@ sdk.cache.create({
 * [list](docs/sdks/namespace/README.md#list) - Lists all Namespaces
 * [updateMetadata](docs/sdks/namespace/README.md#updatemetadata) - Updates Namespace Metadata
 
-### [Project](docs/sdks/project/README.md)
+### [project](docs/sdks/project/README.md)
 
 * [create](docs/sdks/project/README.md#create) - Create Project
 * [deleteProject](docs/sdks/project/README.md#deleteproject) - Delete Project and all resources under project
 * [list](docs/sdks/project/README.md#list) - List Projects
 
-### [Search](docs/sdks/search/README.md)
+### [search](docs/sdks/search/README.md)
 
 * [createDocument](docs/sdks/search/README.md#createdocument) - Create a single document
 * [createDocuments](docs/sdks/search/README.md#createdocuments) - Create multiple documents
@@ -134,7 +134,7 @@ sdk.cache.create({
 * [updateDocuments](docs/sdks/search/README.md#updatedocuments) - Update documents in an index
 * [updateIndex](docs/sdks/search/README.md#updateindex) - Creates or updates search index
 
-### [System](docs/sdks/system/README.md)
+### [system](docs/sdks/system/README.md)
 
 * [getHealth](docs/sdks/system/README.md#gethealth) - Health Check
 * [getServerInfo](docs/sdks/system/README.md#getserverinfo) - Information about the server
@@ -142,7 +142,7 @@ sdk.cache.create({
 * [queryQuotaLimits](docs/sdks/system/README.md#queryquotalimits) - Queries current namespace quota limits
 * [queryTimeSeriesMetrics](docs/sdks/system/README.md#querytimeseriesmetrics) - Queries time series metrics
 
-### [User](docs/sdks/user/README.md)
+### [user](docs/sdks/user/README.md)
 
 * [getMetadata](docs/sdks/user/README.md#getmetadata) - Reads the User Metadata
 * [insertMetadata](docs/sdks/user/README.md#insertmetadata) - Inserts User Metadata
