@@ -14,11 +14,11 @@ const sdk = new SDK({
 sdk.cache.create({
   createCacheRequest: {
     options: {
-      ttlMs: 548814,
+      ttlMs: 481196,
     },
   },
-  name: "Kelvin Sporer",
-  project: "corrupti",
+  name: "Tasty island Southwest",
+  project: "National Lauderhill",
 }).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response

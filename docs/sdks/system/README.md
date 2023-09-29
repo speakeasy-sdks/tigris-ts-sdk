@@ -181,24 +181,24 @@ sdk.system.queryTimeSeriesMetrics({
   additionalFunctions: [
     {
       rollup: {
-        aggregator: RollupFunctionAggregator.RollupAggregatorSum,
-        interval: 355613,
+        aggregator: RollupFunctionAggregator.RollupAggregatorCount,
+        interval: 724082,
       },
     },
   ],
-  branch: "nam",
-  collection: "hic",
-  db: "voluptatem",
-  from: 765326,
+  branch: "Coordinator",
+  collection: "against regional",
+  db: "provided Gasoline",
+  from: 93300,
   function: QueryTimeSeriesMetricsRequestFunction.None,
-  metricName: "nobis",
-  quantile: 925.96,
+  metricName: "Card Southwest Hat",
+  quantile: 4863.24,
   spaceAggregatedBy: [
-    "saepe",
+    "optimal",
   ],
-  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregation.Avg,
-  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.All,
-  to: 749255,
+  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregation.Min,
+  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.Metadata,
+  to: 60030,
 }).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -29,7 +29,7 @@ const sdk = new SDK({
 
 sdk.project.create({
   createProjectRequest: {},
-  project: "nostrum",
+  project: "Electric pirouette",
 }).then((res: TigrisCreateProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,7 +68,7 @@ const sdk = new SDK({
 
 sdk.project.deleteProject({
   deleteProjectRequest: {},
-  project: "hic",
+  project: "Suriname coulomb which",
 }).then((res: TigrisDeleteProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response

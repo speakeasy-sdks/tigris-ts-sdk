@@ -35,11 +35,11 @@ const sdk = new SDK({
 sdk.cache.create({
   createCacheRequest: {
     options: {
-      ttlMs: 138183,
+      ttlMs: 481196,
     },
   },
-  name: "Jimmy Wiegand",
-  project: "possimus",
+  name: "Tasty island Southwest",
+  project: "National Lauderhill",
 }).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -78,8 +78,8 @@ const sdk = new SDK({
 
 sdk.cache.delete({
   deleteCacheRequest: {},
-  name: "Joyce Mueller",
-  project: "quasi",
+  name: "Architect Cotton port",
+  project: "qua",
 }).then((res: CacheDeleteCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,9 +118,9 @@ const sdk = new SDK({
 
 sdk.cache.deleteKeys({
   delRequest: {},
-  key: "reiciendis",
-  name: "Caleb Koss",
-  project: "ipsa",
+  key: "<key>",
+  name: "man Seamless before",
+  project: "Diesel",
 }).then((res: CacheDelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -158,9 +158,9 @@ const sdk = new SDK({
 });
 
 sdk.cache.getKey({
-  key: "omnis",
-  name: "Ms. Karla Aufderhar",
-  project: "maiores",
+  key: "<key>",
+  name: "lux robust",
+  project: "index",
 }).then((res: CacheGetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,11 +199,11 @@ const sdk = new SDK({
 
 sdk.cache.getSetKey({
   getSetRequest: {
-    value: "dicta",
+    value: "Bronze",
   },
-  key: "corporis",
-  name: "Heidi Carter",
-  project: "accusamus",
+  key: "<key>",
+  name: "portal salmon",
+  project: "kelvin Harbors",
 }).then((res: CacheGetSetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -241,7 +241,7 @@ const sdk = new SDK({
 });
 
 sdk.cache.list({
-  project: "commodi",
+  project: "Bronze Architect",
 }).then((res: CacheListCachesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -279,11 +279,11 @@ const sdk = new SDK({
 });
 
 sdk.cache.listKeys({
-  count: 918236,
-  cursor: 64147,
-  name: "Alison Mann",
-  pattern: "modi",
-  project: "praesentium",
+  count: 618311,
+  cursor: 739921,
+  name: "invoice pink",
+  pattern: "whose West vivid",
+  project: "compelling duh",
 }).then((res: CacheKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -322,15 +322,15 @@ const sdk = new SDK({
 
 sdk.cache.setKey({
   setRequest: {
-    ex: 523248,
+    ex: 170966,
     nx: false,
-    px: 916723,
-    value: "quasi",
+    px: 17597,
+    value: "monetize",
     xx: false,
   },
-  key: "repudiandae",
-  name: "Patrick Ward",
-  project: "consequatur",
+  key: "<key>",
+  name: "Shanahan Phased",
+  project: "Gasoline",
 }).then((res: CacheSetResponse) => {
   if (res.statusCode == 200) {
     // handle response

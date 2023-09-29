@@ -31,9 +31,9 @@ const sdk = new SDK({
 });
 
 sdk.namespace.create({
-  code: 779051,
-  id: "ddc69260-1fb5-476b-8d5f-0d30c5fbb258",
-  name: "Cynthia Hayes",
+  code: 481196,
+  id: "<ID>",
+  name: "Tasty island Southwest",
 }).then((res: CreateNamespaceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,10 +107,10 @@ const sdk = new SDK({
 
 sdk.namespace.getMetadata({
   getNamespaceMetadataRequest: {
-    metadataKey: "perferendis",
+    metadataKey: "or Plastic",
     value: {},
   },
-  metadataKey: "dolores",
+  metadataKey: "offensively Electric",
 }).then((res: ManagementGetNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,10 +149,10 @@ const sdk = new SDK({
 
 sdk.namespace.insertMetadata({
   insertNamespaceMetadataRequest: {
-    metadataKey: "minus",
+    metadataKey: "Curve Liaison calculate",
     value: {},
   },
-  metadataKey: "quam",
+  metadataKey: "female Tantalum",
 }).then((res: ManagementInsertNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -226,10 +226,10 @@ const sdk = new SDK({
 
 sdk.namespace.updateMetadata({
   updateNamespaceMetadataRequest: {
-    metadataKey: "dolor",
+    metadataKey: "platforms Concrete Tempe",
     value: {},
   },
-  metadataKey: "vero",
+  metadataKey: "transmitting Silicon North",
 }).then((res: ManagementUpdateNamespaceMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response

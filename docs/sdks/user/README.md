@@ -29,10 +29,10 @@ const sdk = new SDK({
 
 sdk.user.getMetadata({
   getUserMetadataRequest: {
-    metadataKey: "quos",
+    metadataKey: "or Plastic",
     value: {},
   },
-  metadataKey: "tempore",
+  metadataKey: "offensively Electric",
 }).then((res: ManagementGetUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,10 +71,10 @@ const sdk = new SDK({
 
 sdk.user.insertMetadata({
   insertUserMetadataRequest: {
-    metadataKey: "cupiditate",
+    metadataKey: "Curve Liaison calculate",
     value: {},
   },
-  metadataKey: "aperiam",
+  metadataKey: "female Tantalum",
 }).then((res: ManagementInsertUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -113,10 +113,10 @@ const sdk = new SDK({
 
 sdk.user.updateMetadata({
   updateUserMetadataRequest: {
-    metadataKey: "delectus",
+    metadataKey: "platforms Concrete Tempe",
     value: {},
   },
-  metadataKey: "dolorem",
+  metadataKey: "transmitting Silicon North",
 }).then((res: ManagementUpdateUserMetadataResponse) => {
   if (res.statusCode == 200) {
     // handle response

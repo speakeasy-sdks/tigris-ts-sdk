@@ -31,11 +31,11 @@ const sdk = new SDK({
 sdk.cache.create({
   createCacheRequest: {
     options: {
-      ttlMs: 847252,
+      ttlMs: 481196,
     },
   },
-  name: "Sabrina Oberbrunner",
-  project: "magnam",
+  name: "Tasty island Southwest",
+  project: "National Lauderhill",
 }).then((res: CacheCreateCacheResponse) => {
   if (res.statusCode == 200) {
     // handle response

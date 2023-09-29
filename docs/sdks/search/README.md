@@ -41,14 +41,14 @@ const sdk = new SDK({
 
 sdk.search.createDocument({
   createByIdRequest: {
-    document: "recusandae",
-    id: "9b90c289-09b3-4fe4-9a8d-9cbf48633323",
-    index: "hic",
-    project: "excepturi",
+    document: "Radon mRNA female",
+    id: "<ID>",
+    index: "Electric pioneer",
+    project: "Rock",
   },
-  id: "b77f3a41-0067-44eb-b692-80d1ba77a89e",
-  index: "distinctio",
-  project: "asperiores",
+  id: "<ID>",
+  index: "cyan",
+  project: "Tesla Concrete Metrics",
 }).then((res: SearchCreateByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,13 +92,13 @@ const sdk = new SDK({
 sdk.search.createDocuments({
   createDocumentRequest: {
     documents: [
-      "nihil",
+      "Assistant",
     ],
-    index: "ipsum",
-    project: "voluptate",
+    index: "Cadmium monitor West",
+    project: "majestically Israeli",
   },
-  index: "id",
-  project: "saepe",
+  index: "Northeast Tala Plastic",
+  project: "tempting Iron South",
 }).then((res: SearchCreateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -140,13 +140,13 @@ const sdk = new SDK({
 sdk.search.deleteDocuments({
   deleteDocumentRequest: {
     ids: [
-      "eius",
+      "times",
     ],
-    index: "aspernatur",
-    project: "perferendis",
+    index: "consequently",
+    project: "Plastic Samarium Programmable",
   },
-  index: "amet",
-  project: "optio",
+  index: "likewise Awesome turquoise",
+  project: "North Handmade lime",
 }).then((res: SearchDeleteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -185,11 +185,11 @@ const sdk = new SDK({
 
 sdk.search.deleteIndex({
   deleteIndexRequest: {
-    name: "Tommy Turner",
-    project: "provident",
+    name: "New Tandem Romania",
+    project: "Executive minor Brooklyn",
   },
-  name: "Kari Leannon PhD",
-  project: "quaerat",
+  name: "however Trans woman",
+  project: "standardization National bait",
 }).then((res: SearchDeleteIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -233,28 +233,28 @@ const sdk = new SDK({
 sdk.search.findDocuments({
   searchIndexRequest: {
     collation: {
-      case: "tempora",
+      case: "deify",
     },
     excludeFields: [
-      "vel",
+      "how",
     ],
-    facet: "quod",
-    filter: "officiis",
+    facet: "Tesla Stage Salad",
+    filter: "Senior Terbium",
     includeFields: [
-      "qui",
+      "World",
     ],
-    index: "dolorum",
-    page: 952792,
-    pageSize: 456130,
-    project: "harum",
-    q: "iusto",
+    index: "that so volt",
+    page: 337935,
+    pageSize: 65006,
+    project: "degree Indiana infomediaries",
+    q: "Diesel",
     searchFields: [
-      "ipsum",
+      "Southeast",
     ],
-    sort: "quisquam",
+    sort: "Buckinghamshire woot Steel",
   },
-  index: "tenetur",
-  project: "amet",
+  index: "Guiana Rock deliverables",
+  project: "yum by 24/7",
 }).then((res: SearchSearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -294,10 +294,10 @@ const sdk = new SDK({
 
 sdk.search.getDocuments({
   ids: [
-    "tempore",
+    "turquoise",
   ],
-  index: "accusamus",
-  project: "numquam",
+  index: "Loan Northwest",
+  project: "Bugatti Federation",
 }).then((res: SearchGetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -335,8 +335,8 @@ const sdk = new SDK({
 });
 
 sdk.search.getIndex({
-  name: "Florence Will",
-  project: "sit",
+  name: "reboot female",
+  project: "male",
 }).then((res: SearchGetIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -374,10 +374,10 @@ const sdk = new SDK({
 });
 
 sdk.search.listIndexes({
-  filterBranch: "expedita",
-  filterCollection: "neque",
-  filterType: "sed",
-  project: "vel",
+  filterBranch: "dynamic",
+  filterCollection: "bolívar Flat",
+  filterType: "Officer Franc Denar",
+  project: "Mountain SUV",
 }).then((res: SearchListIndexesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -417,12 +417,12 @@ const sdk = new SDK({
 
 sdk.search.queryDeleteDocuments({
   deleteByQueryRequest: {
-    filter: "libero",
-    index: "voluptas",
-    project: "deserunt",
+    filter: "visible whose IB",
+    index: "Wyoming",
+    project: "Diesel male",
   },
-  index: "quam",
-  project: "ipsum",
+  index: "Table Ytterbium",
+  project: "harness",
 }).then((res: SearchDeleteByQueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -465,13 +465,13 @@ const sdk = new SDK({
 sdk.search.replaceDocuments({
   createOrReplaceDocumentRequest: {
     documents: [
-      "incidunt",
+      "female West Southeast",
     ],
-    index: "qui",
-    project: "cupiditate",
+    index: "Total phew",
+    project: "gee Coupe Bicycle",
   },
-  index: "maxime",
-  project: "pariatur",
+  index: "Chief",
+  project: "coolly Bicycle temporibus",
 }).then((res: SearchCreateOrReplaceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -514,13 +514,13 @@ const sdk = new SDK({
 sdk.search.updateDocuments({
   updateDocumentRequest: {
     documents: [
-      "soluta",
+      "Northwest",
     ],
-    index: "dicta",
-    project: "laborum",
+    index: "West",
+    project: "Jewelery black Functionality",
   },
-  index: "totam",
-  project: "incidunt",
+  index: "Market",
+  project: "Trans Ramp services",
 }).then((res: SearchUpdateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -559,13 +559,13 @@ const sdk = new SDK({
 
 sdk.search.updateIndex({
   createOrUpdateIndexRequest: {
-    name: "Bonnie Raynor",
+    name: "maiores when male",
     onlyCreate: false,
-    project: "quam",
-    schema: "molestias",
+    project: "eius optical West",
+    schema: "pointed",
   },
-  name: "Shawn Doyle",
-  project: "odio",
+  name: "parse East Arsenic",
+  project: "capacity Bicycle",
 }).then((res: SearchCreateOrUpdateIndexResponse) => {
   if (res.statusCode == 200) {
     // handle response

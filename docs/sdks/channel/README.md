@@ -31,8 +31,8 @@ const sdk = new SDK({
 });
 
 sdk.channel.get({
-  channel: "est",
-  project: "quibusdam",
+  channel: "Group Cambridgeshire",
+  project: "reintermediate fuchsia Planner",
 }).then((res: RealtimeGetRTChannelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,14 +70,14 @@ const sdk = new SDK({
 });
 
 sdk.channel.getMessages({
-  channel: "explicabo",
-  end: "deserunt",
-  event: "distinctio",
-  limit: 841386,
-  project: "labore",
-  sessionId: "modi",
-  socketId: "qui",
-  start: "aliquid",
+  channel: "parallelism",
+  end: "sympathetic array",
+  event: "withdrawal",
+  limit: 451433,
+  project: "Account",
+  sessionId: "Northeast",
+  socketId: "green",
+  start: "Rock Automotive Grove",
 }).then((res: RealtimeReadMessagesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -115,7 +115,7 @@ const sdk = new SDK({
 });
 
 sdk.channel.list({
-  project: "cupiditate",
+  project: "Bronze Architect",
 }).then((res: RealtimeGetRTChannelsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -153,10 +153,10 @@ const sdk = new SDK({
 });
 
 sdk.channel.listSubscriptions({
-  channel: "quos",
-  page: 20107,
-  pageSize: 164940,
-  project: "assumenda",
+  channel: "UTF8 doting Brazil",
+  page: 980290,
+  pageSize: 408746,
+  project: "Crew",
 }).then((res: RealtimeListSubscriptionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -195,19 +195,19 @@ const sdk = new SDK({
 
 sdk.channel.pushMessages({
   messagesRequest: {
-    channel: "ipsam",
+    channel: "Representative Manager",
     messages: [
       {
-        data: "alias",
-        id: "2a94bb4f-63c9-469e-9a3e-fa77dfb14cd6",
-        name: "Kayla Thompson",
-        sequence: "enim",
+        data: "Man",
+        id: "<ID>",
+        name: "phew",
+        sequence: "Concrete",
       },
     ],
-    project: "accusamus",
+    project: "Directives purple",
   },
-  channel: "delectus",
-  project: "quidem",
+  channel: "amass RSS solutions",
+  project: "Road",
 }).then((res: RealtimeMessagesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -245,8 +245,8 @@ const sdk = new SDK({
 });
 
 sdk.channel.realtimePresence({
-  channel: "provident",
-  project: "nam",
+  channel: "orchid AI second",
+  project: "thankful Consultant",
 }).then((res: RealtimePresenceResponse) => {
   if (res.statusCode == 200) {
     // handle response
