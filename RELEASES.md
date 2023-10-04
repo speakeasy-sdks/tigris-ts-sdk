@@ -575,3 +575,11 @@ Based on:
 - Speakeasy CLI 1.92.3 (2.143.2) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.49.1] .
+
+## 2023-10-04 01:17:08
+### Changes
+Based on:
+- OpenAPI Doc 0.0.1 https://prod.speakeasyapi.dev/v1/apis/tigris-api/version/0.0.1/schema/download
+- Speakeasy CLI 1.93.3 (2.146.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.49.2] .
