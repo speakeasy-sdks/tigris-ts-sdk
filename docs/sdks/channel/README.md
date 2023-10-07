@@ -22,22 +22,23 @@ Get the details about a channel
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimeGetRTChannelResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.get({
-  channel: "Group Cambridgeshire",
-  project: "reintermediate fuchsia Planner",
-}).then((res: RealtimeGetRTChannelResponse) => {
+  const res = await sdk.channel.get({
+    channel: "Group Cambridgeshire",
+    project: "reintermediate fuchsia Planner",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,28 +62,23 @@ Get all messages for a channel
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimeReadMessagesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.getMessages({
-  channel: "parallelism",
-  end: "sympathetic array",
-  event: "withdrawal",
-  limit: 451433,
-  project: "Account",
-  sessionId: "Northeast",
-  socketId: "green",
-  start: "Rock Automotive Grove",
-}).then((res: RealtimeReadMessagesResponse) => {
+  const res = await sdk.channel.getMessages({
+    channel: "parallelism",
+    project: "sympathetic array",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -106,21 +102,22 @@ Get all channels for your application project
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimeGetRTChannelsResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.list({
-  project: "Bronze Architect",
-}).then((res: RealtimeGetRTChannelsResponse) => {
+  const res = await sdk.channel.list({
+    project: "Bronze Architect",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -144,24 +141,23 @@ Get the subscriptions details about a channel
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimeListSubscriptionsResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.listSubscriptions({
-  channel: "UTF8 doting Brazil",
-  page: 980290,
-  pageSize: 408746,
-  project: "Crew",
-}).then((res: RealtimeListSubscriptionsResponse) => {
+  const res = await sdk.channel.listSubscriptions({
+    channel: "UTF8 doting Brazil",
+    project: "Account Incredible North",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,34 +181,28 @@ push messages to a single channel
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimeMessagesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.pushMessages({
-  messagesRequest: {
+  const res = await sdk.channel.pushMessages({
+    messagesRequest: {
+      messages: [
+        {},
+      ],
+    },
     channel: "Representative Manager",
-    messages: [
-      {
-        data: "Man",
-        id: "<ID>",
-        name: "phew",
-        sequence: "Concrete",
-      },
-    ],
-    project: "Directives purple",
-  },
-  channel: "amass RSS solutions",
-  project: "Road",
-}).then((res: RealtimeMessagesResponse) => {
+    project: "Man",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -236,22 +226,23 @@ Presence about the channel
 
 ```typescript
 import { SDK } from "tigris-core";
-import { RealtimePresenceResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.channel.realtimePresence({
-  channel: "orchid AI second",
-  project: "thankful Consultant",
-}).then((res: RealtimePresenceResponse) => {
+  const res = await sdk.channel.realtimePresence({
+    channel: "orchid AI second",
+    project: "thankful Consultant",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

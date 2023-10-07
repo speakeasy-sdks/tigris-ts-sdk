@@ -19,22 +19,23 @@ Creates a new project. Returns an AlreadyExists error with a status code 409 if 
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisCreateProjectResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.project.create({
-  createProjectRequest: {},
-  project: "Electric pirouette",
-}).then((res: TigrisCreateProjectResponse) => {
+  const res = await sdk.project.create({
+    createProjectRequest: {},
+    project: "Electric pirouette",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,22 +59,23 @@ Delete Project deletes all the collections in this project along with all of the
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisDeleteProjectResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.project.deleteProject({
-  deleteProjectRequest: {},
-  project: "Suriname coulomb which",
-}).then((res: TigrisDeleteProjectResponse) => {
+  const res = await sdk.project.deleteProject({
+    deleteProjectRequest: {},
+    project: "Suriname coulomb which",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,19 +99,20 @@ List returns all the projects.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisListProjectsResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.project.list().then((res: TigrisListProjectsResponse) => {
+  const res = await sdk.project.list();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

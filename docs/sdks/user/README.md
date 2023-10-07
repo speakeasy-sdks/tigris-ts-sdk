@@ -19,25 +19,25 @@ GetUserMetadata inserts the user metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementGetUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.user.getMetadata({
-  getUserMetadataRequest: {
+  const res = await sdk.user.getMetadata({
+    getUserMetadataRequest: {
+      value: {},
+    },
     metadataKey: "or Plastic",
-    value: {},
-  },
-  metadataKey: "offensively Electric",
-}).then((res: ManagementGetUserMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,25 +61,25 @@ insertUserMetadata inserts the user metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementInsertUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.user.insertMetadata({
-  insertUserMetadataRequest: {
+  const res = await sdk.user.insertMetadata({
+    insertUserMetadataRequest: {
+      value: {},
+    },
     metadataKey: "Curve Liaison calculate",
-    value: {},
-  },
-  metadataKey: "female Tantalum",
-}).then((res: ManagementInsertUserMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,25 +103,25 @@ updateUserMetadata updates the user metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementUpdateUserMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.user.updateMetadata({
-  updateUserMetadataRequest: {
+  const res = await sdk.user.updateMetadata({
+    updateUserMetadataRequest: {
+      value: {},
+    },
     metadataKey: "platforms Concrete Tempe",
-    value: {},
-  },
-  metadataKey: "transmitting Silicon North",
-}).then((res: ManagementUpdateUserMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

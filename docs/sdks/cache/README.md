@@ -24,27 +24,26 @@ Creates the cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.cache.create({
-  createCacheRequest: {
-    options: {
-      ttlMs: 481196,
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
     },
-  },
-  name: "Tasty island Southwest",
-  project: "National Lauderhill",
-}).then((res: CacheCreateCacheResponse) => {
+  });
+
+  const res = await sdk.cache.create({
+    createCacheRequest: {
+      options: {},
+    },
+    name: "Electric pirouette",
+    project: "Sausages ASCII",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -68,23 +67,24 @@ Deletes the cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheDeleteCacheResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.delete({
-  deleteCacheRequest: {},
-  name: "Architect Cotton port",
-  project: "qua",
-}).then((res: CacheDeleteCacheResponse) => {
+  const res = await sdk.cache.delete({
+    deleteCacheRequest: {},
+    name: "Architect Cotton port",
+    project: "qua",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -108,24 +108,25 @@ Deletes an entry from cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheDelResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.deleteKeys({
-  delRequest: {},
-  key: "<key>",
-  name: "man Seamless before",
-  project: "Diesel",
-}).then((res: CacheDelResponse) => {
+  const res = await sdk.cache.deleteKeys({
+    delRequest: {},
+    key: "<key>",
+    name: "man Seamless before",
+    project: "Diesel",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -149,23 +150,24 @@ Reads an entry from cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheGetResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.getKey({
-  key: "<key>",
-  name: "lux robust",
-  project: "index",
-}).then((res: CacheGetResponse) => {
+  const res = await sdk.cache.getKey({
+    key: "<key>",
+    name: "lux robust",
+    project: "index",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,26 +191,25 @@ Sets an entry in the cache and returns the previous value if exists
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheGetSetResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.getSetKey({
-  getSetRequest: {
-    value: "Bronze",
-  },
-  key: "<key>",
-  name: "portal salmon",
-  project: "kelvin Harbors",
-}).then((res: CacheGetSetResponse) => {
+  const res = await sdk.cache.getSetKey({
+    getSetRequest: {},
+    key: "<key>",
+    name: "Bronze",
+    project: "portal salmon",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -232,21 +233,22 @@ Lists all the caches for the given project
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheListCachesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.list({
-  project: "Bronze Architect",
-}).then((res: CacheListCachesResponse) => {
+  const res = await sdk.cache.list({
+    project: "Bronze Architect",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -270,25 +272,23 @@ Lists all the key for this cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheKeysResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.listKeys({
-  count: 618311,
-  cursor: 739921,
-  name: "invoice pink",
-  pattern: "whose West vivid",
-  project: "compelling duh",
-}).then((res: CacheKeysResponse) => {
+  const res = await sdk.cache.listKeys({
+    name: "Iodine invoice",
+    project: "Synchronised",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -312,30 +312,25 @@ Sets an entry in the cache
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheSetResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.cache.setKey({
-  setRequest: {
-    ex: 170966,
-    nx: false,
-    px: 17597,
-    value: "monetize",
-    xx: false,
-  },
-  key: "<key>",
-  name: "Shanahan Phased",
-  project: "Gasoline",
-}).then((res: CacheSetResponse) => {
+  const res = await sdk.cache.setKey({
+    setRequest: {},
+    key: "<key>",
+    name: "North",
+    project: "synergize",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

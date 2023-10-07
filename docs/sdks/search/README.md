@@ -31,29 +31,25 @@ CreateById is used for indexing a single document. The API expects a single docu
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchCreateByIdResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.createDocument({
-  createByIdRequest: {
-    document: "Radon mRNA female",
+  const res = await sdk.search.createDocument({
+    createByIdRequest: {},
     id: "<ID>",
-    index: "Electric pioneer",
-    project: "Rock",
-  },
-  id: "<ID>",
-  index: "cyan",
-  project: "Tesla Concrete Metrics",
-}).then((res: SearchCreateByIdResponse) => {
+    index: "Radon mRNA female",
+    project: "Electric pioneer",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -81,29 +77,28 @@ Create is used for indexing a single or multiple documents. The API expects an a
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchCreateResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.createDocuments({
-  createDocumentRequest: {
-    documents: [
-      "Assistant",
-    ],
+  const res = await sdk.search.createDocuments({
+    createDocumentRequest: {
+      documents: [
+        "Assistant",
+      ],
+    },
     index: "Cadmium monitor West",
     project: "majestically Israeli",
-  },
-  index: "Northeast Tala Plastic",
-  project: "tempting Iron South",
-}).then((res: SearchCreateResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -129,29 +124,28 @@ Delete one or more documents by id. Returns an array of status indicating the st
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchDeleteResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.deleteDocuments({
-  deleteDocumentRequest: {
-    ids: [
-      "times",
-    ],
+  const res = await sdk.search.deleteDocuments({
+    deleteDocumentRequest: {
+      ids: [
+        "times",
+      ],
+    },
     index: "consequently",
     project: "Plastic Samarium Programmable",
-  },
-  index: "likewise Awesome turquoise",
-  project: "North Handmade lime",
-}).then((res: SearchDeleteResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -175,26 +169,24 @@ Deletes search index
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchDeleteIndexResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.deleteIndex({
-  deleteIndexRequest: {
+  const res = await sdk.search.deleteIndex({
+    deleteIndexRequest: {},
     name: "New Tandem Romania",
     project: "Executive minor Brooklyn",
-  },
-  name: "however Trans woman",
-  project: "standardization National bait",
-}).then((res: SearchDeleteIndexResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -222,44 +214,35 @@ Searches an index for the documents matching the query. A search can be a term s
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchSearchResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.search.findDocuments({
-  searchIndexRequest: {
-    collation: {
-      case: "deify",
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
     },
-    excludeFields: [
-      "how",
-    ],
-    facet: "Tesla Stage Salad",
-    filter: "Senior Terbium",
-    includeFields: [
-      "World",
-    ],
-    index: "that so volt",
-    page: 337935,
-    pageSize: 65006,
-    project: "degree Indiana infomediaries",
-    q: "Diesel",
-    searchFields: [
-      "Southeast",
-    ],
-    sort: "Buckinghamshire woot Steel",
-  },
-  index: "Guiana Rock deliverables",
-  project: "yum by 24/7",
-}).then((res: SearchSearchResponse) => {
+  });
+
+  const res = await sdk.search.findDocuments({
+    searchIndexRequest: {
+      collation: {},
+      excludeFields: [
+        "Cambridgeshire",
+      ],
+      includeFields: [
+        "Unbranded",
+      ],
+      searchFields: [
+        "Soft",
+      ],
+    },
+    index: "noxious Senior Terbium",
+    project: "enterprise that",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -284,25 +267,26 @@ Retrieves one or more documents by id. The response is an array of documents in 
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchGetResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.getDocuments({
-  ids: [
-    "turquoise",
-  ],
-  index: "Loan Northwest",
-  project: "Bugatti Federation",
-}).then((res: SearchGetResponse) => {
+  const res = await sdk.search.getDocuments({
+    ids: [
+      "turquoise",
+    ],
+    index: "Loan Northwest",
+    project: "Bugatti Federation",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -326,22 +310,23 @@ Get information about a search index
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchGetIndexResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.getIndex({
-  name: "reboot female",
-  project: "male",
-}).then((res: SearchGetIndexResponse) => {
+  const res = await sdk.search.getIndex({
+    name: "reboot female",
+    project: "male",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -365,24 +350,22 @@ List search indexes
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchListIndexesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.listIndexes({
-  filterBranch: "dynamic",
-  filterCollection: "bolívar Flat",
-  filterType: "Officer Franc Denar",
-  project: "Mountain SUV",
-}).then((res: SearchListIndexesResponse) => {
+  const res = await sdk.search.listIndexes({
+    project: "dynamic",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -407,27 +390,24 @@ DeleteByQuery is used to delete documents that match the filter. A filter is req
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchDeleteByQueryResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.queryDeleteDocuments({
-  deleteByQueryRequest: {
-    filter: "visible whose IB",
-    index: "Wyoming",
-    project: "Diesel male",
-  },
-  index: "Table Ytterbium",
-  project: "harness",
-}).then((res: SearchDeleteByQueryResponse) => {
+  const res = await sdk.search.queryDeleteDocuments({
+    deleteByQueryRequest: {},
+    index: "visible whose IB",
+    project: "Wyoming",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -454,29 +434,28 @@ Creates or replaces one or more documents. Each document is a JSON object. A doc
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchCreateOrReplaceResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.replaceDocuments({
-  createOrReplaceDocumentRequest: {
-    documents: [
-      "female West Southeast",
-    ],
+  const res = await sdk.search.replaceDocuments({
+    createOrReplaceDocumentRequest: {
+      documents: [
+        "female West Southeast",
+      ],
+    },
     index: "Total phew",
     project: "gee Coupe Bicycle",
-  },
-  index: "Chief",
-  project: "coolly Bicycle temporibus",
-}).then((res: SearchCreateOrReplaceResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -503,29 +482,28 @@ Updates one or more documents by "id". Each document is required to have the
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchUpdateResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.updateDocuments({
-  updateDocumentRequest: {
-    documents: [
-      "Northwest",
-    ],
+  const res = await sdk.search.updateDocuments({
+    updateDocumentRequest: {
+      documents: [
+        "Northwest",
+      ],
+    },
     index: "West",
     project: "Jewelery black Functionality",
-  },
-  index: "Market",
-  project: "Trans Ramp services",
-}).then((res: SearchUpdateResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -549,28 +527,24 @@ Creates or updates search index
 
 ```typescript
 import { SDK } from "tigris-core";
-import { SearchCreateOrUpdateIndexResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.search.updateIndex({
-  createOrUpdateIndexRequest: {
+  const res = await sdk.search.updateIndex({
+    createOrUpdateIndexRequest: {},
     name: "maiores when male",
-    onlyCreate: false,
     project: "eius optical West",
-    schema: "pointed",
-  },
-  name: "parse East Arsenic",
-  project: "capacity Bicycle",
-}).then((res: SearchCreateOrUpdateIndexResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

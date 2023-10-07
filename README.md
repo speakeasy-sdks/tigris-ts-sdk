@@ -20,27 +20,26 @@ yarn add https://github.com/speakeasy-sdks/tigris-ts-sdk
 <!-- Start SDK Example Usage -->
 ```typescript
 import { SDK } from "tigris-core";
-import { CacheCreateCacheResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.cache.create({
-  createCacheRequest: {
-    options: {
-      ttlMs: 481196,
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
     },
-  },
-  name: "Tasty island Southwest",
-  project: "National Lauderhill",
-}).then((res: CacheCreateCacheResponse) => {
+  });
+
+  const res = await sdk.cache.create({
+    createCacheRequest: {
+      options: {},
+    },
+    name: "Electric pirouette",
+    project: "Sausages ASCII",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 <!-- End SDK Example Usage -->
 

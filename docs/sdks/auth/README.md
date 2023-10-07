@@ -19,19 +19,20 @@ Endpoint for receiving access token from Tigris Server. The endpoint requires Gr
 
 ```typescript
 import { SDK } from "tigris-core";
-import { AuthGetAccessTokenResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.auth.get().then((res: AuthGetAccessTokenResponse) => {
+  const res = await sdk.auth.get();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

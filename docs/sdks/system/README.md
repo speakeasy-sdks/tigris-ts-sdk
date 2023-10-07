@@ -21,19 +21,20 @@ This endpoint can be used to check the liveness of the server.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { HealthAPIHealthResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.system.getHealth().then((res: HealthAPIHealthResponse) => {
+  const res = await sdk.system.getHealth();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,19 +57,20 @@ Provides the information about the server. This information includes returning t
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ObservabilityGetInfoResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.system.getServerInfo().then((res: ObservabilityGetInfoResponse) => {
+  const res = await sdk.system.getServerInfo();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -91,19 +93,20 @@ Returns current namespace quota limits
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ObservabilityQuotaUsageResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.system.observabilityQuotaUsage({}).then((res: ObservabilityQuotaUsageResponse) => {
+  const res = await sdk.system.observabilityQuotaUsage({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -127,19 +130,20 @@ Returns current namespace quota limits
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ObservabilityQuotaLimitsResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.system.queryQuotaLimits({}).then((res: ObservabilityQuotaLimitsResponse) => {
+  const res = await sdk.system.queryQuotaLimits({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -163,7 +167,6 @@ Queries time series metrics
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ObservabilityQueryTimeSeriesMetricsResponse } from "tigris-core/dist/sdk/models/operations";
 import {
   QueryTimeSeriesMetricsRequestFunction,
   QueryTimeSeriesMetricsRequestSpaceAggregation,
@@ -171,39 +174,28 @@ import {
   RollupFunctionAggregator,
 } from "tigris-core/dist/sdk/models/shared";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.system.queryTimeSeriesMetrics({
-  additionalFunctions: [
-    {
-      rollup: {
-        aggregator: RollupFunctionAggregator.RollupAggregatorCount,
-        interval: 724082,
-      },
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
     },
-  ],
-  branch: "Coordinator",
-  collection: "against regional",
-  db: "provided Gasoline",
-  from: 93300,
-  function: QueryTimeSeriesMetricsRequestFunction.None,
-  metricName: "Card Southwest Hat",
-  quantile: 4863.24,
-  spaceAggregatedBy: [
-    "optimal",
-  ],
-  spaceAggregation: QueryTimeSeriesMetricsRequestSpaceAggregation.Min,
-  tigrisOperation: QueryTimeSeriesMetricsRequestTigrisOperation.Metadata,
-  to: 60030,
-}).then((res: ObservabilityQueryTimeSeriesMetricsResponse) => {
+  });
+
+  const res = await sdk.system.queryTimeSeriesMetrics({
+    additionalFunctions: [
+      {
+        rollup: {},
+      },
+    ],
+    spaceAggregatedBy: [
+      "Concrete",
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -26,25 +26,25 @@ Starts a new transaction and returns a transactional object. All reads/writes pe
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisBeginTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.beginTransaction({
-  beginTransactionRequest: {
-    branch: "Steel East microchip",
-    options: {},
-  },
-  project: "Tandem",
-}).then((res: TigrisBeginTransactionResponse) => {
+  const res = await sdk.database.beginTransaction({
+    beginTransactionRequest: {
+      options: {},
+    },
+    project: "Steel East microchip",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,24 +69,23 @@ Atomically commit all the changes performed in the context of the transaction. C
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisCommitTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.commitTransaction({
-  commitTransactionRequest: {
-    branch: "drop Assurance",
-  },
-  project: "female Diesel",
-}).then((res: TigrisCommitTransactionResponse) => {
+  const res = await sdk.database.commitTransaction({
+    commitTransactionRequest: {},
+    project: "drop Assurance",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +109,24 @@ Creates a new database branch, if not already existing.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisCreateBranchResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.createBranch({
-  createBranchRequest: {},
-  branch: "Dubnium UDP Garden",
-  project: "solid hence Ramp",
-}).then((res: TigrisCreateBranchResponse) => {
+  const res = await sdk.database.createBranch({
+    createBranchRequest: {},
+    branch: "Dubnium UDP Garden",
+    project: "solid hence Ramp",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,23 +151,24 @@ Deletes a database branch, if exists.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisDeleteBranchResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.deleteBranch({
-  deleteBranchRequest: {},
-  branch: "withdrawal",
-  project: "West Coupe solutions",
-}).then((res: TigrisDeleteBranchResponse) => {
+  const res = await sdk.database.deleteBranch({
+    deleteBranchRequest: {},
+    branch: "withdrawal",
+    project: "West Coupe solutions",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,26 +193,23 @@ This API returns information related to the project along with all the collectio
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisDescribeDatabaseResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.describe({
-  describeDatabaseRequest: {
-    branch: "morph Pickup",
-    project: "Home",
-    schemaFormat: "payment And Cloned",
-  },
-  project: "South whoever",
-}).then((res: TigrisDescribeDatabaseResponse) => {
+  const res = await sdk.database.describe({
+    describeDatabaseRequest: {},
+    project: "morph Pickup",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -235,22 +233,22 @@ List all the collections present in the project passed in the request.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisListCollectionsResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.listCollections({
-  branch: "Buckinghamshire green Djibouti",
-  project: "Hybrid",
-}).then((res: TigrisListCollectionsResponse) => {
+  const res = await sdk.database.listCollections({
+    project: "Buckinghamshire green Djibouti",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -275,24 +273,23 @@ Rollback transaction discards all the changes
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisRollbackTransactionResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.rollbackTransaction({
-  rollbackTransactionRequest: {
-    branch: "woman Convertible Hafnium",
-  },
-  project: "Whittier Hip",
-}).then((res: TigrisRollbackTransactionResponse) => {
+  const res = await sdk.database.rollbackTransaction({
+    rollbackTransactionRequest: {},
+    project: "woman Convertible Hafnium",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -316,21 +313,22 @@ List database branches
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisListBranchesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.database.tigrisListBranches({
-  project: "Funk",
-}).then((res: TigrisListBranchesResponse) => {
+  const res = await sdk.database.tigrisListBranches({
+    project: "Funk",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

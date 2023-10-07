@@ -22,23 +22,20 @@ Creates a new namespace, if it does not exist
 
 ```typescript
 import { SDK } from "tigris-core";
-import { CreateNamespaceResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.create({
-  code: 481196,
-  id: "<ID>",
-  name: "Tasty island Southwest",
-}).then((res: CreateNamespaceResponse) => {
+  const res = await sdk.namespace.create({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,19 +59,20 @@ Get details for all namespaces
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementDescribeNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.get().then((res: ManagementDescribeNamespacesResponse) => {
+  const res = await sdk.namespace.get();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,25 +95,25 @@ GetNamespaceMetadata inserts the user metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementGetNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.getMetadata({
-  getNamespaceMetadataRequest: {
+  const res = await sdk.namespace.getMetadata({
+    getNamespaceMetadataRequest: {
+      value: {},
+    },
     metadataKey: "or Plastic",
-    value: {},
-  },
-  metadataKey: "offensively Electric",
-}).then((res: ManagementGetNamespaceMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,25 +137,25 @@ InsertNamespaceMetadata inserts the namespace metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementInsertNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.insertMetadata({
-  insertNamespaceMetadataRequest: {
+  const res = await sdk.namespace.insertMetadata({
+    insertNamespaceMetadataRequest: {
+      value: {},
+    },
     metadataKey: "Curve Liaison calculate",
-    value: {},
-  },
-  metadataKey: "female Tantalum",
-}).then((res: ManagementInsertNamespaceMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -181,19 +179,20 @@ List all namespace
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementListNamespacesResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.list().then((res: ManagementListNamespacesResponse) => {
+  const res = await sdk.namespace.list();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -216,25 +215,25 @@ UpdateNamespaceMetadata updates the user metadata object
 
 ```typescript
 import { SDK } from "tigris-core";
-import { ManagementUpdateNamespaceMetadataResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.namespace.updateMetadata({
-  updateNamespaceMetadataRequest: {
+  const res = await sdk.namespace.updateMetadata({
+    updateNamespaceMetadataRequest: {
+      value: {},
+    },
     metadataKey: "platforms Concrete Tempe",
-    value: {},
-  },
-  metadataKey: "transmitting Silicon North",
-}).then((res: ManagementUpdateNamespaceMetadataResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -21,24 +21,23 @@ Delete an app key.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisDeleteAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.appKey.delete({
-  deleteAppKeyRequest: {
-    id: "<ID>",
-  },
-  project: "Architect Cotton port",
-}).then((res: TigrisDeleteAppKeyResponse) => {
+  const res = await sdk.appKey.delete({
+    deleteAppKeyRequest: {},
+    project: "Architect Cotton port",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,21 +61,22 @@ Lists all app keys visible to requesting actor.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisListAppKeysResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.appKey.list({
-  project: "Bronze Architect",
-}).then((res: TigrisListAppKeysResponse) => {
+  const res = await sdk.appKey.list({
+    project: "Bronze Architect",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,25 +100,23 @@ Endpoint is used to rotate the secret for the app key.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisRotateAppKeySecretResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.appKey.rotate({
-  rotateAppKeyRequest: {
-    id: "<ID>",
+  const res = await sdk.appKey.rotate({
+    rotateAppKeyRequest: {},
     project: "Facilitator",
-  },
-  project: "efficient compress",
-}).then((res: TigrisRotateAppKeySecretResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -142,25 +140,23 @@ Create an app key.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisCreateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.appKey.tigrisCreateAppKey({
-  createAppKeyRequest: {
-    description: "User-centric bifurcated product",
-    name: "magenta",
-  },
-  project: "indigo",
-}).then((res: TigrisCreateAppKeyResponse) => {
+  const res = await sdk.appKey.tigrisCreateAppKey({
+    createAppKeyRequest: {},
+    project: "Rhode magenta Florida",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,26 +180,23 @@ Update the description of an app key.
 
 ```typescript
 import { SDK } from "tigris-core";
-import { TigrisUpdateAppKeyResponse } from "tigris-core/dist/sdk/models/operations";
 
-const sdk = new SDK({
-  security: {
-    bearerAuth: "",
-  },
-});
+(async() => {
+  const sdk = new SDK({
+    security: {
+      bearerAuth: "",
+    },
+  });
 
-sdk.appKey.update({
-  updateAppKeyRequest: {
-    description: "Optimized 24/7 middleware",
-    id: "<ID>",
-    name: "Clothing Tempe",
-  },
-  project: "Ohio ADP",
-}).then((res: TigrisUpdateAppKeyResponse) => {
+  const res = await sdk.appKey.update({
+    updateAppKeyRequest: {},
+    project: "South complexity",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
