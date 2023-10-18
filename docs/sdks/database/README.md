@@ -38,7 +38,7 @@ import { SDK } from "tigris-core";
     beginTransactionRequest: {
       options: {},
     },
-    project: "Steel East microchip",
+    project: "ew",
   });
 
   if (res.statusCode == 200) {
@@ -79,7 +79,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.commitTransaction({
     commitTransactionRequest: {},
-    project: "drop Assurance",
+    project: "Metrics",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.createBranch({
     createBranchRequest: {},
-    branch: "Dubnium UDP Garden",
-    project: "solid hence Ramp",
+    branch: "Nissan",
+    project: "majestically",
   });
 
   if (res.statusCode == 200) {
@@ -161,8 +161,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.deleteBranch({
     deleteBranchRequest: {},
-    branch: "withdrawal",
-    project: "West Coupe solutions",
+    branch: "Berkshire",
+    project: "Shoes",
   });
 
   if (res.statusCode == 200) {
@@ -203,7 +203,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.describe({
     describeDatabaseRequest: {},
-    project: "morph Pickup",
+    project: "copy",
   });
 
   if (res.statusCode == 200) {
@@ -242,7 +242,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.database.listCollections({
-    project: "Buckinghamshire green Djibouti",
+    project: "blah",
   });
 
   if (res.statusCode == 200) {
@@ -283,7 +283,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.rollbackTransaction({
     rollbackTransactionRequest: {},
-    project: "woman Convertible Hafnium",
+    project: "optimisation",
   });
 
   if (res.statusCode == 200) {
@@ -322,7 +322,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.database.tigrisListBranches({
-    project: "Funk",
+    project: "withdrawal",
   });
 
   if (res.statusCode == 200) {

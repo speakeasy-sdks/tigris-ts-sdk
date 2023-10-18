@@ -31,8 +31,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.get({
-    channel: "Group Cambridgeshire",
-    project: "reintermediate fuchsia Planner",
+    channel: "motivating",
+    project: "Account",
   });
 
   if (res.statusCode == 200) {
@@ -71,8 +71,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.getMessages({
-    channel: "parallelism",
-    project: "sympathetic array",
+    channel: "East",
+    project: "Platinum",
   });
 
   if (res.statusCode == 200) {
@@ -111,7 +111,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.list({
-    project: "Bronze Architect",
+    project: "Future",
   });
 
   if (res.statusCode == 200) {
@@ -150,8 +150,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.listSubscriptions({
-    channel: "UTF8 doting Brazil",
-    project: "Account Incredible North",
+    channel: "internationalise",
+    project: "which",
   });
 
   if (res.statusCode == 200) {
@@ -195,8 +195,8 @@ import { SDK } from "tigris-core";
         {},
       ],
     },
-    channel: "Representative Manager",
-    project: "Man",
+    channel: "payment",
+    project: "pronoun",
   });
 
   if (res.statusCode == 200) {
@@ -235,8 +235,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.realtimePresence({
-    channel: "orchid AI second",
-    project: "thankful Consultant",
+    channel: "successfully",
+    project: "Applications",
   });
 
   if (res.statusCode == 200) {

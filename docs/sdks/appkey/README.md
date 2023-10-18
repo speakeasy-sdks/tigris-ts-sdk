@@ -31,7 +31,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.appKey.delete({
     deleteAppKeyRequest: {},
-    project: "Architect Cotton port",
+    project: "roughly",
   });
 
   if (res.statusCode == 200) {
@@ -70,7 +70,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.appKey.list({
-    project: "Bronze Architect",
+    project: "Future",
   });
 
   if (res.statusCode == 200) {
@@ -110,7 +110,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.appKey.rotate({
     rotateAppKeyRequest: {},
-    project: "Facilitator",
+    project: "visualize",
   });
 
   if (res.statusCode == 200) {
@@ -150,7 +150,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.appKey.tigrisCreateAppKey({
     createAppKeyRequest: {},
-    project: "Rhode magenta Florida",
+    project: "causal",
   });
 
   if (res.statusCode == 200) {
@@ -190,7 +190,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.appKey.update({
     updateAppKeyRequest: {},
-    project: "South complexity",
+    project: "up",
   });
 
   if (res.statusCode == 200) {

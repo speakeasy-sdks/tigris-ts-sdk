@@ -31,7 +31,7 @@ import { SDK } from "tigris-core";
     getUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "or Plastic",
+    metadataKey: "Chief",
   });
 
   if (res.statusCode == 200) {
@@ -73,7 +73,7 @@ import { SDK } from "tigris-core";
     insertUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "Curve Liaison calculate",
+    metadataKey: "Diesel",
   });
 
   if (res.statusCode == 200) {
@@ -115,7 +115,7 @@ import { SDK } from "tigris-core";
     updateUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "platforms Concrete Tempe",
+    metadataKey: "fate",
   });
 
   if (res.statusCode == 200) {

@@ -107,7 +107,7 @@ import { SDK } from "tigris-core";
     getNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "or Plastic",
+    metadataKey: "Chief",
   });
 
   if (res.statusCode == 200) {
@@ -149,7 +149,7 @@ import { SDK } from "tigris-core";
     insertNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "Curve Liaison calculate",
+    metadataKey: "Diesel",
   });
 
   if (res.statusCode == 200) {
@@ -227,7 +227,7 @@ import { SDK } from "tigris-core";
     updateNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "platforms Concrete Tempe",
+    metadataKey: "fate",
   });
 
   if (res.statusCode == 200) {

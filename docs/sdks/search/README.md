@@ -42,8 +42,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.search.createDocument({
     createByIdRequest: {},
     id: "<ID>",
-    index: "Radon mRNA female",
-    project: "Electric pioneer",
+    index: "Bicycle",
+    project: "mRNA",
   });
 
   if (res.statusCode == 200) {
@@ -88,11 +88,11 @@ import { SDK } from "tigris-core";
   const res = await sdk.search.createDocuments({
     createDocumentRequest: {
       documents: [
-        "Assistant",
+        "Ohio",
       ],
     },
-    index: "Cadmium monitor West",
-    project: "majestically Israeli",
+    index: "Toyota",
+    project: "Cadmium",
   });
 
   if (res.statusCode == 200) {
@@ -138,8 +138,8 @@ import { SDK } from "tigris-core";
         "times",
       ],
     },
-    index: "consequently",
-    project: "Plastic Samarium Programmable",
+    index: "Southwest",
+    project: "Glover",
   });
 
   if (res.statusCode == 200) {
@@ -179,8 +179,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.search.deleteIndex({
     deleteIndexRequest: {},
-    name: "New Tandem Romania",
-    project: "Executive minor Brooklyn",
+    name: "Liaison",
+    project: "Marketing",
   });
 
   if (res.statusCode == 200) {
@@ -235,8 +235,8 @@ import { SDK } from "tigris-core";
         "Soft",
       ],
     },
-    index: "noxious Senior Terbium",
-    project: "enterprise that",
+    index: "green",
+    project: "Salad",
   });
 
   if (res.statusCode == 200) {
@@ -279,8 +279,8 @@ import { SDK } from "tigris-core";
     ids: [
       "turquoise",
     ],
-    index: "Loan Northwest",
-    project: "Bugatti Federation",
+    index: "navigating",
+    project: "generating",
   });
 
   if (res.statusCode == 200) {
@@ -319,8 +319,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.search.getIndex({
-    name: "reboot female",
-    project: "male",
+    name: "woman",
+    project: "female",
   });
 
   if (res.statusCode == 200) {
@@ -359,7 +359,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.search.listIndexes({
-    project: "dynamic",
+    project: "Avon",
   });
 
   if (res.statusCode == 200) {
@@ -400,8 +400,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.search.queryDeleteDocuments({
     deleteByQueryRequest: {},
-    index: "visible whose IB",
-    project: "Wyoming",
+    index: "unnaturally",
+    project: "zowie",
   });
 
   if (res.statusCode == 200) {
@@ -445,11 +445,11 @@ import { SDK } from "tigris-core";
   const res = await sdk.search.replaceDocuments({
     createOrReplaceDocumentRequest: {
       documents: [
-        "female West Southeast",
+        "male",
       ],
     },
-    index: "Total phew",
-    project: "gee Coupe Bicycle",
+    index: "Avon",
+    project: "before",
   });
 
   if (res.statusCode == 200) {
@@ -493,11 +493,11 @@ import { SDK } from "tigris-core";
   const res = await sdk.search.updateDocuments({
     updateDocumentRequest: {
       documents: [
-        "Northwest",
+        "revolutionary",
       ],
     },
-    index: "West",
-    project: "Jewelery black Functionality",
+    index: "Strategist",
+    project: "Jewelery",
   });
 
   if (res.statusCode == 200) {
@@ -537,8 +537,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.search.updateIndex({
     createOrUpdateIndexRequest: {},
-    name: "maiores when male",
-    project: "eius optical West",
+    name: "Agent",
+    project: "male",
   });
 
   if (res.statusCode == 200) {

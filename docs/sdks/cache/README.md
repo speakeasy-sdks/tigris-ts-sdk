@@ -36,8 +36,8 @@ import { SDK } from "tigris-core";
     createCacheRequest: {
       options: {},
     },
-    name: "Electric pirouette",
-    project: "Sausages ASCII",
+    name: "neural",
+    project: "Tasty",
   });
 
   if (res.statusCode == 200) {
@@ -77,8 +77,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.cache.delete({
     deleteCacheRequest: {},
-    name: "Architect Cotton port",
-    project: "qua",
+    name: "roughly",
+    project: "EXE",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.deleteKeys({
     delRequest: {},
     key: "<key>",
-    name: "man Seamless before",
-    project: "Diesel",
+    name: "Orchestrator",
+    project: "gray",
   });
 
   if (res.statusCode == 200) {
@@ -160,8 +160,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.cache.getKey({
     key: "<key>",
-    name: "lux robust",
-    project: "index",
+    name: "man",
+    project: "robust",
   });
 
   if (res.statusCode == 200) {
@@ -202,8 +202,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.getSetKey({
     getSetRequest: {},
     key: "<key>",
-    name: "Bronze",
-    project: "portal salmon",
+    name: "black",
+    project: "Direct",
   });
 
   if (res.statusCode == 200) {
@@ -242,7 +242,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.cache.list({
-    project: "Bronze Architect",
+    project: "Future",
   });
 
   if (res.statusCode == 200) {
@@ -281,8 +281,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.cache.listKeys({
-    name: "Iodine invoice",
-    project: "Synchronised",
+    name: "Trans",
+    project: "invoice",
   });
 
   if (res.statusCode == 200) {
@@ -323,8 +323,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.setKey({
     setRequest: {},
     key: "<key>",
-    name: "North",
-    project: "synergize",
+    name: "red",
+    project: "Gloves",
   });
 
   if (res.statusCode == 200) {

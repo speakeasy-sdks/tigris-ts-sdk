@@ -43,8 +43,8 @@ import { SDK } from "tigris-core";
       options: {},
       schema: {},
     },
-    collection: "Electric pirouette",
-    project: "Sausages ASCII",
+    collection: "neural",
+    project: "Tasty",
   });
 
   if (res.statusCode == 200) {
@@ -90,8 +90,8 @@ import { SDK } from "tigris-core";
         writeOptions: {},
       },
     },
-    collection: "Convertible consequently female",
-    project: "Card",
+    collection: "times",
+    project: "Southwest",
   });
 
   if (res.statusCode == 200) {
@@ -133,8 +133,8 @@ import { SDK } from "tigris-core";
     describeCollectionRequest: {
       options: {},
     },
-    collection: "morph Pickup",
-    project: "Home",
+    collection: "copy",
+    project: "Luxurious",
   });
 
   if (res.statusCode == 200) {
@@ -177,8 +177,8 @@ import { SDK } from "tigris-core";
     dropCollectionRequest: {
       options: {},
     },
-    collection: "Tricycle Cummings",
-    project: "reboot Northern",
+    collection: "SSL",
+    project: "an",
   });
 
   if (res.statusCode == 200) {
@@ -236,8 +236,8 @@ import { SDK } from "tigris-core";
         "calmly",
       ],
     },
-    collection: "Sedan Peru",
-    project: "wherever Designer",
+    collection: "transmitting",
+    project: "Van",
   });
 
   if (res.statusCode == 200) {
@@ -286,8 +286,8 @@ import { SDK } from "tigris-core";
         writeOptions: {},
       },
     },
-    collection: "magnetic Hong National",
-    project: "Lemke",
+    collection: "ew",
+    project: "Won",
   });
 
   if (res.statusCode == 200) {
@@ -338,8 +338,8 @@ import { SDK } from "tigris-core";
         collation: {},
       },
     },
-    collection: "West farad",
-    project: "Books yellow",
+    collection: "Lead",
+    project: "ivory",
   });
 
   if (res.statusCode == 200) {
@@ -386,8 +386,8 @@ import { SDK } from "tigris-core";
         writeOptions: {},
       },
     },
-    collection: "female West Southeast",
-    project: "Total phew",
+    collection: "male",
+    project: "Avon",
   });
 
   if (res.statusCode == 200) {
@@ -445,8 +445,8 @@ import { SDK } from "tigris-core";
       ],
       sort: {},
     },
-    collection: "blue Intranet Germanium",
-    project: "Books degree Cambridgeshire",
+    collection: "Hybrid",
+    project: "Borders",
   });
 
   if (res.statusCode == 200) {
@@ -493,8 +493,8 @@ import { SDK } from "tigris-core";
         writeOptions: {},
       },
     },
-    collection: "Northwest",
-    project: "West",
+    collection: "revolutionary",
+    project: "Strategist",
   });
 
   if (res.statusCode == 200) {
