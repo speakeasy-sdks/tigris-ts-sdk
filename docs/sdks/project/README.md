@@ -29,7 +29,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.project.create({
     createProjectRequest: {},
-    project: "neural",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -69,7 +69,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.project.deleteProject({
     deleteProjectRequest: {},
-    project: "Diesel",
+    project: "string",
   });
 
   if (res.statusCode == 200) {

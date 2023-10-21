@@ -31,8 +31,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.get({
-    channel: "motivating",
-    project: "Account",
+    channel: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -71,8 +71,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.getMessages({
-    channel: "East",
-    project: "Platinum",
+    channel: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -111,7 +111,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.list({
-    project: "Future",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -150,8 +150,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.listSubscriptions({
-    channel: "internationalise",
-    project: "which",
+    channel: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -195,8 +195,8 @@ import { SDK } from "tigris-core";
         {},
       ],
     },
-    channel: "payment",
-    project: "pronoun",
+    channel: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -235,8 +235,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.channel.realtimePresence({
-    channel: "successfully",
-    project: "Applications",
+    channel: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {

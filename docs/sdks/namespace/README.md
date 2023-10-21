@@ -107,7 +107,7 @@ import { SDK } from "tigris-core";
     getNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "Chief",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {
@@ -149,7 +149,7 @@ import { SDK } from "tigris-core";
     insertNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "Diesel",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {
@@ -227,7 +227,7 @@ import { SDK } from "tigris-core";
     updateNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "fate",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {

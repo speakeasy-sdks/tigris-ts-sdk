@@ -15,8 +15,8 @@ import { SDK } from "tigris-core";
         createCacheRequest: {
             options: {},
         },
-        name: "neural",
-        project: "Tasty",
+        name: "string",
+        project: "string",
     });
 
     if (res.statusCode == 200) {

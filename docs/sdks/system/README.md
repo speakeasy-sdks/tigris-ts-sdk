@@ -188,7 +188,7 @@ import {
       },
     ],
     spaceAggregatedBy: [
-      "Concrete",
+      "string",
     ],
   });
 

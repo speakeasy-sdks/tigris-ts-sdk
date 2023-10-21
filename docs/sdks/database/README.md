@@ -38,7 +38,7 @@ import { SDK } from "tigris-core";
     beginTransactionRequest: {
       options: {},
     },
-    project: "ew",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -79,7 +79,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.commitTransaction({
     commitTransactionRequest: {},
-    project: "Metrics",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.createBranch({
     createBranchRequest: {},
-    branch: "Nissan",
-    project: "majestically",
+    branch: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -161,8 +161,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.deleteBranch({
     deleteBranchRequest: {},
-    branch: "Berkshire",
-    project: "Shoes",
+    branch: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -203,7 +203,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.describe({
     describeDatabaseRequest: {},
-    project: "copy",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -242,7 +242,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.database.listCollections({
-    project: "blah",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -283,7 +283,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.database.rollbackTransaction({
     rollbackTransactionRequest: {},
-    project: "optimisation",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -322,7 +322,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.database.tigrisListBranches({
-    project: "withdrawal",
+    project: "string",
   });
 
   if (res.statusCode == 200) {

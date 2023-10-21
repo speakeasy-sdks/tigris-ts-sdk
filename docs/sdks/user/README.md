@@ -31,7 +31,7 @@ import { SDK } from "tigris-core";
     getUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "Chief",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {
@@ -73,7 +73,7 @@ import { SDK } from "tigris-core";
     insertUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "Diesel",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {
@@ -115,7 +115,7 @@ import { SDK } from "tigris-core";
     updateUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "fate",
+    metadataKey: "string",
   });
 
   if (res.statusCode == 200) {

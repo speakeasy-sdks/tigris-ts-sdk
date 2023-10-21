@@ -36,8 +36,8 @@ import { SDK } from "tigris-core";
     createCacheRequest: {
       options: {},
     },
-    name: "neural",
-    project: "Tasty",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -77,8 +77,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.cache.delete({
     deleteCacheRequest: {},
-    name: "roughly",
-    project: "EXE",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.deleteKeys({
     delRequest: {},
     key: "<key>",
-    name: "Orchestrator",
-    project: "gray",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -160,8 +160,8 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.cache.getKey({
     key: "<key>",
-    name: "man",
-    project: "robust",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -202,8 +202,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.getSetKey({
     getSetRequest: {},
     key: "<key>",
-    name: "black",
-    project: "Direct",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -242,7 +242,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.cache.list({
-    project: "Future",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -281,8 +281,8 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.cache.listKeys({
-    name: "Trans",
-    project: "invoice",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
@@ -323,8 +323,8 @@ import { SDK } from "tigris-core";
   const res = await sdk.cache.setKey({
     setRequest: {},
     key: "<key>",
-    name: "red",
-    project: "Gloves",
+    name: "string",
+    project: "string",
   });
 
   if (res.statusCode == 200) {
