@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ImportRequestOptions } from "./importrequestoptions";
 import { Expose, Type } from "class-transformer";
 
-export class ImportRequestDocuments extends SpeakeasyBase {}
+export class Documents extends SpeakeasyBase {}
 
 export class ImportRequest extends SpeakeasyBase {
     /**
@@ -33,10 +33,10 @@ export class ImportRequest extends SpeakeasyBase {
     /**
      * Array of documents to import. Each document is a JSON object.
      */
-    @SpeakeasyMetadata({ elemType: ImportRequestDocuments })
+    @SpeakeasyMetadata({ elemType: Documents })
     @Expose({ name: "documents" })
-    @Type(() => ImportRequestDocuments)
-    documents?: ImportRequestDocuments[];
+    @Type(() => Documents)
+    documents?: Documents[];
 
     /**
      * additional options for import requests.

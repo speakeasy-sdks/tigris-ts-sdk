@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum RollupFunctionAggregator {
+export enum Aggregator {
     RollupAggregatorSum = "ROLLUP_AGGREGATOR_SUM",
     RollupAggregatorCount = "ROLLUP_AGGREGATOR_COUNT",
     RollupAggregatorMin = "ROLLUP_AGGREGATOR_MIN",
@@ -19,7 +19,7 @@ export enum RollupFunctionAggregator {
 export class RollupFunction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "aggregator" })
-    aggregator?: RollupFunctionAggregator;
+    aggregator?: Aggregator;
 
     @SpeakeasyMetadata()
     @Expose({ name: "interval" })

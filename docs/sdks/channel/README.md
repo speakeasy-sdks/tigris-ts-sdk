@@ -1,5 +1,5 @@
 # Channel
-(*channel*)
+(*.channel*)
 
 ## Overview
 
@@ -34,6 +34,7 @@ import { SDK } from "tigris-core";
     channel: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -75,6 +76,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -113,6 +115,7 @@ import { SDK } from "tigris-core";
   const res = await sdk.channel.list({
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -153,6 +156,7 @@ import { SDK } from "tigris-core";
     channel: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -199,6 +203,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -238,6 +243,7 @@ import { SDK } from "tigris-core";
     channel: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

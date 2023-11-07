@@ -5,7 +5,7 @@ Rollup function aggregates the slices of metrics returned by original query and 
 
 ## Fields
 
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `aggregator`                                                                | [RollupFunctionAggregator](../../models/shared/rollupfunctionaggregator.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
-| `interval`                                                                  | *number*                                                                    | :heavy_minus_sign:                                                          | N/A                                                                         |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `aggregator`                                           | [shared.Aggregator](../../models/shared/aggregator.md) | :heavy_minus_sign:                                     | N/A                                                    |
+| `interval`                                             | *number*                                               | :heavy_minus_sign:                                     | N/A                                                    |

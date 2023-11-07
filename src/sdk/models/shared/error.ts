@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The status code is a short, machine parsable string, which uniquely identifies the error type. Tigris to HTTP code mapping [here](/reference/http-code)
  */
-export enum ErrorCode {
+export enum Code {
     Ok = "OK",
     Cancelled = "CANCELLED",
     Unknown = "UNKNOWN",
@@ -40,7 +40,7 @@ export class ErrorT extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "code" })
-    code?: ErrorCode;
+    code?: Code;
 
     /**
      * A developer-facing descriptive error message

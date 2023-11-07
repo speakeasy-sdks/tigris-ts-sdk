@@ -1,5 +1,5 @@
 # Database
-(*database*)
+(*.database*)
 
 ## Overview
 
@@ -40,6 +40,7 @@ import { SDK } from "tigris-core";
     },
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -82,6 +83,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,6 +124,7 @@ import { SDK } from "tigris-core";
     branch: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -165,6 +168,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -206,6 +210,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -244,6 +249,7 @@ import { SDK } from "tigris-core";
   const res = await sdk.database.listCollections({
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -286,6 +292,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -324,6 +331,7 @@ import { SDK } from "tigris-core";
   const res = await sdk.database.tigrisListBranches({
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

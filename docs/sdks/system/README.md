@@ -1,5 +1,5 @@
 # System
-(*system*)
+(*.system*)
 
 ## Overview
 
@@ -30,6 +30,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.system.getHealth();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -67,6 +68,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.getServerInfo();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,6 +104,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.system.observabilityQuotaUsage({});
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -140,6 +143,7 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.queryQuotaLimits({});
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -167,12 +171,7 @@ Queries time series metrics
 
 ```typescript
 import { SDK } from "tigris-core";
-import {
-  QueryTimeSeriesMetricsRequestFunction,
-  QueryTimeSeriesMetricsRequestSpaceAggregation,
-  QueryTimeSeriesMetricsRequestTigrisOperation,
-  RollupFunctionAggregator,
-} from "tigris-core/dist/sdk/models/shared";
+import { Aggregator, FunctionT, SpaceAggregation, TigrisOperation } from "tigris-core/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new SDK({
@@ -191,6 +190,7 @@ import {
       "string",
     ],
   });
+
 
   if (res.statusCode == 200) {
     // handle response

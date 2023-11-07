@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Object containing the collection document.
  */
-export class ReadResponseData extends SpeakeasyBase {}
+export class Data extends SpeakeasyBase {}
 
 export class ReadResponse extends SpeakeasyBase {
     /**
@@ -17,8 +17,8 @@ export class ReadResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ReadResponseData)
-    data?: ReadResponseData;
+    @Type(() => Data)
+    data?: Data;
 
     /**
      * Has metadata related to the documents stored.

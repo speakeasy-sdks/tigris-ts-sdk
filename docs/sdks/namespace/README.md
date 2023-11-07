@@ -1,5 +1,5 @@
 # Namespace
-(*namespace*)
+(*.namespace*)
 
 ## Overview
 
@@ -31,6 +31,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.namespace.create({});
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -68,6 +69,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.namespace.get();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -109,6 +111,7 @@ import { SDK } from "tigris-core";
     },
     metadataKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -152,6 +155,7 @@ import { SDK } from "tigris-core";
     metadataKey: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -188,6 +192,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.namespace.list();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -229,6 +234,7 @@ import { SDK } from "tigris-core";
     },
     metadataKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

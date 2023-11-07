@@ -1,5 +1,5 @@
 # Auth
-(*auth*)
+(*.auth*)
 
 ## Overview
 
@@ -28,6 +28,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.auth.get();
+
 
   if (res.statusCode == 200) {
     // handle response

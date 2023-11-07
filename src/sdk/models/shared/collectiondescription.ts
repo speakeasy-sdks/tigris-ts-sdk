@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Collections schema
  */
-export class CollectionDescriptionSchema extends SpeakeasyBase {}
+export class Schema extends SpeakeasyBase {}
 
 export class CollectionDescription extends SpeakeasyBase {
     /**
@@ -29,8 +29,8 @@ export class CollectionDescription extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "schema" })
-    @Type(() => CollectionDescriptionSchema)
-    schema?: CollectionDescriptionSchema;
+    @Type(() => Schema)
+    schema?: Schema;
 
     /**
      * Collection size in bytes

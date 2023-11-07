@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Facet query to aggregate results on given fields. The field name for the facet search can be passed like this `{"brand": { "size": 10 }}` where the size controls the total facets for this field.
  */
-export class SearchRequestFacet extends SpeakeasyBase {}
+export class Facet extends SpeakeasyBase {}
 
 export class SearchRequestFields extends SpeakeasyBase {}
 
@@ -21,7 +21,7 @@ export class SearchRequestFilter extends SpeakeasyBase {}
 /**
  * Array of fields and corresponding sort orders to order the results `[{ "salary": "$desc" }]`
  */
-export class SearchRequestSort extends SpeakeasyBase {}
+export class Sort extends SpeakeasyBase {}
 
 export class SearchRequest extends SpeakeasyBase {
     /**
@@ -51,8 +51,8 @@ export class SearchRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "facet" })
-    @Type(() => SearchRequestFacet)
-    facet?: SearchRequestFacet;
+    @Type(() => Facet)
+    facet?: Facet;
 
     @SpeakeasyMetadata()
     @Expose({ name: "fields" })
@@ -107,6 +107,6 @@ export class SearchRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sort" })
-    @Type(() => SearchRequestSort)
-    sort?: SearchRequestSort;
+    @Type(() => Sort)
+    sort?: Sort;
 }

@@ -3,13 +3,13 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { AppKey } from "./appkey";
 import { Auth } from "./auth";
 import { Cache } from "./cache";
 import { Channel } from "./channel";
 import { Collection } from "./collection";
 import { Database } from "./database";
-import * as shared from "./models/shared";
 import { Namespace } from "./namespace";
 import { Project } from "./project";
 import { Search } from "./search";
@@ -68,9 +68,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "0.0.1";
-    sdkVersion = "0.52.0";
-    genVersion = "2.171.0";
-    userAgent = "speakeasy-sdk/typescript 0.52.0 2.171.0 0.0.1 tigris-core";
+    sdkVersion = "0.53.0";
+    genVersion = "2.181.1";
+    userAgent = "speakeasy-sdk/typescript 0.53.0 2.181.1 0.0.1 tigris-core";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -141,49 +141,49 @@ export class SDKConfiguration {
  */
 export class SDK {
     /**
-     * The application keys section provide APIs that can be used to manage application keys for your project. A single project can have one or more application keys.
-     */
-    public appKey: AppKey;
-    /**
      * The auth section of API provides OAuth 2.0 APIs. Tigris supports pluggable OAuth provider. Pass the token in the headers for authentication, as an example `-H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6I"`(replace it with your token). All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
      */
     public auth: Auth;
-    /**
-     * The cache section provide APIs that can be used to perform cache operations.
-     */
-    public cache: Cache;
-    /**
-     * The realtime section provide APIs that can be used realtime operations.
-     */
-    public channel: Channel;
-    /**
-     * The Collections section provide APIs that can be used to manage collections. A collection can have one or more documents.
-     */
-    public collection: Collection;
-    /**
-     * The Database section provide APIs that can be used to interact with the database. A single Database can have one or more collections. A database is created automatically for you when you create a project.
-     */
-    public database: Database;
-    /**
-     * The Management section provide APIs that can be used to manage users, and app_keys.
-     */
-    public namespace: Namespace;
-    /**
-     * Every Tigris projects comes with a transactional document database built on FoundationDB, one of the most resilient and battle-tested open source distributed key-value store. A database is created automatically for you when you create a project.
-     */
-    public project: Project;
-    /**
-     * The search section provides you APIs that can be used to implement powerful apps with search experiences. You can manage storing documents on your own or you can simply integrate it with your database.
-     */
-    public search: Search;
     /**
      * The Observability section has APIs that provides full visibility into the health, metrics, and monitoring of the Server.
      */
     public system: System;
     /**
+     * The Management section provide APIs that can be used to manage users, and app_keys.
+     */
+    public namespace: Namespace;
+    /**
      * A User on the Tigris Platform.
      */
     public user: User;
+    /**
+     * Every Tigris projects comes with a transactional document database built on FoundationDB, one of the most resilient and battle-tested open source distributed key-value store. A database is created automatically for you when you create a project.
+     */
+    public project: Project;
+    /**
+     * The application keys section provide APIs that can be used to manage application keys for your project. A single project can have one or more application keys.
+     */
+    public appKey: AppKey;
+    /**
+     * The cache section provide APIs that can be used to perform cache operations.
+     */
+    public cache: Cache;
+    /**
+     * The Database section provide APIs that can be used to interact with the database. A single Database can have one or more collections. A database is created automatically for you when you create a project.
+     */
+    public database: Database;
+    /**
+     * The Collections section provide APIs that can be used to manage collections. A collection can have one or more documents.
+     */
+    public collection: Collection;
+    /**
+     * The realtime section provide APIs that can be used realtime operations.
+     */
+    public channel: Channel;
+    /**
+     * The search section provides you APIs that can be used to implement powerful apps with search experiences. You can manage storing documents on your own or you can simply integrate it with your database.
+     */
+    public search: Search;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -203,16 +203,16 @@ export class SDK {
             retryConfig: props?.retryConfig,
         });
 
-        this.appKey = new AppKey(this.sdkConfiguration);
         this.auth = new Auth(this.sdkConfiguration);
-        this.cache = new Cache(this.sdkConfiguration);
-        this.channel = new Channel(this.sdkConfiguration);
-        this.collection = new Collection(this.sdkConfiguration);
-        this.database = new Database(this.sdkConfiguration);
-        this.namespace = new Namespace(this.sdkConfiguration);
-        this.project = new Project(this.sdkConfiguration);
-        this.search = new Search(this.sdkConfiguration);
         this.system = new System(this.sdkConfiguration);
+        this.namespace = new Namespace(this.sdkConfiguration);
         this.user = new User(this.sdkConfiguration);
+        this.project = new Project(this.sdkConfiguration);
+        this.appKey = new AppKey(this.sdkConfiguration);
+        this.cache = new Cache(this.sdkConfiguration);
+        this.database = new Database(this.sdkConfiguration);
+        this.collection = new Collection(this.sdkConfiguration);
+        this.channel = new Channel(this.sdkConfiguration);
+        this.search = new Search(this.sdkConfiguration);
     }
 }

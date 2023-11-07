@@ -1,5 +1,5 @@
 # User
-(*user*)
+(*.user*)
 
 ## Overview
 
@@ -33,6 +33,7 @@ import { SDK } from "tigris-core";
     },
     metadataKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -76,6 +77,7 @@ import { SDK } from "tigris-core";
     metadataKey: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,6 +119,7 @@ import { SDK } from "tigris-core";
     },
     metadataKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

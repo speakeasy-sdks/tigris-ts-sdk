@@ -1,5 +1,5 @@
 # Project
-(*project*)
+(*.project*)
 
 ## Overview
 
@@ -31,6 +31,7 @@ import { SDK } from "tigris-core";
     createProjectRequest: {},
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -72,6 +73,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,6 +110,7 @@ import { SDK } from "tigris-core";
   });
 
   const res = await sdk.project.list();
+
 
   if (res.statusCode == 200) {
     // handle response

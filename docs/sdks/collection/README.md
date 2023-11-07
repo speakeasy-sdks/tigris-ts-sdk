@@ -1,5 +1,5 @@
 # Collection
-(*collection*)
+(*.collection*)
 
 ## Overview
 
@@ -46,6 +46,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -94,6 +95,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -136,6 +138,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -180,6 +183,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -240,6 +244,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -289,6 +294,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -342,6 +348,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -389,6 +396,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -449,6 +457,7 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -496,6 +505,7 @@ import { SDK } from "tigris-core";
     collection: "string",
     project: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
