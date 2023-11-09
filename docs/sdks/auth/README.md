@@ -1,5 +1,5 @@
 # Auth
-(*.auth*)
+(*auth*)
 
 ## Overview
 
@@ -29,7 +29,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.auth.get();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -45,5 +44,9 @@ import { SDK } from "tigris-core";
 
 ### Response
 
-**Promise<[operations.AuthGetAccessTokenResponse](../../models/operations/authgetaccesstokenresponse.md)>**
+**Promise<[operations.AuthGetAccessTokenResponse](../../sdk/models/operations/authgetaccesstokenresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

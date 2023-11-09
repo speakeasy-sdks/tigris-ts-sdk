@@ -1,9 +1,0 @@
-# ManagementUpdateNamespaceMetadataRequest
-
-
-## Fields
-
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `updateNamespaceMetadataRequest`                                                               | [shared.UpdateNamespaceMetadataRequest](../../models/shared/updatenamespacemetadatarequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `metadataKey`                                                                                  | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |

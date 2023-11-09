@@ -1,5 +1,5 @@
 # Project
-(*.project*)
+(*project*)
 
 ## Overview
 
@@ -32,7 +32,6 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -41,16 +40,20 @@ import { SDK } from "tigris-core";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.TigrisCreateProjectRequest](../../models/operations/tigriscreateprojectrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.TigrisCreateProjectRequest](../../sdk/models/operations/tigriscreateprojectrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.TigrisCreateProjectResponse](../../models/operations/tigriscreateprojectresponse.md)>**
+**Promise<[operations.TigrisCreateProjectResponse](../../sdk/models/operations/tigriscreateprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteProject
 
@@ -73,7 +76,6 @@ import { SDK } from "tigris-core";
     project: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -82,16 +84,20 @@ import { SDK } from "tigris-core";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.TigrisDeleteProjectRequest](../../models/operations/tigrisdeleteprojectrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.TigrisDeleteProjectRequest](../../sdk/models/operations/tigrisdeleteprojectrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.TigrisDeleteProjectResponse](../../models/operations/tigrisdeleteprojectresponse.md)>**
+**Promise<[operations.TigrisDeleteProjectResponse](../../sdk/models/operations/tigrisdeleteprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## list
 
@@ -111,7 +117,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.project.list();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -127,5 +132,9 @@ import { SDK } from "tigris-core";
 
 ### Response
 
-**Promise<[operations.TigrisListProjectsResponse](../../models/operations/tigrislistprojectsresponse.md)>**
+**Promise<[operations.TigrisListProjectsResponse](../../sdk/models/operations/tigrislistprojectsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

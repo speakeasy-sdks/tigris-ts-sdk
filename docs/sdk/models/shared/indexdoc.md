@@ -1,0 +1,9 @@
+# IndexDoc
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `doc`                                                                                                      | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | Actual search document                                                                                     |
+| `metadata`                                                                                                 | [shared.DocMeta](../../../sdk/models/shared/docmeta.md)                                                    | :heavy_minus_sign:                                                                                         | Contains metadata related to the search hit, has information about document created_at/updated_at as well. |

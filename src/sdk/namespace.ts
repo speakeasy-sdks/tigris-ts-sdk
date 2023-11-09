@@ -38,7 +38,8 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/management/namespaces/create";
+        const operationUrl: string =
+            baseURL.replace(/\/$/, "") + "/v1/management/namespaces/create";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -70,7 +71,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -136,7 +137,8 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/management/namespaces/describe";
+        const operationUrl: string =
+            baseURL.replace(/\/$/, "") + "/v1/management/namespaces/describe";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -153,7 +155,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -224,7 +226,7 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/v1/management/namespace/metadata/{metadataKey}/get",
             req
@@ -264,7 +266,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -336,7 +338,7 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/v1/management/namespace/metadata/{metadataKey}/insert",
             req
@@ -376,7 +378,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -441,7 +443,7 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/management/namespaces/list";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/v1/management/namespaces/list";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -458,7 +460,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -529,7 +531,7 @@ export class Namespace {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/v1/management/namespace/metadata/{metadataKey}/update",
             req
@@ -569,7 +571,7 @@ export class Namespace {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

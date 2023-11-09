@@ -31,7 +31,7 @@ export class System {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/health";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/v1/health";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -48,7 +48,7 @@ export class System {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -113,7 +113,7 @@ export class System {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/info";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/v1/observability/info";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -130,7 +130,7 @@ export class System {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -201,7 +201,7 @@ export class System {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/usage";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/usage";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -233,7 +233,7 @@ export class System {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -305,7 +305,7 @@ export class System {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/v1/observability/quota/limits";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -337,7 +337,7 @@ export class System {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -409,7 +409,7 @@ export class System {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string =
+        const operationUrl: string =
             baseURL.replace(/\/$/, "") + "/v1/observability/metrics/timeseries/query";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
@@ -442,7 +442,7 @@ export class System {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

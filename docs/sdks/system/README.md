@@ -1,5 +1,5 @@
 # System
-(*.system*)
+(*system*)
 
 ## Overview
 
@@ -31,7 +31,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.getHealth();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -47,8 +46,12 @@ import { SDK } from "tigris-core";
 
 ### Response
 
-**Promise<[operations.HealthAPIHealthResponse](../../models/operations/healthapihealthresponse.md)>**
+**Promise<[operations.HealthAPIHealthResponse](../../sdk/models/operations/healthapihealthresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getServerInfo
 
@@ -68,7 +71,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.getServerInfo();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -84,8 +86,12 @@ import { SDK } from "tigris-core";
 
 ### Response
 
-**Promise<[operations.ObservabilityGetInfoResponse](../../models/operations/observabilitygetinforesponse.md)>**
+**Promise<[operations.ObservabilityGetInfoResponse](../../sdk/models/operations/observabilitygetinforesponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## observabilityQuotaUsage
 
@@ -105,7 +111,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.observabilityQuotaUsage({});
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -114,16 +119,20 @@ import { SDK } from "tigris-core";
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [shared.QuotaUsageRequest](../../models/shared/quotausagerequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
-| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [shared.QuotaUsageRequest](../../sdk/models/shared/quotausagerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
 
-**Promise<[operations.ObservabilityQuotaUsageResponse](../../models/operations/observabilityquotausageresponse.md)>**
+**Promise<[operations.ObservabilityQuotaUsageResponse](../../sdk/models/operations/observabilityquotausageresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## queryQuotaLimits
 
@@ -143,7 +152,6 @@ import { SDK } from "tigris-core";
 
   const res = await sdk.system.queryQuotaLimits({});
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -152,16 +160,20 @@ import { SDK } from "tigris-core";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [shared.QuotaLimitsRequest](../../models/shared/quotalimitsrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.QuotaLimitsRequest](../../sdk/models/shared/quotalimitsrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
 
-**Promise<[operations.ObservabilityQuotaLimitsResponse](../../models/operations/observabilityquotalimitsresponse.md)>**
+**Promise<[operations.ObservabilityQuotaLimitsResponse](../../sdk/models/operations/observabilityquotalimitsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## queryTimeSeriesMetrics
 
@@ -191,7 +203,6 @@ import { Aggregator, FunctionT, SpaceAggregation, TigrisOperation } from "tigris
     ],
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -200,13 +211,17 @@ import { Aggregator, FunctionT, SpaceAggregation, TigrisOperation } from "tigris
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [shared.QueryTimeSeriesMetricsRequest](../../models/shared/querytimeseriesmetricsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [shared.QueryTimeSeriesMetricsRequest](../../sdk/models/shared/querytimeseriesmetricsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.ObservabilityQueryTimeSeriesMetricsResponse](../../models/operations/observabilityquerytimeseriesmetricsresponse.md)>**
+**Promise<[operations.ObservabilityQueryTimeSeriesMetricsResponse](../../sdk/models/operations/observabilityquerytimeseriesmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

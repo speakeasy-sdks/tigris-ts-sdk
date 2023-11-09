@@ -1,0 +1,13 @@
+# DescribeCollectionResponse
+
+A detailed description of the collection. The description returns collection metadata and the schema.
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `collection`                                                                                              | *string*                                                                                                  | :heavy_minus_sign:                                                                                        | Name of the collection.                                                                                   |
+| `metadata`                                                                                                | [shared.CollectionMetadata](../../../sdk/models/shared/collectionmetadata.md)                             | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `schema`                                                                                                  | [shared.DescribeCollectionResponseSchema](../../../sdk/models/shared/describecollectionresponseschema.md) | :heavy_minus_sign:                                                                                        | Schema of this collection.                                                                                |
+| `size`                                                                                                    | *number*                                                                                                  | :heavy_minus_sign:                                                                                        | The size of this collection in bytes.                                                                     |
