@@ -2,21 +2,23 @@ configVersion: 1.0.0
 management:
   docChecksum: db7bd8f69518c551928aef7eb16008e2
   docVersion: 0.0.1
-  speakeasyVersion: 1.116.0
-  generationVersion: 2.185.0
+  speakeasyVersion: 1.118.3
+  generationVersion: 2.187.7
 generation:
   comments: {}
   sdkClassName: SDK
   repoURL: https://github.com/speakeasy-sdks/tigris-ts-sdk.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 3.1.2
+    core: 3.1.3
     examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 typescript:
-  version: 0.53.1
+  version: 0.53.2
   author: tigris-data
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
