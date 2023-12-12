@@ -31,10 +31,10 @@ Creates a new collection or atomically upgrades the collection to the new schema
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -50,7 +50,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,10 +81,10 @@ Delete a range of documents in the collection using the condition provided in th
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -101,7 +103,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -130,10 +134,10 @@ Returns the information related to the collection. This can be used to retrieve 
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -148,7 +152,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -178,10 +184,10 @@ Drops the collection inside this project. This API deletes all of the
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -196,7 +202,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -230,10 +238,10 @@ Imports documents into the collection.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -259,7 +267,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -290,10 +300,10 @@ Inserts new documents in the collection and returns an AlreadyExists error if an
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -313,7 +323,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -347,10 +359,10 @@ Reads a range of documents from the collection, or messages from a collection in
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -369,7 +381,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -398,10 +412,10 @@ Inserts the documents or replaces the existing documents in the collections.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -421,7 +435,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -453,10 +469,10 @@ Searches a collection for the documents matching the query, or messages in case 
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -484,7 +500,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -513,10 +531,10 @@ Update a range of documents in the collection using the condition provided in th
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -536,7 +554,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -27,10 +27,10 @@ Starts a new transaction and returns a transactional object. All reads/writes pe
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -44,7 +44,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -74,10 +76,10 @@ Atomically commit all the changes performed in the context of the transaction. C
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -89,7 +91,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -118,10 +122,10 @@ Creates a new database branch, if not already existing.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -134,7 +138,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -164,10 +170,10 @@ Deletes a database branch, if exists.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -180,7 +186,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -210,10 +218,10 @@ This API returns information related to the project along with all the collectio
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -225,7 +233,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -254,10 +264,10 @@ List all the collections present in the project passed in the request.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -268,7 +278,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -298,10 +310,10 @@ Rollback transaction discards all the changes
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -313,7 +325,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -342,10 +356,10 @@ List database branches
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -356,7 +370,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

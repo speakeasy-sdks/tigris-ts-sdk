@@ -32,10 +32,10 @@ CreateById is used for indexing a single document. The API expects a single docu
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -49,7 +49,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -82,10 +84,10 @@ Create is used for indexing a single or multiple documents. The API expects an a
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -102,7 +104,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -133,10 +137,10 @@ Delete one or more documents by id. Returns an array of status indicating the st
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -153,7 +157,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -182,10 +188,10 @@ Deletes search index
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -198,7 +204,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -231,10 +239,10 @@ Searches an index for the documents matching the query. A search can be a term s
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -258,7 +266,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -288,10 +298,10 @@ Retrieves one or more documents by id. The response is an array of documents in 
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -306,7 +316,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -335,10 +347,10 @@ Get information about a search index
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -350,7 +362,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -379,10 +393,10 @@ List search indexes
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -393,7 +407,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -423,10 +439,10 @@ DeleteByQuery is used to delete documents that match the filter. A filter is req
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -439,7 +455,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -471,10 +489,10 @@ Creates or replaces one or more documents. Each document is a JSON object. A doc
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -491,7 +509,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -523,10 +543,10 @@ Updates one or more documents by "id". Each document is required to have the
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -543,7 +563,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -572,10 +594,10 @@ Creates or updates search index
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -588,7 +610,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

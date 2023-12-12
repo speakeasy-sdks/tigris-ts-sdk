@@ -1,11 +1,11 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { SDK } from "tigris-core";
 
-(async () => {
+async function run() {
     const sdk = new SDK({
         security: {
-            bearerAuth: "",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
@@ -20,7 +20,9 @@ import { SDK } from "tigris-core";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

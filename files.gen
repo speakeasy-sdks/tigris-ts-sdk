@@ -260,7 +260,6 @@ src/sdk/models/shared/security.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/authgetaccesstokenresponse.md
 docs/sdk/models/operations/healthapihealthresponse.md
 docs/sdk/models/operations/observabilitygetinforesponse.md
@@ -591,4 +590,5 @@ docs/sdks/database/README.md
 docs/sdks/collection/README.md
 docs/sdks/channel/README.md
 docs/sdks/search/README.md
+USAGE.md
 .gitattributes

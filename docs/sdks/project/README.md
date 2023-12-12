@@ -20,10 +20,10 @@ Creates a new project. Returns an AlreadyExists error with a status code 409 if 
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -35,7 +35,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,10 +66,10 @@ Delete Project deletes all the collections in this project along with all of the
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -79,7 +81,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,10 +112,10 @@ List returns all the projects.
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -120,7 +124,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

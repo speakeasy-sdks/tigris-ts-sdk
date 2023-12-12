@@ -20,10 +20,10 @@ GetUserMetadata inserts the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -37,7 +37,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -66,10 +68,10 @@ insertUserMetadata inserts the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -83,7 +85,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -112,10 +116,10 @@ updateUserMetadata updates the user metadata object
 ```typescript
 import { SDK } from "tigris-core";
 
-(async() => {
+async function run() {
   const sdk = new SDK({
     security: {
-      bearerAuth: "",
+      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
   });
 
@@ -129,7 +133,9 @@ import { SDK } from "tigris-core";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
