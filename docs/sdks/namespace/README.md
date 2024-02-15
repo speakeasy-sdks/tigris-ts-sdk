@@ -119,7 +119,7 @@ async function run() {
     getNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -167,7 +167,7 @@ async function run() {
     insertNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -257,7 +257,7 @@ async function run() {
     updateNamespaceMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {

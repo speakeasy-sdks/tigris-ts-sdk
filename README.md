@@ -35,8 +35,8 @@ async function run() {
         createCacheRequest: {
             options: {},
         },
-        name: "string",
-        project: "string",
+        name: "<value>",
+        project: "<value>",
     });
 
     if (res.statusCode == 200) {

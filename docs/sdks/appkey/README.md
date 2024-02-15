@@ -31,7 +31,7 @@ async function run() {
 
   const res = await sdk.appKey.delete({
     deleteAppKeyRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -76,7 +76,7 @@ async function run() {
   });
 
   const res = await sdk.appKey.list({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -122,7 +122,7 @@ async function run() {
 
   const res = await sdk.appKey.rotate({
     rotateAppKeyRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -168,7 +168,7 @@ async function run() {
 
   const res = await sdk.appKey.tigrisCreateAppKey({
     createAppKeyRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -214,7 +214,7 @@ async function run() {
 
   const res = await sdk.appKey.update({
     updateAppKeyRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {

@@ -5,8 +5,10 @@ generation:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
 typescript:
-  version: 0.54.1
+  version: 0.54.2
   author: tigris-data
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false

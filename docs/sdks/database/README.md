@@ -38,7 +38,7 @@ async function run() {
     beginTransactionRequest: {
       options: {},
     },
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -85,7 +85,7 @@ async function run() {
 
   const res = await sdk.database.commitTransaction({
     commitTransactionRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -131,8 +131,8 @@ async function run() {
 
   const res = await sdk.database.createBranch({
     createBranchRequest: {},
-    branch: "string",
-    project: "string",
+    branch: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -179,8 +179,8 @@ async function run() {
 
   const res = await sdk.database.deleteBranch({
     deleteBranchRequest: {},
-    branch: "string",
-    project: "string",
+    branch: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -227,7 +227,7 @@ async function run() {
 
   const res = await sdk.database.describe({
     describeDatabaseRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -272,7 +272,7 @@ async function run() {
   });
 
   const res = await sdk.database.listCollections({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -319,7 +319,7 @@ async function run() {
 
   const res = await sdk.database.rollbackTransaction({
     rollbackTransactionRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -364,7 +364,7 @@ async function run() {
   });
 
   const res = await sdk.database.tigrisListBranches({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {

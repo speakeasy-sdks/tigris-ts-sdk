@@ -41,9 +41,9 @@ async function run() {
 
   const res = await sdk.search.createDocument({
     createByIdRequest: {},
-    id: "<ID>",
-    index: "string",
-    project: "string",
+    id: "<id>",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -94,11 +94,11 @@ async function run() {
   const res = await sdk.search.createDocuments({
     createDocumentRequest: {
       documents: [
-        "string",
+        "<value>",
       ],
     },
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -147,11 +147,11 @@ async function run() {
   const res = await sdk.search.deleteDocuments({
     deleteDocumentRequest: {
       ids: [
-        "string",
+        "<value>",
       ],
     },
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -197,8 +197,8 @@ async function run() {
 
   const res = await sdk.search.deleteIndex({
     deleteIndexRequest: {},
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -250,17 +250,17 @@ async function run() {
     searchIndexRequest: {
       collation: {},
       excludeFields: [
-        "string",
+        "<value>",
       ],
       includeFields: [
-        "string",
+        "<value>",
       ],
       searchFields: [
-        "string",
+        "<value>",
       ],
     },
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -307,10 +307,10 @@ async function run() {
 
   const res = await sdk.search.getDocuments({
     ids: [
-      "string",
+      "<value>",
     ],
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -355,8 +355,8 @@ async function run() {
   });
 
   const res = await sdk.search.getIndex({
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -401,7 +401,7 @@ async function run() {
   });
 
   const res = await sdk.search.listIndexes({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -448,8 +448,8 @@ async function run() {
 
   const res = await sdk.search.queryDeleteDocuments({
     deleteByQueryRequest: {},
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -499,11 +499,11 @@ async function run() {
   const res = await sdk.search.replaceDocuments({
     createOrReplaceDocumentRequest: {
       documents: [
-        "string",
+        "<value>",
       ],
     },
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -553,11 +553,11 @@ async function run() {
   const res = await sdk.search.updateDocuments({
     updateDocumentRequest: {
       documents: [
-        "string",
+        "<value>",
       ],
     },
-    index: "string",
-    project: "string",
+    index: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -603,8 +603,8 @@ async function run() {
 
   const res = await sdk.search.updateIndex({
     createOrUpdateIndexRequest: {},
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {

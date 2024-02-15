@@ -36,8 +36,8 @@ async function run() {
     createCacheRequest: {
       options: {},
     },
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -83,8 +83,8 @@ async function run() {
 
   const res = await sdk.cache.delete({
     deleteCacheRequest: {},
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -131,8 +131,8 @@ async function run() {
   const res = await sdk.cache.deleteKeys({
     delRequest: {},
     key: "<key>",
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -178,8 +178,8 @@ async function run() {
 
   const res = await sdk.cache.getKey({
     key: "<key>",
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -226,8 +226,8 @@ async function run() {
   const res = await sdk.cache.getSetKey({
     getSetRequest: {},
     key: "<key>",
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -272,7 +272,7 @@ async function run() {
   });
 
   const res = await sdk.cache.list({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -317,8 +317,8 @@ async function run() {
   });
 
   const res = await sdk.cache.listKeys({
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -365,8 +365,8 @@ async function run() {
   const res = await sdk.cache.setKey({
     setRequest: {},
     key: "<key>",
-    name: "string",
-    project: "string",
+    name: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {

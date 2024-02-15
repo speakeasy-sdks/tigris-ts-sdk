@@ -207,7 +207,7 @@ async function run() {
       },
     ],
     spaceAggregatedBy: [
-      "string",
+      "<value>",
     ],
   });
 

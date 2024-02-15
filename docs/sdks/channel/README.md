@@ -31,8 +31,8 @@ async function run() {
   });
 
   const res = await sdk.channel.get({
-    channel: "string",
-    project: "string",
+    channel: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -77,8 +77,8 @@ async function run() {
   });
 
   const res = await sdk.channel.getMessages({
-    channel: "string",
-    project: "string",
+    channel: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -123,7 +123,7 @@ async function run() {
   });
 
   const res = await sdk.channel.list({
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -168,8 +168,8 @@ async function run() {
   });
 
   const res = await sdk.channel.listSubscriptions({
-    channel: "string",
-    project: "string",
+    channel: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -219,8 +219,8 @@ async function run() {
         {},
       ],
     },
-    channel: "string",
-    project: "string",
+    channel: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -265,8 +265,8 @@ async function run() {
   });
 
   const res = await sdk.channel.realtimePresence({
-    channel: "string",
-    project: "string",
+    channel: "<value>",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {

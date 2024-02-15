@@ -31,7 +31,7 @@ async function run() {
     getUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -79,7 +79,7 @@ async function run() {
     insertUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -127,7 +127,7 @@ async function run() {
     updateUserMetadataRequest: {
       value: {},
     },
-    metadataKey: "string",
+    metadataKey: "<value>",
   });
 
   if (res.statusCode == 200) {

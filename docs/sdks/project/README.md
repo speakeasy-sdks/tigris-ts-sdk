@@ -29,7 +29,7 @@ async function run() {
 
   const res = await sdk.project.create({
     createProjectRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -75,7 +75,7 @@ async function run() {
 
   const res = await sdk.project.deleteProject({
     deleteProjectRequest: {},
-    project: "string",
+    project: "<value>",
   });
 
   if (res.statusCode == 200) {
