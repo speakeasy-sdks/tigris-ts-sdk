@@ -23,11 +23,7 @@ This endpoint can be used to check the liveness of the server.
 import { SDK } from "tigris-core";
 
 async function run() {
-  const sdk = new SDK({
-    security: {
-      bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
-    },
-  });
+  const sdk = new SDK();
 
   const res = await sdk.system.getHealth();
 
