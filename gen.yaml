@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 0.54.3
+  version: 0.54.4
   author: tigris-data
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
