@@ -22,6 +22,12 @@ export class ManagementUpdateUserMetadataResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -32,12 +38,6 @@ export class ManagementUpdateUserMetadataResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
-
-    /**
-     * Default error response
-     */
-    @SpeakeasyMetadata()
-    status?: shared.Status;
 
     /**
      * OK

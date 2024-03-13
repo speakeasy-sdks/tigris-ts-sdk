@@ -25,6 +25,12 @@ export class TigrisUpdateAppKeyResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Default error response
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -35,12 +41,6 @@ export class TigrisUpdateAppKeyResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
-
-    /**
-     * Default error response
-     */
-    @SpeakeasyMetadata()
-    status?: shared.Status;
 
     /**
      * OK
